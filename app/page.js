@@ -1,4 +1,5 @@
- import Events from "@/Components/Events";
+import CallCenter from "@/Components/CallCenter";
+import Events from "@/Components/Events";
 import Herro from "@/Components/Herro";
 import News from "@/Components/News";
 import OurPartners from "@/Components/OurPartners";
@@ -10,13 +11,14 @@ export default function Home() {
   return (
     <>
     <Herro />
+    <CallCenter />
     <WhyJobkey />
     <OurPrograms />
     <News />
     <Events />
-    <Testimonials />
-
     <OurPartners />
+    <Testimonials />
+   
     </>
   );
 }
