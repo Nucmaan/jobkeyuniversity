@@ -95,16 +95,18 @@ export default function Navbar() {
       >
         <div className="container mx-auto flex justify-between items-center px-4 md:px-6">
           <div className="flex items-center space-x-2">
-            <Image 
-              src="/logo.png" 
-              alt="Jobkey University" 
-              width={45} 
-              height={45} 
-              className="w-10 h-10 sm:w-[45px] sm:h-[45px]"
-            />
-            <div className="flex flex-col">
-              <span className="text-[#33d1ff] font-semibold text-base sm:text-lg">Jobkey University</span>
-            </div>
+           <Link href="/" className='flex items-center space-x-2'>
+           <Image 
+           src="/logo.png" 
+           alt="Jobkey University" 
+           width={45} 
+           height={45} 
+           className="w-10 h-10 sm:w-[45px] sm:h-[45px]"
+         />
+         <div className="flex flex-col">
+           <span className="text-[#33d1ff]  font-semibold text-base sm:text-lg">Jobkey University</span>
+         </div>
+         </Link>
           </div>
 
            <div className="hidden lg:flex items-center">
@@ -116,9 +118,7 @@ export default function Navbar() {
                 <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <div className="p-4 space-y-2">
                     <Link href="/about/history" className="block text-gray-700 hover:text-[#33d1ff]">History</Link>
-                    <Link href="/about/mission" className="block text-gray-700 hover:text-[#33d1ff]">Mission & Vision</Link>
-                    <Link href="/about/leadership" className="block text-gray-700 hover:text-[#33d1ff]">Leadership</Link>
-                    <Link href="/about/leadership" className="block text-gray-700 hover:text-[#33d1ff]">Development</Link>
+                    <Link href="/about/development" className="block text-gray-700 hover:text-[#33d1ff]">Development</Link>
                   </div>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function Navbar() {
                 <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <div className="p-4 space-y-2">
                   <Link href="/academics/departments" className="block text-gray-700 hover:text-[#33d1ff]">Diploma</Link>
-                    <Link href="/academics/programs" className="block text-gray-700 hover:text-[#33d1ff]">Undergraduate</Link>
+                    <Link href="/academics/undergraduate-programs" className="block text-gray-700 hover:text-[#33d1ff]">Undergraduate</Link>
                     <Link href="/academics/faculties" className="block text-gray-700 hover:text-[#33d1ff]">Postgraduate</Link>
                     <Link href="/academics/faculties" className="block text-gray-700 hover:text-[#33d1ff]">Micro-Credentials</Link>
                   </div>

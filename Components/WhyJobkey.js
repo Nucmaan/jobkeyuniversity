@@ -3,7 +3,7 @@ import { FaGlobe, FaDollarSign, FaUsers, FaMicroscope } from "react-icons/fa";
 
 export default function WhyJobkey() {
   return (
-    <section className="text-white pb-12 px-6">
+    <section className="text-white pb-8 px-6">
       <div className="container mx-auto max-w-4xl text-center">
          <h2 className="text-4xl font-bold mb-8 text-[#33d1ff]">
           Why Choose <span className="">Jobkey University?</span>

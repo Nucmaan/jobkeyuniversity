@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaGraduationCap, FaCertificate, FaBook, FaFlask } from "react-icons/fa";
 
-export default function OurPrograms() {
+export default function page() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const programs = [
@@ -47,7 +47,7 @@ export default function OurPrograms() {
   ];
 
   return (
-    <div className=" py-8 px-4">
+    <div className=" py-8 px-4 mt-26">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#33d1ff] mb-4">
@@ -104,13 +104,7 @@ export default function OurPrograms() {
         </div>
         
         <div className="mt-12 text-center">
-          <Link
-            href="/academics"
-            className="px-6 py-3 bg-[#33d1ff] text-white rounded-full hover:bg-[#33d1ff] transition-all duration-300 inline-flex items-center"
-          >
-            <span>View All Academic Programs</span>
-            <FaArrowRight className="ml-2" />
-          </Link>
+        
         </div>
       </div>
     </div>

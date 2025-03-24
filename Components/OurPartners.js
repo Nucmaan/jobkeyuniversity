@@ -10,7 +10,7 @@ export default function OurPartners() {
   ];
 
   return (
-    <div className="py-12 px-6 ">
+    <div className="py-8 px-6 ">
        <h2 className="text-3xl font-bold text-[#33d1ff] text-center mb-8">
          Our Partners
       </h2>

@@ -59,7 +59,7 @@ export default function News() {
   const regularNews = newsItems.filter(item => !item.featured);
 
   return (
-    <div className="bg-white pt-5 pb-5">
+    <div className="bg-white py-8">
       <div className="container mx-auto px-4 max-w-7xl">
          <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-[#33d1ff]">News</h2>

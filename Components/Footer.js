@@ -193,7 +193,7 @@ export default function Footer() {
 
        <div className="bg-[#1cadda] mt-8 py-4 border-t-2 border-white">
         <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-center items-center text-center md:text-left">
-          <div className="text-white/80 text-sm mb-3 md:mb-0">
+          <div className="text-white text-sm mb-3 md:mb-0">
             &copy; {currentYear} Jobkey University. All Rights Reserved.
           </div>
          
