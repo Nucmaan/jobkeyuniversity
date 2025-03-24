@@ -132,7 +132,7 @@ export default function Events() {
           </h2>
           <Link 
             href="/events" 
-            className="px-4 py-2 border border-[#33d1ff] text-[#33d1ff] rounded-full hover:bg-[#33d1ff] hover:text-white transition-all duration-300 flex items-center space-x-2"
+            className="px-4 py-2 border  border-[#33d1ff] text-[#33d1ff] rounded-full hover:bg-[#33d1ff] hover:text-white transition-all duration-300 flex items-center space-x-2"
           >
             <span>View All Events</span>
             <FaArrowRight className="h-4 w-4" />
@@ -180,7 +180,7 @@ export default function Events() {
             {visibleEvents.map((event, idx) => (
               <div 
                 key={`${event.id}-${idx}`} 
-                className={`flex-none w-full sm:w-1/2 lg:w-1/3 rounded-xl  overflow-hidden shadow-md border-2 border-[#33d1ff] transform transition-all duration-500 ${
+                className={`flex-none w-full sm:w-1/2 lg:w-1/3 rounded-xl  overflow-hidden shadow-lg border-2 border-[#33d1ff] transform transition-all duration-500 ${
                   isLoading ? 'opacity-50 blur-sm' : 'opacity-100'
                 }`}
                 style={{
@@ -200,7 +200,7 @@ export default function Events() {
                     {event.type}
                   </div>
                 </div>
-                <div className="p-5 bg-white">
+                <div className="p-5 ">
                   <div className="flex flex-col space-y-1 mb-3 text-sm text-gray-600">
                     <div className="flex items-center">
                       <FaCalendarAlt className="text-[#33d1ff] mr-2 h-3 w-3" />

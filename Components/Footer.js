@@ -17,8 +17,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-gradient-to-br from-[#33d1ff] to-[#010fc0] text-white">
-       <div className="h-2 bg-gradient-to-r from-[#33d1ff] via-[#0babdb] to-[#33d1ff]"></div>
+    <footer className="bg-[#1cadda] text-white">
       
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -192,8 +191,8 @@ export default function Footer() {
         </div>
       </div>
 
-       <div className="bg-[#010fc0]/30 mt-8 py-4">
-        <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+       <div className="bg-[#1cadda] mt-8 py-4 border-t-2 border-white">
+        <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-center items-center text-center md:text-left">
           <div className="text-white/80 text-sm mb-3 md:mb-0">
             &copy; {currentYear} Jobkey University. All Rights Reserved.
           </div>

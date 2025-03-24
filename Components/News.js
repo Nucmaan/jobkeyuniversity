@@ -102,7 +102,7 @@ export default function News() {
 
            <div className="col-span-1 space-y-4">
             {regularNews.map(item => (
-              <div key={item.id} className="flex border-b pb-4 last:border-b-0">
+              <div key={item.id} className="flex border-b border-[#33d1ff] pb-4 last:border-b-0">
                 <div className="flex-shrink-0 mr-4 relative">
                   <Link href={`/news/${item.id}`}>
                     <Image
