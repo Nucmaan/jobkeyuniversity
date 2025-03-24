@@ -10,7 +10,7 @@ export default function Herro() {
 
    const slides = [
     { id: 1, imageSrc: "/job1.png" },
-    { id: 2, imageSrc: "/job1.png" },
+    { id: 2, imageSrc: "/job2.png" },
     { id: 3, imageSrc: "/job1.png" },
     { id: 4, imageSrc: "/job1.png" },
   ];
