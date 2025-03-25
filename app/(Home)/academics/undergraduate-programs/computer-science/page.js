@@ -83,7 +83,7 @@ export default function Page() {
               </p>
               <p className="mb-4">
                 The faculty is especially proud of the quality of its teaching methods and the diversity of the computer equipment 
-                available for students' use, as it maintains respective modern computer facilities.
+                available for students to use, as it maintains respective modern computer facilities.
               </p>
               <p className="mb-4">
                 Our Computer Science program provides a comprehensive foundation in computer programming, software engineering, database 

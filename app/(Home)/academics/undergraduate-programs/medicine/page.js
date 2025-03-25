@@ -101,7 +101,7 @@ export default function Page() {
         </section>
 
          <section id="dean-message" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">DEAN'S MESSAGE</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">DEAN MESSAGE</h2>
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/4 flex justify-center">
               <div className="relative w-48 h-48 rounded-full overflow-hidden bg-gray-200">
@@ -110,9 +110,9 @@ export default function Page() {
             </div>
             <div className="md:w-3/4">
             <p className="italic text-gray-600 mb-4">
-            "Welcome to our renowned Faculty of Medicine and Health Science. In an era of rapid medical 
+            Welcome to our renowned Faculty of Medicine and Health Science. In an era of rapid medical 
             advancements, we remain committed to training physicians who combine scientific excellence 
-            with humanistic care."
+            with humanistic care.
           </p>
           <p className="mb-4">
           Our curriculum integrates basic sciences with clinical skills from the first year, using 
