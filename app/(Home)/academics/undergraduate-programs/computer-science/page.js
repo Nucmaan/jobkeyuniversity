@@ -107,7 +107,7 @@ export default function Page() {
         </section>
 
          <section id="dean-message" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">DEAN'S MESSAGE</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">DEAN  MESSAGE</h2>
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/4 flex justify-center">
               <div className="relative w-48 h-48 rounded-full overflow-hidden bg-gray-200">
@@ -116,8 +116,8 @@ export default function Page() {
             </div>
             <div className="md:w-3/4">
               <p className="italic text-gray-600 mb-4">
-                "Welcome to the Department of Computer Science at Jobkey University. In today's rapidly evolving digital landscape, 
-                computer science graduates are at the forefront of innovation and technological advancement."
+                Welcome to the Department of Computer Science at Jobkey University. In today rapidly evolving digital landscape, 
+                computer science graduates are at the forefront of innovation and technological advancement.
               </p>
               <p className="mb-4">
                 Our department is committed to providing students with a comprehensive education that blends theoretical foundations 
