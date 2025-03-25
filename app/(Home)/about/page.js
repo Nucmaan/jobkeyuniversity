@@ -12,7 +12,7 @@ export default function Page() {
 
       <h2 className="text-xl font-semibold text-gray-800 mt-6">VISION</h2>
       <p className="text-gray-700 text-lg">
-        JOBKEY University aims to be among the nation's leading universities, recognized for student success, research, cultural enrichment, and economic development.
+        JOBKEY University aims to be among the nations leading universities, recognized for student success, research, cultural enrichment, and economic development.
       </p>
 
       <h2 className="text-xl font-semibold text-gray-800 mt-6">MISSION STATEMENT</h2>

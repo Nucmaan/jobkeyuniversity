@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaGraduationCap, FaCertificate, FaBook, FaFlask } from "react-icons/fa";
 
-export default function page() {
+export default function Page() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const programs = [
