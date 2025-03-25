@@ -5,7 +5,7 @@ import Link from "next/link";
 const programs = [
   {
     id: 1,
-    title: "Agriculture & Veterinary Science",
+    title: "Faculty of Agriculture and Veterinary Sciences",
     description:
       "Explore the world of sustainable farming, animal health, and food security.",
     image: "/agriculture.jpg", 
@@ -13,7 +13,7 @@ const programs = [
   },
   {
     id: 3,
-    title: "Medicine & Health Science",
+    title: "Faculty of Medicine and Health Science",
     description:
       "Develop the skills needed to save lives and improve healthcare systems.",
     image: "/medicine.jpg",
@@ -21,7 +21,7 @@ const programs = [
   },
   {
     id: 4,
-    title: "Computer Science & Engineering",
+    title: "Faculty of Computer Science And Engineering",
     description:
       "Dive into programming, AI, cybersecurity, and software development.",
     image: "/computer-science.jpg",
@@ -30,7 +30,7 @@ const programs = [
   },
   {
     id: 5,
-    title: "Sharia & Law",
+    title: "Faculty of Sharia and Law",
     description:
       "Study the principles of Islamic law and legal systems to build a just society.",
     image: "/law.jpg",
@@ -39,7 +39,7 @@ const programs = [
   },
   {
     id: 2,
-    title: "Economics & Management Science",
+    title: "Faculty of Economic and Management Science",
     description:
       "Gain expertise in finance, business management, and economic policies.",
     image: "/economics.jpg",
@@ -75,7 +75,7 @@ export default function Page() {
               <p className="text-gray-600 mt-2">{program.description}</p>
               <div className="mt-4 flex space-x-3">
                 <Link href={program.pathLink}>
-                <button className="px-4 py-2 bg-[#33d1ff] text-white rounded hover:bg-[#7ecce4]">
+                <button className="px-4 py-2 cursor-pointer bg-[#33d1ff] text-white rounded hover:bg-[#7ecce4]">
                   apply now
                 </button>
                 </Link>

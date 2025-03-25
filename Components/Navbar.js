@@ -80,7 +80,7 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex space-x-3 sm:space-x-6 text-xs sm:text-sm">
-            <Link href="/alumni" className="font-semibold hover:text-white/80 transition">Hemis</Link>
+            <Link href="/hemis" className="font-semibold hover:text-white/80 transition">Hemis</Link>
             <Link href="/verify" className="font-semibold hover:text-white/80 transition">Certificate Verification</Link>
             <Link href="/login" className="font-semibold hover:text-white/80 transition">Student Portal</Link>
           </div>
@@ -145,7 +145,6 @@ export default function Navbar() {
                   <div className="p-4 space-y-2">
                     <Link href="/admissions/apply" className="block text-gray-700 hover:text-[#33d1ff]">How to Apply</Link>
                     <Link href="/admissions/scholarships" className="block text-gray-700 hover:text-[#33d1ff]">Scholarships</Link>
-                    <Link href="/admissions/requirements" className="block text-gray-700 hover:text-[#33d1ff]">Requirements</Link>
                   </div>
                 </div>
               </div>
@@ -199,7 +198,7 @@ export default function Navbar() {
                 </div>
               </div>
               
-              <Link href="/apply" className="bg-[#33d1ff] text-white py-2 px-4 rounded hover:bg-[#33d1ff] transition duration-300">
+              <Link href="/admissions/apply" className="bg-[#33d1ff] text-white py-2 px-4 rounded hover:bg-[#33d1ff] transition duration-300">
                 Apply Now
               </Link>
             </nav>

@@ -15,7 +15,7 @@ export default function ComputerSciencePage() {
     <div className="min-h-screen bg-white py-8 mt-20">
        <div className="bg-gradient-to-r from-[#3ac4ee] to-[#33d1ff] py-16 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold mb-4">Bachelor of Science in Computer Science</h1>
+          <h1 className="text-4xl font-bold mb-4">Faculty of Computer Science And Engineering</h1>
           <p className="text-xl">Prepare for a career in technology and innovation</p>
         </div>
       </div>

@@ -10,7 +10,6 @@ export default function Hero() {
   const slides = [
     { id: 1, imageSrc: "/job2.png" },
     { id: 2, imageSrc: "/job2.png" },
-    { id: 3, imageSrc: "/job1.png" },
   ];
 
   return (

@@ -15,8 +15,8 @@ export default function ComputerSciencePage() {
     <div className="min-h-screen bg-white py-8 mt-20">
        <div className="bg-gradient-to-r from-[#3ac4ee] to-[#33d1ff] py-16 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold mb-4">Bachelor of Science in Computer Science</h1>
-          <p className="text-xl">Prepare for a career in technology and innovation</p>
+          <h1 className="text-4xl font-bold mb-4">Faculty of Medicine and Health Science</h1>
+          <p className="text-xl">Training the next generation of healthcare leaders</p>
         </div>
       </div>
 
@@ -74,33 +74,27 @@ export default function ComputerSciencePage() {
           <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">ABOUT</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
-              <p className="mb-4">
-                The Faculty of Computer Science and Information Technology (CSIT) was established in 20012. A combination of highly 
-                qualified faculty members and state-of-the-art facilities has established the faculty as one of the leading and most 
-                prestigious computer science and information technology faculties in the country. The competency of the faculty is 
-                evident from the achievements of the alumni, who have created a brand value both in the job sector and academia, both 
-                in and outside of the country.
-              </p>
-              <p className="mb-4">
-                The faculty is especially proud of the quality of its teaching methods and the diversity of the computer equipment 
-                available for students' use, as it maintains respective modern computer facilities.
-              </p>
-              <p className="mb-4">
-                Our Computer Science program provides a comprehensive foundation in computer programming, software engineering, database 
-                management, artificial intelligence, cybersecurity, and more. Students gain both theoretical knowledge and practical skills 
-                through hands-on projects and industry internships.
-              </p>
+            <p className="mb-4">
+            Established in 1995, the Faculty of Medicine and Health Science has been at the forefront of medical 
+            education and research. Our faculty combines rigorous academic training with hands-on clinical 
+            experience to prepare students for diverse careers in healthcare.
+          </p>
+          <p className="mb-4">
+            With state-of-the-art simulation labs, teaching hospitals partnerships, and a curriculum that 
+            emphasizes both clinical excellence and compassionate care, we train physicians and healthcare 
+            professionals who make a difference in communities worldwide.
+          </p>
             </div>
             <div className="bg-gray-100 p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-4 text-[#33d1ff]">Program Highlights</h3>
               <ul className="list-disc pl-5 space-y-2">
-                <li>4-year undergraduate program</li>
-                <li>Modern curriculum aligned with industry needs</li>
-                <li>Experienced faculty with industry background</li>
-                <li>Well-equipped computer laboratories</li>
-                <li>Industry internship opportunities</li>
-                <li>Research opportunities for outstanding students</li>
-                <li>Career counseling and placement assistance</li>
+              <li>5-year MBBS program</li>
+              <li>Clinical rotations from year 3</li>
+              <li>Integrated problem-based learning</li>
+              <li>Advanced simulation training</li>
+              <li>Global health opportunities</li>
+              <li>Research-focused curriculum</li>
+              <li>Residency preparation programs</li>
               </ul>
             </div>
           </div>
@@ -115,22 +109,23 @@ export default function ComputerSciencePage() {
               </div>
             </div>
             <div className="md:w-3/4">
-              <p className="italic text-gray-600 mb-4">
-                "Welcome to the Department of Computer Science at Jobkey University. In today's rapidly evolving digital landscape, 
-                computer science graduates are at the forefront of innovation and technological advancement."
-              </p>
-              <p className="mb-4">
-                Our department is committed to providing students with a comprehensive education that blends theoretical foundations 
-                with practical applications. We emphasize critical thinking, problem-solving, and creativity – skills that are essential 
-                for success in the technology industry and beyond.
-              </p>
+            <p className="italic text-gray-600 mb-4">
+            "Welcome to our renowned Faculty of Medicine and Health Science. In an era of rapid medical 
+            advancements, we remain committed to training physicians who combine scientific excellence 
+            with humanistic care."
+          </p>
+          <p className="mb-4">
+          Our curriculum integrates basic sciences with clinical skills from the first year, using 
+          cutting-edge simulation technology and early patient contact. We emphasize evidence-based 
+          practice while maintaining focus on the art of healing.
+        </p>
               <p className="mb-4">
                 Our distinguished faculty brings a wealth of expertise from diverse areas of computer science, and our state-of-the-art 
                 facilities provide an ideal environment for learning and research. We maintain strong partnerships with industry leaders, 
                 offering our students valuable internship opportunities and ensuring our curriculum remains relevant to market demands.
               </p>
-              <p className="font-semibold mt-4">Prof. Mohammed Ali, PhD</p>
-              <p className="text-sm text-gray-600">Dean, Faculty of Computer Science and Information Technology</p>
+              <p className="font-semibold mt-4">Prof. Emily Watson, MD, PhD</p>
+              <p className="text-sm text-gray-600">Dean, Faculty of Medicine and Health Science</p>
             </div>
           </div>
         </section>
@@ -143,35 +138,27 @@ export default function ComputerSciencePage() {
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Introduction to Programming</span>
+                  <span>MBBS (Bachelor of Medicine, Bachelor of Surgery)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Data Structures and Algorithms</span>
+                  <span>BSc in Nursing</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Database Management Systems</span>
+                  <span>Doctor of Pharmacy (PharmD)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Computer Networks</span>
+                  <span>Master of Public Health</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Operating Systems</span>
+                  <span>BSc in Biomedical Sciences</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Software Engineering</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Web Development</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Artificial Intelligence</span>
+                  <span>Doctor of Physical Therapy</span>
                 </li>
               </ul>
             </div>
@@ -180,7 +167,7 @@ export default function ComputerSciencePage() {
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Artificial Intelligence and Machine Learning</span>
+                  <span>Cardiology</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
@@ -188,23 +175,23 @@ export default function ComputerSciencePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Software Development</span>
+                  <span>Pediatrics</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Data Science and Big Data</span>
+                  <span>Oncology</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Mobile and Web Application Development</span>
+                  <span>Neurology</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Cloud Computing</span>
+                  <span>Orthopedic Surgery</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Internet of Things (IoT)</span>
+                  <span>Emergency Medicine</span>
                 </li>
               </ul>
             </div>
@@ -415,8 +402,8 @@ export default function ComputerSciencePage() {
         </section>
 
          <div className="bg-gradient-to-r from-[#010fc0] to-[#33d1ff] p-8 rounded-lg text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Ready to Start Your Journey?</h3>
-          <p className="mb-6">Join our Computer Science program and build the foundation for a successful career in technology</p>
+          <h3 className="text-2xl font-bold mb-4">Start Your Medical Journey</h3>
+          <p className="mb-6">Join our prestigious medical programs and make a difference in healthcare</p>
           <Link href="/admissions/apply" className="inline-block bg-white text-[#33d1ff] font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors">
             Apply Now
           </Link>

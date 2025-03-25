@@ -10,10 +10,10 @@ export default function CallCenter() {
            <div className="relative h-[450px] md:h-[500px] overflow-hidden rounded-lg shadow-lg group">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
             <Image 
-              src="/news.jpg" 
+              src="/call2.jpg" 
               alt="Apply Now" 
               fill
-              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+              className="object-fit grayscale group-hover:grayscale-0 transition-all duration-300"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-end z-20 text-white p-6 text-center">
               <h2 className="text-3xl font-bold mb-4 bg-[#33d1ff] rounded-sm px-4 py-2">Apply Now for 2025 Intake!</h2>
@@ -48,10 +48,10 @@ export default function CallCenter() {
            <div className="relative h-[450px] md:h-[500px] overflow-hidden rounded-lg shadow-lg group">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
             <Image 
-              src="/news.jpg" 
+              src="/call2.jpg" 
               alt="Chat With Us" 
               fill
-              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+              className="object-fit grayscale group-hover:grayscale-0 transition-all duration-300"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-end z-20 text-white p-6 text-center">
               <h2 className="text-3xl font-bold mb-4 bg-[#33d1ff] rounded-sm px-4 py-2">Chat With Us</h2>
