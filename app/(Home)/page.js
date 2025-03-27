@@ -5,6 +5,7 @@ import News from "@/Components/News";
 import OurPartners from "@/Components/OurPartners";
  import OurPrograms from "@/Components/OurPrograms";
 import Testimonials from "@/Components/Testimonials";
+import UniversityStats from "@/Components/UniversityStatus";
 import WhyJobkey from "@/Components/WhyJobkey";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
     <>
     <Herro />
     <CallCenter />
+    <UniversityStats />
     <WhyJobkey />
     <OurPrograms />
     <News />
