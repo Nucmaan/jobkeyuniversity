@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function CallCenter() {
   return (
-    <div className="w-full py-12 ">
+    <div className="w-full py-8 ">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
            <div className="relative h-[450px] md:h-[500px] overflow-hidden rounded-xl shadow-lg group">

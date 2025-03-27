@@ -13,9 +13,9 @@ export default function Home() {
     <>
     <Herro />
     <CallCenter />
-    <UniversityStats />
-    <WhyJobkey />
     <OurPrograms />
+    <WhyJobkey />
+    <UniversityStats />
     <News />
     <Events />
     <OurPartners />
