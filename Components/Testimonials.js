@@ -1,5 +1,5 @@
-"use client"
-import React, { useState, useEffect } from "react";
+"use client";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -12,39 +12,43 @@ export default function Testimonials() {
       quote: "Jobkey University provided me with world-class education and the best opportunities. The diverse student community made learning more exciting!",
       name: "Nasri Abdi",
       role: "Graduate - Computer Science",
-      image: "/Nasri.jpeg"
+      image: "/Nasri.jpeg",
     },
     {
       quote: "The professors at Jobkey University are not just educators but mentors who truly care about student success. Their guidance has been instrumental in shaping my career.",
       name: "Fatima Hassan",
       role: "Graduate - Business Administration",
-      image: "/Nasri.jpeg" 
+      image: "/Nasri.jpeg",
     },
     {
       quote: "Coming to Jobkey University was one of the best decisions I've made. The state-of-the-art facilities and innovative teaching methods helped me develop crucial skills for the future.",
       name: "Ahmed Mohamed",
       role: "Student - Engineering",
-      image: "/Nasri.jpeg" 
+      image: "/Nasri.jpeg",
     },
     {
       quote: "The research opportunities at Jobkey University are unparalleled. I was able to work alongside leading experts in my field, which greatly enhanced my academic experience.",
       name: "Amina Ibrahim",
       role: "Graduate - Medical Sciences",
-      image: "/Nasri.jpeg" 
-    }
+      image: "/Nasri.jpeg",
+    },
   ];
 
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+    setCurrentTestimonial((prev) =>
+      prev === testimonials.length - 1 ? 0 : prev + 1
+    );
     setTimeout(() => setIsAnimating(false), 500);
-  };
+  }, [isAnimating, testimonials.length]); 
 
   const prevTestimonial = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+    setCurrentTestimonial((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
     setTimeout(() => setIsAnimating(false), 500);
   };
 
@@ -52,12 +56,12 @@ export default function Testimonials() {
     const interval = setInterval(() => {
       nextTestimonial();
     }, 8000);
-    
+
     return () => clearInterval(interval);
-  }, []);
+  }, [nextTestimonial]);
 
   return (
-    <section className=" py-8 px-4">
+    <section className="py-8 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#33d1ff]">
@@ -67,7 +71,7 @@ export default function Testimonials() {
         </div>
 
         <div className="relative">
-           <button 
+          <button
             onClick={prevTestimonial}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-3 shadow-md border border-gray-200 hover:bg-[#33d1ff] hover:text-white hover:border-[#33d1ff] transition-all duration-300 hidden sm:block"
             aria-label="Previous testimonial"
@@ -75,8 +79,8 @@ export default function Testimonials() {
           >
             <FaChevronLeft className="h-5 w-5" />
           </button>
-          
-          <button 
+
+          <button
             onClick={nextTestimonial}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-3 shadow-md border border-gray-200 hover:bg-[#33d1ff] hover:text-white hover:border-[#33d1ff] transition-all duration-300 hidden sm:block"
             aria-label="Next testimonial"
@@ -85,24 +89,21 @@ export default function Testimonials() {
             <FaChevronRight className="h-5 w-5" />
           </button>
 
-           <div className="overflow-hidden relative">
-            <div 
+          <div className="overflow-hidden relative">
+            <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
             >
               {testimonials.map((testimonial, index) => (
-                <div 
-                  key={index} 
-                  className="w-full flex-shrink-0"
-                >
+                <div key={index} className="w-full flex-shrink-0">
                   <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 flex flex-col items-center border-t-4 border-[#33d1ff] relative">
                     <div className="absolute pt-10 -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#33d1ff] to-[#33d1ff] rounded-full p-4 shadow-lg">
-                      <FaQuoteLeft className="text-white text-xl " />
+                      <FaQuoteLeft className="text-white text-xl" />
                     </div>
-                    
+
                     <div className="mt-8 text-center">
-                      <p className="text-gray-700 text-base  sm:text-lg italic leading-relaxed">
-                        "{testimonial.quote}"
+                      <p className="text-gray-700 text-base sm:text-lg italic leading-relaxed">
+                        {testimonial.quote}
                       </p>
                     </div>
 
@@ -116,7 +117,9 @@ export default function Testimonials() {
                         />
                       </div>
                       <div className="text-center sm:text-left">
-                        <h3 className="text-lg font-semibold text-[#33d1ff]">{testimonial.name}</h3>
+                        <h3 className="text-lg font-semibold text-[#33d1ff]">
+                          {testimonial.name}
+                        </h3>
                         <p className="text-sm text-gray-600">{testimonial.role}</p>
                       </div>
                     </div>
@@ -126,16 +129,16 @@ export default function Testimonials() {
             </div>
           </div>
 
-           <div className="flex justify-center mt-8 sm:hidden space-x-3">
-            <button 
+          <div className="flex justify-center mt-8 sm:hidden space-x-3">
+            <button
               onClick={prevTestimonial}
               className="bg-white rounded-full p-2 shadow-md border border-gray-200 hover:bg-[#33d1ff] hover:text-white transition-colors"
               aria-label="Previous testimonial"
             >
               <FaChevronLeft className="h-4 w-4" />
             </button>
-            
-             <div className="flex items-center space-x-2">
+
+            <div className="flex items-center space-x-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
@@ -145,16 +148,14 @@ export default function Testimonials() {
                     setTimeout(() => setIsAnimating(false), 500);
                   }}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentTestimonial 
-                      ? 'bg-[#33d1ff] w-5' 
-                      : 'bg-gray-300'
+                    index === currentTestimonial ? "bg-[#33d1ff] w-5" : "bg-gray-300"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
-            
-            <button 
+
+            <button
               onClick={nextTestimonial}
               className="bg-white rounded-full p-2 shadow-md border border-gray-200 hover:bg-[#33d1ff] hover:text-white transition-colors"
               aria-label="Next testimonial"

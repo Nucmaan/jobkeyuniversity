@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from "next/image"; 
 
 export default function Page() {
   const [email, setEmail] = useState('');
@@ -13,7 +14,14 @@ export default function Page() {
   return (
     <div className="flex justify-center items-center mt-16 min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-2xl w-full">
-        <img src="/logo.png" alt="University Logo" className="w-32 mx-auto mb-6" />
+       
+      <Image
+          src="/logo.png"
+          alt="University Logo"
+          width={128} 
+          height={128} 
+          className="w-32 mx-auto mb-6"
+        />
 
         <h2 className="text-2xl font-semibold text-center mb-4">Hemis ID Verification</h2>
 
