@@ -116,7 +116,7 @@ export default function EconomicsManagementPage() {
               </p>
               <p className="mb-4">
                 Our faculty is committed to fostering a learning environment that encourages innovation, critical thinking, and ethical leadership. We strive to equip our students
-                with the knowledge and skills necessary to address the challenges of today's global economy.
+                with the knowledge and skills necessary to address the challenges of today s global economy.
               </p>
               <p className="mb-4">
                 We are proud of our strong connections with industry leaders and research institutions, which provide our students with valuable opportunities to apply
