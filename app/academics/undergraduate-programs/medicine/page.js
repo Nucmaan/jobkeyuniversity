@@ -169,10 +169,7 @@ export default function Page() {
                   <span className="text-[#33d1ff] mr-2">•</span>
                   <span>Cardiology</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-[#33d1ff] mr-2">•</span>
-                  <span>Cybersecurity</span>
-                </li>
+               
                 <li className="flex items-start">
                   <span className="text-[#33d1ff] mr-2">•</span>
                   <span>Pediatrics</span>
@@ -401,7 +398,7 @@ export default function Page() {
           </div>
         </section>
 
-         <div className="bg-gradient-to-r from-[#010fc0] to-[#33d1ff] p-8 rounded-lg text-white text-center">
+         <div className="bg-gradient-to-r from-[#33d1ff] to-[#33d1ff] p-8 rounded-lg text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Start Your Medical Journey</h3>
           <p className="mb-6">Join our prestigious medical programs and make a difference in healthcare</p>
           <Link href="/admissions/apply" className="inline-block bg-white text-[#33d1ff] font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors">
