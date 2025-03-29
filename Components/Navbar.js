@@ -261,9 +261,8 @@ export default function Navbar() {
                 <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
                   expandedMenus.about ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                  <Link href="/about/history" className="block py-2 text-gray-600 hover:text-[#33d1ff]">History</Link>
-                  <Link href="/about/mission" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Mission & Vision</Link>
-                  <Link href="/about/leadership" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Leadership</Link>
+                  <Link href="/about" className="block py-2 text-gray-600 hover:text-[#33d1ff]">About Us</Link>
+                  <Link href="/about/history" className="block py-2 text-gray-600 hover:text-[#33d1ff]">history Mission & Vision</Link>
                   <Link href="/about/development" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Development</Link>
                 </div>
               </div>
@@ -281,10 +280,10 @@ export default function Navbar() {
                 <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
                   expandedMenus.academics ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                  <Link href="/academics/departments" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Diploma</Link>
-                  <Link href="/academics/programs" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Undergraduate</Link>
-                  <Link href="/academics/faculties" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Postgraduate</Link>
-                  <Link href="/academics/microcred" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Micro-Credentials</Link>
+                  <Link href="/academics" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Academics</Link>
+                  <Link href="/academics/undergraduate-programs" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Undergraduate programs</Link>
+                  <Link href="/academics/Postgraduate-programs" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Postgraduate programs</Link>
+                  <Link href="/academics/Micro-Credentials" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Micro-Credentials</Link>
                 </div>
               </div>
               
@@ -303,7 +302,6 @@ export default function Navbar() {
                 }`}>
                   <Link href="/admissions/apply" className="block py-2 text-gray-600 hover:text-[#33d1ff]">How to Apply</Link>
                   <Link href="/admissions/scholarships" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Scholarships</Link>
-                  <Link href="/admissions/requirements" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Requirements</Link>
                 </div>
               </div>
               
