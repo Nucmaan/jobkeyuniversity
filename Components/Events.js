@@ -131,7 +131,7 @@ export default function Events() {
             Upcoming Events
           </h2>
           <Link 
-            href="/events" 
+            href="/allEvents" 
             className="px-4 py-2 border  border-[#33d1ff] text-[#33d1ff] rounded-full hover:bg-[#33d1ff] hover:text-white transition-all duration-300 flex items-center space-x-2"
           >
             <span>View All Events</span>
@@ -216,7 +216,7 @@ export default function Events() {
                   </h3>
                   
                   <Link 
-                    href={`/events/${event.id}`}
+                    href={`/allEvents/${event.id}`}
                     className="mt-3 text-sm text-[#33d1ff] hover:text-[#33d1ff] font-medium inline-flex items-center"
                   >
                     <span>Learn More</span>

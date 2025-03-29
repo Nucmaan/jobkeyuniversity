@@ -187,13 +187,13 @@ export default function Navbar() {
               </div>
               
               <div className="group relative">
-                <Link href="/media" className="flex items-center text-gray-700 hover:text-[#33d1ff] px-2 py-4">
+                <Link href="/" className="flex items-center text-gray-700 hover:text-[#33d1ff] px-2 py-4">
                   Media <FaChevronDown className="ml-1 text-xs" />
                 </Link>
                 <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <div className="p-4 space-y-2">
-                    <Link href="/media/news" className="block text-gray-700 hover:text-[#33d1ff]">News</Link>
-                    <Link href="/media/events" className="block text-gray-700 hover:text-[#33d1ff]">Events</Link>
+                    <Link href="/allNews" className="block text-gray-700 hover:text-[#33d1ff]">News</Link>
+                    <Link href="/allEvents" className="block text-gray-700 hover:text-[#33d1ff]">Events</Link>
                   </div>
                 </div>
               </div>
@@ -373,8 +373,8 @@ export default function Navbar() {
                 <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
                   expandedMenus.media ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                  <Link href="/media/news" className="block py-2 text-gray-600 hover:text-[#33d1ff]">News</Link>
-                  <Link href="/media/events" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Events</Link>
+                  <Link href="/allNews" className="block py-2 text-gray-600 hover:text-[#33d1ff]">News</Link>
+                  <Link href="/allEvents" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Events</Link>
                 </div>
               </div>
               
