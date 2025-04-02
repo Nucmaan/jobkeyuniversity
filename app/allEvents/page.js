@@ -46,6 +46,7 @@ export default function EventsPage() {
       type: "Symposium",
     },
   ];
+  
 
   return (
     <div className="py-10 mt-24">

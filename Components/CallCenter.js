@@ -69,8 +69,8 @@ export default function CallCenter() {
               </h2>
               <p className="mb-4 text-gray-300">We are online 9 AM - 4 PM or WhatsApp us at:</p>
               <p className="font-semibold text-lg mb-1">+2516500191 (Somali)</p>
-              <p className="font-semibold text-lg mb-6">+2526583843 (International)</p>
-              <Link href="https://wa.me/601433293375">
+              <p className="font-semibold text-lg mb-6">+2516500191 (International)</p>
+              <Link href="https://wa.me/2516500191">
                 <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-md uppercase transition-all duration-300 shadow-md">
                   WhatsApp
                 </button>
