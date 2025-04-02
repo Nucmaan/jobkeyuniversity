@@ -69,7 +69,7 @@ export default function Page() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">Student Profile</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Student Information</h3>
             </div>
         
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
