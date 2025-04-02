@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
+import { Toaster } from "react-hot-toast"; 
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +29,22 @@ export default function RootLayout({ children }) {
       <Navbar />
         {children}
         <Footer />
+        <Toaster
+        toastOptions={{
+          success: {
+            style: {
+              background: "#33d1ff",
+              color: "white",
+            },
+          },
+          error: {
+            style: {
+              background: "red",
+              color: "white",
+            },
+          },
+        }}
+      />
       </body>
 
     </html>
