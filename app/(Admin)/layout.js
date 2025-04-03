@@ -1,8 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/Components/Navbar";
-import Footer from "@/Components/Footer";
-import { Toaster } from "react-hot-toast"; 
+import "../globals.css";
+ import { Toaster } from "react-hot-toast"; 
 
 
 const geistSans = Geist({
@@ -20,16 +18,14 @@ export const metadata = {
   description: "JOBKEY University is non-profit educational Institute that has been established to serve the whole Somali society at large and function as focal point of their development process.",
 };
 
-export default function RootLayout({ children }) {
+export default function AdminLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <Navbar />
         {children}
-        <Footer />
-        <Toaster
+         <Toaster
         toastOptions={{
           success: {
             style: {
