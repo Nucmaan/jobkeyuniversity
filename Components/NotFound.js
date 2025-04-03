@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaTools } from 'react-icons/fa';
-import "./globals.css";
-
 
 export default function NotFound() {
   return (
