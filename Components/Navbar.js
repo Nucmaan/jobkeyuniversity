@@ -25,7 +25,7 @@ export default function Navbar() {
     };
   }, []);
 
-   useEffect(() => {
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target) && navOpen) {
         setNavOpen(false);
@@ -38,7 +38,7 @@ export default function Navbar() {
     };
   }, [navOpen]);
 
-   useEffect(() => {
+  useEffect(() => {
     if (navOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -61,9 +61,51 @@ export default function Navbar() {
     }));
   };
 
+  const mainNavItems = [
+    {
+      title: 'About',
+      href: '/about',
+      submenu: [
+        { title: 'History', href: '/about/history' },
+        { title: 'Development', href: '/about/development' },
+      ]
+    },
+    {
+      title: 'Academics',
+      href: '/academics',
+      submenu: [
+        { title: 'Diploma', href: '/academics/diploma-programs' },
+        { title: 'Undergraduate', href: '/academics/undergraduate-programs' },
+        { title: 'Postgraduate', href: '/academics/postgraduate-programs' },
+      ]
+    },
+    {
+      title: 'Admissions',
+      href: '/admissions',
+      submenu: [
+        { title: 'Admission Process', href: '/admissions' },
+        { title: 'How to Apply', href: '/admissions/apply' },
+        { title: 'Scholarships', href: '/admissions/scholarships' },
+      ]
+    },
+    {
+      title: 'Research',
+      href: '/research'
+    },
+    {
+      title: 'Students',
+      href: '/students'
+    },
+    {
+      title: 'News',
+      href: '/news'
+    }
+  ];
+
   return (
     <div className="fixed w-full z-50 top-0">
-       <div 
+      {/* Top Bar */}
+      <div 
         className={`w-full bg-[#33d1ff] text-white px-4 md:px-6 py-2 transition-all duration-300 ${
           scrolling ? 'transform -translate-y-full' : 'transform translate-y-0'
         }`}
@@ -80,133 +122,76 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex space-x-3 sm:space-x-6 text-xs sm:text-sm">
-            <Link href="/hemis" className="font-semibold hover:text-white/80 transition">Hemis</Link>
-            <Link href="/verify" className="font-semibold hover:text-white/80 transition">Certificate Verification</Link>
+          <Link href="/hemis" className="font-semibold hover:text-white/80 transition">Hemis</Link>
             <Link href="/login" className="font-semibold hover:text-white/80 transition">Student Portal</Link>
+            <Link href="/verify" className="font-semibold hover:text-white/80 transition">Verify Certificate</Link>
           </div>
         </div>
       </div>
 
-       <div 
+      {/* Main Navigation */}
+      <div 
         className={`w-full bg-white shadow-md text-black py-3 transition-all duration-300 ${
           scrolling ? 'transform -translate-y-0 fixed top-0 left-0' : 'transform translate-y-0'
         }`}
         style={{ top: scrolling ? 0 : 'auto' }}
       >
         <div className="container mx-auto flex justify-between items-center px-4 md:px-6">
-          <div className="flex items-center space-x-2">
-           <Link href="/" className='flex items-center space-x-2'>
-           <Image 
-           src="/logo.png" 
-           alt="Jobkey University" 
-           width={45} 
-           height={45} 
-           className="w-10 h-10 sm:w-[45px] sm:h-[45px]"
-         />
-         <div className="flex flex-col">
-           <span className="text-[#33d1ff]  font-semibold text-base sm:text-lg">Jobkey University</span>
-         </div>
-         </Link>
-          </div>
+          <Link href="/" className='flex items-center space-x-2'>
+            <Image 
+              src="/logo.png" 
+              alt="Jobkey University" 
+              width={45} 
+              height={45} 
+              className="w-10 h-10 sm:w-[45px] sm:h-[45px]"
+            />
+            <div className="flex flex-col">
+              <span className="text-[#33d1ff] font-semibold text-base sm:text-lg">Jobkey University</span>
+            </div>
+          </Link>
 
-           <div className="hidden lg:flex items-center">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center">
             <nav className="flex items-center space-x-6">
-              <div className="group relative">
-                <Link href="/about" className="flex items-center text-gray-700 hover:text-[#33d1ff] px-2 py-4">
-                  About Us <FaChevronDown className="ml-1 text-xs" />
-                </Link>
-                <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2">
-                    <Link href="/about/history" className="block text-gray-700 hover:text-[#33d1ff]">History</Link>
-                    <Link href="/about/development" className="block text-gray-700 hover:text-[#33d1ff]">Development</Link>
-                  </div>
+              {mainNavItems.map((item) => (
+                <div key={item.title} className="group relative">
+                  <Link 
+                    href={item.href} 
+                    className="flex items-center text-gray-700 hover:text-[#33d1ff] px-2 py-4"
+                  >
+                    {item.title}
+                    {item.submenu && <FaChevronDown className="ml-1 text-xs" />}
+                  </Link>
+                  {item.submenu && (
+                    <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      <div className="p-4 space-y-2">
+                        {item.submenu.map((subItem) => (
+                          <Link 
+                            key={subItem.title}
+                            href={subItem.href} 
+                            className="block text-gray-700 hover:text-[#33d1ff]"
+                          >
+                            {subItem.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-              
-              <div className="group relative">
-                <Link href="/academics" className="flex items-center text-gray-700 hover:text-[#33d1ff] px-2 py-4">
-                  Academics <FaChevronDown className="ml-1 text-xs" />
-                </Link>
-                <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2">
-                  <Link href="/academics/departments" className="block text-gray-700 hover:text-[#33d1ff]">Diploma</Link>
-                    <Link href="/academics/undergraduate-programs" className="block text-gray-700 hover:text-[#33d1ff]">Undergraduate</Link>
-                    <Link href="/academics/faculties" className="block text-gray-700 hover:text-[#33d1ff]">Postgraduate</Link>
-                    <Link href="/academics/faculties" className="block text-gray-700 hover:text-[#33d1ff]">Micro-Credentials</Link>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="group relative">
-                <Link href="/admissions" className="flex items-center text-gray-700 hover:text-[#33d1ff] px-2 py-4">
-                  Admissions <FaChevronDown className="ml-1 text-xs" />
-                </Link>
-                <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2">
-                    <Link href="/admissions/apply" className="block text-gray-700 hover:text-[#33d1ff]">How to Apply</Link>
-                    <Link href="/admissions/scholarships" className="block text-gray-700 hover:text-[#33d1ff]">Scholarships</Link>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="group relative">
-                <Link href="/research" className="flex items-center text-gray-700 hover:text-[#33d1ff] px-2 py-4">
-                  Research <FaChevronDown className="ml-1 text-xs" />
-                </Link>
-                <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2">
-                    <Link href="/research/projects" className="block text-gray-700 hover:text-[#33d1ff]">Projects</Link>
-                    <Link href="/research/publications" className="block text-gray-700 hover:text-[#33d1ff]">Publications</Link>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="group relative">
-                <Link href="/centers" className="flex items-center text-gray-700 hover:text-[#33d1ff] px-2 py-4">
-                  Centers <FaChevronDown className="ml-1 text-xs" />
-                </Link>
-                <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2">
-                    <Link href="/centers/innovation" className="block text-gray-700 hover:text-[#33d1ff]">Innovation Center</Link>
-                    <Link href="/centers/career" className="block text-gray-700 hover:text-[#33d1ff]">Career Center</Link>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="group relative">
-                <Link href="/students" className="flex items-center text-gray-700 hover:text-[#33d1ff] px-2 py-4">
-                  Students <FaChevronDown className="ml-1 text-xs" />
-                </Link>
-                <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2">
-                    <Link href="/students/life" className="block text-gray-700 hover:text-[#33d1ff]">Student Life</Link>
-                    <Link href="/students/clubs" className="block text-gray-700 hover:text-[#33d1ff]">Clubs</Link>
-                    <Link href="/students/support" className="block text-gray-700 hover:text-[#33d1ff]">Support Services</Link>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="group relative">
-                <Link href="/" className="flex items-center text-gray-700 hover:text-[#33d1ff] px-2 py-4">
-                  Media <FaChevronDown className="ml-1 text-xs" />
-                </Link>
-                <div className="absolute left-0 top-full w-48 bg-white shadow-lg rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2">
-                    <Link href="/allNews" className="block text-gray-700 hover:text-[#33d1ff]">News</Link>
-                    <Link href="/allEvents" className="block text-gray-700 hover:text-[#33d1ff]">Events</Link>
-                  </div>
-                </div>
-              </div>
-              
-              <Link href="/admissions/apply" className="bg-[#33d1ff] text-white py-2 px-4 rounded hover:bg-[#33d1ff] transition duration-300">
+              ))}
+              <Link 
+                href="/admissions/apply" 
+                className="bg-[#33d1ff] text-white py-2 px-4 rounded hover:bg-[#33d1ff]/90 transition duration-300"
+              >
                 Apply Now
               </Link>
             </nav>
           </div>
 
-           <div className="lg:hidden">
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden">
             <button 
-              className="text-gray-600 hover:text-[#010fc0] p-2"
+              className="text-gray-600 hover:text-[#33d1ff] p-2"
               onClick={toggleMobileMenu}
               aria-label={navOpen ? "Close menu" : "Open menu"}
             >
@@ -221,7 +206,8 @@ export default function Navbar() {
           </div>
         </div>
 
-         <div 
+        {/* Mobile Navigation */}
+        <div 
           ref={navRef}
           className={`lg:hidden fixed inset-0 bg-gray-900/50 z-50 transition-opacity duration-300 ${
             navOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
@@ -248,138 +234,50 @@ export default function Navbar() {
             </div>
             
             <div className="p-4 space-y-2">
-               <div className="border-b border-gray-100 pb-2">
-                <div 
-                  className="flex justify-between items-center py-2 text-gray-700 hover:text-[#33d1ff] cursor-pointer"
-                  onClick={() => toggleSubmenu('about')}
-                >
-                  <span className="font-medium">About Us</span>
-                  <span className="transform transition-transform duration-200">
-                    {expandedMenus.about ? <FaChevronDown /> : <FaChevronRight />}
-                  </span>
+              {mainNavItems.map((item) => (
+                <div key={item.title} className="border-b border-gray-100 pb-2">
+                  <div 
+                    className="flex justify-between items-center py-2 text-gray-700 hover:text-[#33d1ff] cursor-pointer"
+                    onClick={() => item.submenu && toggleSubmenu(item.title.toLowerCase())}
+                  >
+                    <Link 
+                      href={item.href}
+                      className="font-medium"
+                      onClick={(e) => !item.submenu && toggleMobileMenu()}
+                    >
+                      {item.title}
+                    </Link>
+                    {item.submenu && (
+                      <span className="transform transition-transform duration-200">
+                        {expandedMenus[item.title.toLowerCase()] ? <FaChevronDown /> : <FaChevronRight />}
+                      </span>
+                    )}
+                  </div>
+                  {item.submenu && (
+                    <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
+                      expandedMenus[item.title.toLowerCase()] ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}>
+                      {item.submenu.map((subItem) => (
+                        <Link 
+                          key={subItem.title}
+                          href={subItem.href} 
+                          className="block py-2 text-gray-600 hover:text-[#33d1ff]"
+                          onClick={toggleMobileMenu}
+                        >
+                          {subItem.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
-                  expandedMenus.about ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
-                }`}>
-                  <Link href="/about" className="block py-2 text-gray-600 hover:text-[#33d1ff]">About Us</Link>
-                  <Link href="/about/history" className="block py-2 text-gray-600 hover:text-[#33d1ff]">history Mission & Vision</Link>
-                  <Link href="/about/development" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Development</Link>
-                </div>
-              </div>
+              ))}
               
-               <div className="border-b border-gray-100 pb-2">
-                <div 
-                  className="flex justify-between items-center py-2 text-gray-700 hover:text-[#33d1ff] cursor-pointer"
-                  onClick={() => toggleSubmenu('academics')}
+              <div className="pt-4">
+                <Link 
+                  href="/admissions/apply" 
+                  className="block w-full bg-[#33d1ff] text-white text-center py-3 px-4 rounded hover:bg-[#33d1ff]/90 transition duration-300"
+                  onClick={toggleMobileMenu}
                 >
-                  <span className="font-medium">Academics</span>
-                  <span className="transform transition-transform duration-200">
-                    {expandedMenus.academics ? <FaChevronDown /> : <FaChevronRight />}
-                  </span>
-                </div>
-                <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
-                  expandedMenus.academics ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
-                }`}>
-                  <Link href="/academics" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Academics</Link>
-                  <Link href="/academics/undergraduate-programs" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Undergraduate programs</Link>
-                  <Link href="/academics/Postgraduate-programs" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Postgraduate programs</Link>
-                  <Link href="/academics/Micro-Credentials" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Micro-Credentials</Link>
-                </div>
-              </div>
-              
-               <div className="border-b border-gray-100 pb-2">
-                <div 
-                  className="flex justify-between items-center py-2 text-gray-700 hover:text-[#33d1ff] cursor-pointer"
-                  onClick={() => toggleSubmenu('admissions')}
-                >
-                  <span className="font-medium">Admissions</span>
-                  <span className="transform transition-transform duration-200">
-                    {expandedMenus.admissions ? <FaChevronDown /> : <FaChevronRight />}
-                  </span>
-                </div>
-                <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
-                  expandedMenus.admissions ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
-                }`}>
-                  <Link href="/admissions/apply" className="block py-2 text-gray-600 hover:text-[#33d1ff]">How to Apply</Link>
-                  <Link href="/admissions/scholarships" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Scholarships</Link>
-                </div>
-              </div>
-              
-               <div className="border-b border-gray-100 pb-2">
-                <div 
-                  className="flex justify-between items-center py-2 text-gray-700 hover:text-[#33d1ff] cursor-pointer"
-                  onClick={() => toggleSubmenu('research')}
-                >
-                  <span className="font-medium">Research</span>
-                  <span className="transform transition-transform duration-200">
-                    {expandedMenus.research ? <FaChevronDown /> : <FaChevronRight />}
-                  </span>
-                </div>
-                <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
-                  expandedMenus.research ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
-                }`}>
-                  <Link href="/research/projects" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Projects</Link>
-                  <Link href="/research/publications" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Publications</Link>
-                </div>
-              </div>
-              
-               <div className="border-b border-gray-100 pb-2">
-                <div 
-                  className="flex justify-between items-center py-2 text-gray-700 hover:text-[#33d1ff] cursor-pointer"
-                  onClick={() => toggleSubmenu('centers')}
-                >
-                  <span className="font-medium">Centers</span>
-                  <span className="transform transition-transform duration-200">
-                    {expandedMenus.centers ? <FaChevronDown /> : <FaChevronRight />}
-                  </span>
-                </div>
-                <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
-                  expandedMenus.centers ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
-                }`}>
-                  <Link href="/centers/innovation" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Innovation Center</Link>
-                  <Link href="/centers/career" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Career Center</Link>
-                </div>
-              </div>
-              
-               <div className="border-b border-gray-100 pb-2">
-                <div 
-                  className="flex justify-between items-center py-2 text-gray-700 hover:text-[#33d1ff] cursor-pointer"
-                  onClick={() => toggleSubmenu('students')}
-                >
-                  <span className="font-medium">Students</span>
-                  <span className="transform transition-transform duration-200">
-                    {expandedMenus.students ? <FaChevronDown /> : <FaChevronRight />}
-                  </span>
-                </div>
-                <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
-                  expandedMenus.students ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
-                }`}>
-                  <Link href="/students/life" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Student Life</Link>
-                  <Link href="/students/clubs" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Clubs</Link>
-                  <Link href="/students/support" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Support Services</Link>
-                </div>
-              </div>
-              
-               <div className="border-b border-gray-100 pb-2">
-                <div 
-                  className="flex justify-between items-center py-2 text-gray-700 hover:text-[#33d1ff] cursor-pointer"
-                  onClick={() => toggleSubmenu('media')}
-                >
-                  <span className="font-medium">Media</span>
-                  <span className="transform transition-transform duration-200">
-                    {expandedMenus.media ? <FaChevronDown /> : <FaChevronRight />}
-                  </span>
-                </div>
-                <div className={`pl-4 space-y-2 mt-1 overflow-hidden transition-all duration-200 ${
-                  expandedMenus.media ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
-                }`}>
-                  <Link href="/allNews" className="block py-2 text-gray-600 hover:text-[#33d1ff]">News</Link>
-                  <Link href="/allEvents" className="block py-2 text-gray-600 hover:text-[#33d1ff]">Events</Link>
-                </div>
-              </div>
-              
-               <div className="pt-4">
-                <Link href="/apply" className="block w-full bg-[#33d1ff]  text-white text-center py-3 px-4 rounded hover:bg-[#33d1ff] transition duration-300">
                   Apply Now
                 </Link>
               </div>

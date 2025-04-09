@@ -1,8 +1,8 @@
 import React from "react";
 import {
   FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
+  FaWhatsapp,
+  FaTiktok,
   FaEnvelope,
   FaMapMarkerAlt,
   FaPhoneAlt,
@@ -18,10 +18,10 @@ export default function Footer() {
   
   return (
     <footer className="bg-[#1cadda] text-white">
-      
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-           <div>
+          {/* University Info */}
+          <div>
             <div className="flex items-center space-x-2 mb-4">
               <Image 
                 src="/logo.png" 
@@ -55,7 +55,8 @@ export default function Footer() {
             </div>
           </div>
 
-           <div>
+          {/* Quick Links */}
+          <div>
             <h2 className="text-white text-lg font-semibold mb-4 border-b border-white/20 pb-2">Quick Links</h2>
             <ul className="space-y-2 text-sm">
               <li>
@@ -65,15 +66,15 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/admissions" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
-                  <FaLongArrowAltRight className="text-[10px]" />
-                  <span>Admissions</span>
-                </Link>
-              </li>
-              <li>
                 <Link href="/academics" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
                   <FaLongArrowAltRight className="text-[10px]" />
                   <span>Academics</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/admissions" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
+                  <FaLongArrowAltRight className="text-[10px]" />
+                  <span>Admissions</span>
                 </Link>
               </li>
               <li>
@@ -83,57 +84,53 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/media" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
+                <Link href="/students" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
                   <FaLongArrowAltRight className="text-[10px]" />
-                  <span>Media</span>
+                  <span>Students</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
+                <Link href="/news" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
                   <FaLongArrowAltRight className="text-[10px]" />
-                  <span>Contact Us</span>
+                  <span>News</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-           <div>
-            <h2 className="text-white text-lg font-semibold mb-4 border-b border-white/20 pb-2">Campus Resources</h2>
+          {/* Academic Programs */}
+          <div>
+            <h2 className="text-white text-lg font-semibold mb-4 border-b border-white/20 pb-2">Academic Programs</h2>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/library" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
+                <Link href="/academics/diploma-programs" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
                   <FaLongArrowAltRight className="text-[10px]" />
-                  <span>Library</span>
+                  <span>Diploma Programs</span>
                 </Link>
               </li>
               <li>
-                <Link href="/career" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
+                <Link href="/academics/undergraduate-programs" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
                   <FaLongArrowAltRight className="text-[10px]" />
-                  <span>Career Center</span>
+                  <span>Undergraduate Programs</span>
                 </Link>
               </li>
               <li>
-                <Link href="/support" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
+                <Link href="/academics/postgraduate-programs" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
                   <FaLongArrowAltRight className="text-[10px]" />
-                  <span>Student Support</span>
+                  <span>Postgraduate Programs</span>
                 </Link>
               </li>
               <li>
-                <Link href="/health" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
+                <Link href="/admissions/scholarships" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
                   <FaLongArrowAltRight className="text-[10px]" />
-                  <span>Health Services</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/housing" className="flex items-center space-x-2 text-white/90 hover:text-white transition">
-                  <FaLongArrowAltRight className="text-[10px]" />
-                  <span>Housing</span>
+                  <span>Scholarships</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-           <div>
+          {/* Social Media */}
+          <div>
             <h2 className="text-white text-lg font-semibold mb-4 border-b border-white/20 pb-2">Connect With Us</h2>
             <p className="text-white/90 text-sm mb-4">
               Follow us on social media to stay updated with the latest news and events.
@@ -149,54 +146,34 @@ export default function Footer() {
                 <FaFacebookF className="text-white" />
               </a>
               <a 
-                href="https://twitter.com" 
+                href="https://tiktok.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300"
-                aria-label="Twitter"
+                aria-label="TikTok"
               >
-                <FaTwitter className="text-white" />
+                <FaTiktok className="text-white" />
               </a>
               <a 
-                href="https://instagram.com" 
+                href="https://wa.me/25261234567" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300"
-                aria-label="Instagram"
+                aria-label="WhatsApp"
               >
-                <FaInstagram className="text-white" />
-              </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn className="text-white" />
-              </a>
-              <a 
-                href="https://youtube.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300"
-                aria-label="YouTube"
-              >
-                <FaYoutube className="text-white" />
+                <FaWhatsapp className="text-white" />
               </a>
             </div>
-            
-           
           </div>
         </div>
       </div>
 
-       <div className="bg-[#1cadda] mt-8 py-4 border-t-2 border-white">
+      {/* Copyright */}
+      <div className="bg-[#1cadda] mt-8 py-4 border-t-2 border-white">
         <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-center items-center text-center md:text-left">
           <div className="text-white text-sm mb-3 md:mb-0">
             &copy; {currentYear} Jobkey University. All Rights Reserved.
           </div>
-         
         </div>
       </div>
     </footer>

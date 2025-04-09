@@ -1,21 +1,18 @@
 "use client"
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
 
 export default function News() {
-  const [isImageLoading, setIsImageLoading] = useState(true);
-
   const newsItems = [
     {
       id: 1,
-      title: "jobkey University Continues to Rise in the QS World University Rankings Across 10 Subject Areas",
-      description: "jobkey University has achieved a significant milestone, with Hospitality & Leisure Management being ranked in the 51-100 band globally in the QS World University Rankings by Subject 2025.",
+      title: "Jobkey University Continues to Rise in the QS World University Rankings",
+      description: "Jobkey University has achieved a significant milestone, with Hospitality & Leisure Management being ranked in the 51-100 band globally in the QS World University Rankings by Subject 2025.",
       image: "/semi1.jpg",
       category: "News",
       date: "12 March 2025",
-      featured: true,
     },
     {
       id: 2,
@@ -24,7 +21,6 @@ export default function News() {
       image: "/news.jpg",
       category: "School of Education",
       date: "07 March 2025",
-      featured: false,
     },
     {
       id: 3,
@@ -33,103 +29,63 @@ export default function News() {
       image: "/news.jpg",
       category: "News",
       date: "04 March 2025",
-      featured: false,
-    },
-    {
-      id: 4,
-      title: "Jobkey University and Jobkey Multicare Pharmacy Forge Landmark Collaboration in Pharmaceutical Innovation",
-      description: "This collaboration aims to advance pharmaceutical research and provide students with hands-on industry experience.",
-      image: "/news.jpg",
-      category: "News",
-      date: "03 March 2025",
-      featured: false,
-    },
-    {
-      id: 5,
-      title: "Empowering the Desa Mentari Community Through Entrepreneurship",
-      description: "Our community outreach program is teaching entrepreneurial skills to local residents, helping them build sustainable businesses.",
-      image: "/news.jpg",
-      category: "News",
-      date: "03 March 2025",
-      featured: false,
     }
   ];
 
-  const featuredNews = newsItems.filter(item => item.featured);
-  const regularNews = newsItems.filter(item => !item.featured);
-
   return (
-    <div className="bg-white py-8">
-      <div className="container mx-auto px-4 max-w-7xl">
-         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-[#33d1ff]">News</h2>
+    <div className="w-full py-20 bg-white">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="flex justify-between items-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#33d1ff]">Latest News & Events</h2>
           <Link 
             href="/news" 
-            className="px-4 py-2 border border-[#33d1ff] text-[#33d1ff] rounded hover:bg-[#33d1ff] transition-all duration-300"
+            className="inline-flex items-center px-6 py-3 bg-[#33d1ff] text-white rounded-full hover:bg-[#33d1ff]/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            View All
+            <span className="font-semibold">View All News</span>
+            <FaArrowRight className="ml-3 text-xl" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-           <div className="col-span-1">
-            {featuredNews.map(item => (
-              <div key={item.id} className="relative rounded-lg overflow-hidden shadow-md h-full">
-                <Link href={`/news/${item.id}`}>
-                  <div className="relative">
-                    <div className="absolute top-0 left-0 z-10 bg-[#33d1ff] text-white text-xs font-semibold px-2 py-1">
-                      {item.category}
-                    </div>
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-auto"
-                    />
-                    <div className="absolute bottom-0 left-0 bg-[#33d1ff] text-white text-xs font-semibold px-2 py-1 flex items-center">
-                      <FaCalendarAlt className="mr-1" /> {item.date}
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-bold text-[#33d1ff] mt-2 mb-2">{item.title}</h3>
-                    <p className="text-gray-600 text-sm">{item.description}</p>
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {newsItems.map((item) => (
+            <div key={item.id} className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+              <div className="relative h-64">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-[#33d1ff] text-white text-sm font-semibold rounded-full">
+                    {item.category}
+                  </span>
+                </div>
+                <div className="absolute bottom-4 left-4 flex items-center text-white/90">
+                  <FaCalendarAlt className="mr-2" />
+                  <span className="text-sm">{item.date}</span>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-[#33d1ff] transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 mb-4 line-clamp-3">
+                  {item.description}
+                </p>
+                <Link 
+                  href={`/news/${item.id}`}
+                  className="inline-flex items-center text-[#33d1ff] font-semibold hover:text-[#33d1ff]/80 transition-colors duration-300"
+                >
+                  <span>Read More</span>
+                  <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
-            ))}
-          </div>
-
-           <div className="col-span-1 space-y-4">
-            {regularNews.map(item => (
-              <div key={item.id} className="flex border-b border-[#33d1ff] pb-4 last:border-b-0">
-                <div className="flex-shrink-0 mr-4 relative">
-                  <Link href={`/news/${item.id}`}>
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width={150}
-                      height={100}
-                      className="rounded"
-                    />
-                  </Link>
-                </div>
-                <div className="flex flex-col">
-                  <div className="flex flex-col mb-1">
-                    <span className="text-xs flex items-center text-[#33d1ff] mb-1">
-                      <FaCalendarAlt className="mr-1" /> {item.date}
-                    </span>
-                    <span className="inline-block px-2 py-0.5 text-xs font-semibold bg-[#33d1ff] text-white rounded mb-1 w-fit">
-                      {item.category}
-                    </span>
-                  </div>
-                  <Link href={`/news/${item.id}`} className="hover:text-[#33d1ff]">
-                    <h3 className="font-semibold text-sm text-[#33d1ff]">{item.title}</h3>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

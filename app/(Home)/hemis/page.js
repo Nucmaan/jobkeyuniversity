@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image"; 
+import Image from "next/image";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import { FiSearch, FiUser, FiBook, FiHome, FiHash, FiCheckCircle } from "react-icons/fi";
 
 export default function Page() {
   const [hemisId, setHemisId] = useState("");
@@ -14,7 +16,7 @@ export default function Page() {
     e.preventDefault();
     setLoading(true);
     
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL; 
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     try {
       const response = await axios.get(`${backendUrl}/api/v1/hemis/getStudentById/${hemisId}`);
@@ -32,127 +34,156 @@ export default function Page() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-16 min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-2xl w-full">
-        
-        <Image src="/logo.png" alt="University Logo" width={128} height={128} className="w-32 mx-auto mb-6" />
-
-        <h2 className="text-2xl font-semibold text-center mb-4">Hemis ID Verification</h2>
-
-        <form onSubmit={handleVerify} className="mb-6">
-          <div className="mb-4">
-            <label htmlFor="hemisId" className="block text-sm font-medium text-gray-700">Hemis ID</label>
-            <input
-              type="text"
-              id="hemisId"
-              className="w-full p-2 border border-gray-300 rounded-md mt-1 focus:outline-none focus:ring-2 focus:ring-[#33d1ff]"
-              value={hemisId}
-              onChange={(e) => setHemisId(e.target.value)}
-              required
+    <div className="min-h-screen mt-25 bg-[#f8fafc]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <div className="relative w-32 h-32 mx-auto mb-8">
+            <div className="absolute inset-0 bg-[#33d1ff] rounded-full blur-xl opacity-20"></div>
+            <Image
+              src="/logo.png"
+              alt="University Logo"
+              width={128}
+              height={128}
+              priority
+              className="relative rounded-full shadow-lg ring-4 ring-white"
             />
           </div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">HEMIS ID Verification</h1>
+          <p className="text-gray-600 text-lg">Enter your HEMIS ID to verify your student information</p>
+        </motion.div>
 
-          <button
-            type="submit"
-            className="w-full py-2 bg-[#33d1ff] text-white font-semibold rounded-md hover:bg-[#83d3eb] focus:outline-none focus:ring-2 focus:ring-blue-500"
-            disabled={loading}
-          >
-            {loading ? "Verifying..." : "Verify Now"}
-          </button>
-        </form>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-white rounded-3xl shadow-xl p-8 mb-8 border border-gray-100"
+        >
+          <form onSubmit={handleVerify} className="space-y-6">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <FiHash className="h-6 w-6 text-[#33d1ff]" />
+              </div>
+              <input
+                type="text"
+                id="hemisId"
+                className="block w-full pl-12 pr-4 py-4 text-lg border-2 border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#33d1ff] focus:border-transparent transition-all duration-200"
+                placeholder="Enter your HEMIS ID"
+                value={hemisId}
+                onChange={(e) => setHemisId(e.target.value)}
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-4 px-6 bg-[#33d1ff] text-white text-lg font-semibold rounded-xl hover:bg-[#0bb4e0] focus:outline-none focus:ring-2 focus:ring-[#33d1ff] focus:ring-offset-2 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+            >
+              {loading ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Verifying...
+                </span>
+              ) : (
+                "Verify Now"
+              )}
+            </button>
+          </form>
+        </motion.div>
 
         {studentInfo && (
-          <div className="border border-gray-200 p-6 rounded-sm bg-white shadow-sm transition-all duration-300 hover:shadow-sm">
-            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-              <div className="p-2 bg-blue-50 rounded-lg">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100"
+          >
+            <div className="flex items-center gap-4 mb-8 pb-6 border-b border-gray-100">
+              <div className="p-3 bg-[#33d1ff] rounded-xl text-white">
+                <FiUser className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">Student Information</h3>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">Student Information</h2>
+                <p className="text-gray-600">Verified student details</p>
+              </div>
             </div>
-        
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gray-50 rounded-lg">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
-                  </svg>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all duration-200">
+                <div className="p-3 bg-white rounded-xl shadow-sm">
+                  <FiHash className="w-5 h-5 text-[#33d1ff]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-500">Student ID</p>
-                  <p className="text-gray-900 font-medium">{studentInfo.studentID}</p>
+                  <p className="text-gray-900 font-semibold text-lg">{studentInfo.studentID}</p>
                 </div>
               </div>
-        
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gray-50 rounded-lg">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+
+              <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all duration-200">
+                <div className="p-3 bg-white rounded-xl shadow-sm">
+                  <FiUser className="w-5 h-5 text-[#33d1ff]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-500">Full Name</p>
-                  <p className="text-gray-900 font-medium">{studentInfo.studentName}</p>
+                  <p className="text-gray-900 font-semibold text-lg">{studentInfo.studentName}</p>
                 </div>
               </div>
-        
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gray-50 rounded-lg">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
+
+              <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all duration-200">
+                <div className="p-3 bg-white rounded-xl shadow-sm">
+                  <FiBook className="w-5 h-5 text-[#33d1ff]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-500">Faculty</p>
-                  <p className="text-gray-900 font-medium">{studentInfo.faculty}</p>
+                  <p className="text-gray-900 font-semibold text-lg">{studentInfo.faculty}</p>
                 </div>
               </div>
-        
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gray-50 rounded-lg">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                  </svg>
+
+              <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all duration-200">
+                <div className="p-3 bg-white rounded-xl shadow-sm">
+                  <FiHome className="w-5 h-5 text-[#33d1ff]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-500">Department</p>
-                  <p className="text-gray-900 font-medium">{studentInfo.department}</p>
+                  <p className="text-gray-900 font-semibold text-lg">{studentInfo.department}</p>
                 </div>
               </div>
-        
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gray-50 rounded-lg">
-                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
-              </svg>
+
+              <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all duration-200">
+                <div className="p-3 bg-white rounded-xl shadow-sm">
+                  <FiHash className="w-5 h-5 text-[#33d1ff]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-500">HEMIS Number</p>
-                  <p className="text-gray-900 font-medium">{studentInfo.hemisNo}</p>
+                  <p className="text-gray-900 font-semibold text-lg">{studentInfo.hemisNo}</p>
                 </div>
               </div>
-        
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gray-50 rounded-lg">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+
+              <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all duration-200">
+                <div className="p-3 bg-white rounded-xl shadow-sm">
+                  <FiCheckCircle className="w-5 h-5 text-[#33d1ff]" />
                 </div>
                 <div>
-                <p className="text-sm font-medium text-gray-500">Status</p>
-                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium 
-                  ${studentInfo.status === 'Active' ? 'bg-green-100 text-green-800' : 
-                    studentInfo.status === 'Inactive' ? 'bg-red-100 text-red-800' : 
-                    studentInfo.status === 'Completed' ? 'bg-blue-100 text-blue-800' : 
-                    'bg-gray-100 text-gray-800' 
-                  }`}>
-                  {studentInfo.status}
-                </span>
-              </div>
+                  <p className="text-sm font-medium text-gray-500">Status</p>
+                  <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium
+                    ${studentInfo.status === 'Active' ? 'bg-green-100 text-green-800' : 
+                      studentInfo.status === 'Inactive' ? 'bg-red-100 text-red-800' : 
+                      studentInfo.status === 'Completed' ? 'bg-[#cceeff] text-[#33d1ff]' : 
+                      'bg-gray-100 text-gray-800'}`}>
+                    {studentInfo.status}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowRight, FaGraduationCap, FaCertificate, FaBook, FaFlask } from "react-icons/fa";
+import { FaArrowRight, FaGraduationCap, FaCertificate, FaBook } from "react-icons/fa";
 
 export default function OurPrograms() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -12,8 +12,8 @@ export default function OurPrograms() {
       title: "Diploma Programs",
       description:
         "Our diploma programs provide foundational knowledge and practical skills in various fields to prepare students for career advancement.",
-      icon: <FaCertificate className="h-10 w-10 text-[#33d1ff]" />,
-      bgImage: "/diploma-bg.jpg", 
+      icon: <FaCertificate className="h-12 w-12 text-white" />,
+      bgImage: "/under.jpg", 
       count: "15+ Programs",
       link: "/academics/diploma-programs"
     },
@@ -21,8 +21,8 @@ export default function OurPrograms() {
       title: "Undergraduate Programs",
       description:
         "Explore our diverse undergraduate programs designed to equip students with in-depth knowledge and critical thinking skills.",
-      icon: <FaGraduationCap className="h-10 w-10 text-[#33d1ff]" />,
-      bgImage: "/undergrad-bg.jpg",
+      icon: <FaGraduationCap className="h-12 w-12 text-white" />,
+      bgImage: "/postGratuate.jpg",
       count: "30+ Programs",
       link: "/academics/undergraduate-programs"
     },
@@ -30,72 +30,70 @@ export default function OurPrograms() {
       title: "Postgraduate Programs",
       description:
         "Advance your career with our postgraduate programs, offering specialized education and research opportunities.",
-      icon: <FaBook className="h-10 w-10 text-[#33d1ff]" />,
-      bgImage: "/postgrad-bg.jpg",
+      icon: <FaBook className="h-12 w-12 text-white" />,
+      bgImage: "/postGratuate.jpg",
       count: "25+ Programs",
       link: "/academics/postgraduate-programs"
-    },
-    {
-      title: "PhD Programs",
-      description:
-        "Pursue cutting-edge research and contribute to knowledge in your field with our PhD programs.",
-      icon: <FaFlask className="h-10 w-10 text-[#33d1ff]" />,
-      bgImage: "/phd-bg.jpg",
-      count: "12+ Programs",
-      link: "/academics/phd-programs"
     },
   ];
 
   return (
-    <div className=" py-8 px-4">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#33d1ff] mb-4">
+    <div className="w-full py-20 bg-white">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#33d1ff] mb-6">
             Our Academic Programs
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
             Jobkey University offers a wide range of academic programs designed to prepare students for success in their chosen fields. Explore our offerings and find the perfect program for your educational journey.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((program, index) => (
             <div
               key={index}
-              className="group relative bg-white rounded-xl border-2 border-[#33d1ff] shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-2xl shadow-xl"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#33d1ff]/80 to-[#33d1ff]/80 opacity-0 group-hover:opacity-90 transition-opacity duration-300 z-0"></div>
-              
-              <div className="relative z-10 p-6 h-full flex flex-col">
-                <div className="mb-4">
-                  {program.icon}
+              <div className="absolute inset-0">
+                <Image
+                  src={program.bgImage}
+                  alt={program.title}
+                  fill
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80"></div>
+              </div>
+
+              <div className="relative z-10 p-8 h-[400px] flex flex-col justify-between">
+                <div>
+                  <div className="w-16 h-16 bg-[#33d1ff] rounded-xl flex items-center justify-center mb-6 transform group-hover:rotate-12 transition-transform duration-500">
+                    {program.icon}
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    {program.title}
+                  </h3>
+                  
+                  <div className="text-white/80 font-medium mb-4">
+                    {program.count}
+                  </div>
+                  
+                  <p className="text-white/90 text-lg leading-relaxed">
+                    {program.description}
+                  </p>
                 </div>
-                
-                <h3 className="text-xl font-semibold text-[#33d1ff] group-hover:text-white transition-colors duration-300">
-                  {program.title}
-                </h3>
-                
-                <div className="text-xs font-semibold text-[#33d1ff] mt-1 mb-3 group-hover:text-white/80 transition-colors duration-300">
-                  {program.count}
-                </div>
-                
-                <p className="mt-2 text-sm text-gray-600 flex-grow group-hover:text-white/90 transition-colors duration-300">
-                  {program.description}
-                </p>
-                
+
                 <Link 
                   href={program.link}
-                  className={`mt-4 inline-flex items-center font-medium ${
-                    hoveredIndex === index 
-                      ? 'text-white' 
-                      : 'text-[#33d1ff]'
-                  } transition-colors duration-300 group-hover:text-white`}
+                  className="inline-flex items-center text-white font-semibold text-lg group-hover:text-[#33d1ff] transition-colors duration-300"
                 >
                   <span>Explore Programs</span>
-                  <FaArrowRight className={`ml-2 transition-transform duration-300 ${
-                    hoveredIndex === index ? 'translate-x-1' : ''
+                  <FaArrowRight className={`ml-3 transition-transform duration-300 ${
+                    hoveredIndex === index ? 'translate-x-2' : ''
                   }`} />
                 </Link>
               </div>
@@ -103,13 +101,13 @@ export default function OurPrograms() {
           ))}
         </div>
         
-        <div className="mt-12 text-center">
+        <div className="mt-20 text-center">
           <Link
             href="/academics"
-            className="px-6 py-3 bg-[#33d1ff] text-white rounded-full hover:bg-[#33d1ff] transition-all duration-300 inline-flex items-center"
+            className="inline-flex items-center px-10 py-5 bg-[#33d1ff] text-white rounded-full hover:bg-[#33d1ff]/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg font-semibold"
           >
             <span>View All Academic Programs</span>
-            <FaArrowRight className="ml-2" />
+            <FaArrowRight className="ml-4 text-xl" />
           </Link>
         </div>
       </div>

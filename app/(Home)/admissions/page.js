@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image"; 
 
-export default function AdmissionPage() {
+export default function page() {
   return (
     <div className="p-6 max-w-7xl mx-auto min-h-screen mt-24">
       <header className="text-center mb-10">
