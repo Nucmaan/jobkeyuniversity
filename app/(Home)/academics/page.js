@@ -35,15 +35,6 @@ export default function Page() {
       count: "25+ Programs",
       link: "/academics/postgraduate-programs"
     },
-    {
-      title: "PhD Programs",
-      description:
-        "Pursue cutting-edge research and contribute to knowledge in your field with our PhD programs.",
-      icon: <FaFlask className="h-10 w-10 text-[#33d1ff]" />,
-      bgImage: "/phd-bg.jpg",
-      count: "12+ Programs",
-      link: "/academics/phd-programs"
-    },
   ];
 
   return (
@@ -58,7 +49,7 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {programs.map((program, index) => (
             <div
               key={index}
