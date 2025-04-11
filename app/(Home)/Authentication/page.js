@@ -13,7 +13,7 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  //const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const login = userAuth((state) => state.login);
 
   const handleLogin = async (e) => {
@@ -22,41 +22,50 @@ export default function Page() {
     setError('');
 
     try {
-      const response = await axios.post(
-        `${backendUrl}/api/v1/auth/login`,
-        { email, password },
-        {
-          withCredentials: true,  
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const response = await axios({
+        method: 'post',
+        url: 'https://backendjobkey.onrender.com/api/v1/auth/login',
+        data: { email, password },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: false
+      });
 
       const { data } = response;
 
       if (response.status === 201) {
-         login(data.user, data.accessToken);
-
+        login(data.user, data.accessToken);
         toast.success('Login successful!');
         
-         if (data.user.role === 'admin') {
+        if (data.user.role === 'admin') {
           router.push('/Admin');
         } else {
           router.push('/');
         }
       }
     } catch (error) {
+      console.error('Login Error Details:', {
+        message: error.message,
+        code: error.code,
+        response: error.response,
+        config: error?.config
+      });
+
       let errorMessage = 'Login failed. Please try again.';
       
       if (error.code === 'ERR_NETWORK') {
-        errorMessage = 'Server is not responding. Please try again later.';
+        errorMessage = 'Server connection failed. Please try again in a few moments.';
       } else if (!error.response) {
-        errorMessage = 'Unable to connect to the server. Please check your internet connection.';
+        errorMessage = 'Unable to reach the server. Please check your connection.';
+      } else if (error.response.status === 401) {
+        errorMessage = 'Invalid email or password.';
+      } else if (error.response.status === 403) {
+        errorMessage = 'Access forbidden. Please check your credentials.';
       } else if (error.response.status >= 500) {
-        errorMessage = 'Server is currently unavailable. Please try again later.';
+        errorMessage = 'Server error. Please try again later.';
       } else {
-        errorMessage = error.response?.data?.message || 'Login failed. Please try again.';
+        errorMessage = error.response?.data?.message || 'An unexpected error occurred.';
       }
       
       setError(errorMessage);
