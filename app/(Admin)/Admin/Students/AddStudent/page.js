@@ -17,7 +17,7 @@ export default function AddStudent() {
   const [hemisNo, setHemisNo] = useState("")
   const [status, setStatus] = useState("")
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
   const router = useRouter();
 
   

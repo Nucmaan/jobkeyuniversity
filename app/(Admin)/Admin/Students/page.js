@@ -20,11 +20,13 @@ export default function Page() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadLoading, setUploadLoading] = useState(false);
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
 
   const fetchStudents = useCallback(async () => {
     try {
-      const response = await axios.get(`${backendUrl}/api/v1/hemis/getAllStudents`);
+      const response = await axios.get(`${backendUrl}/api/v1/hemis/getAllStudents`,{
+        withCredentials: true,
+      });
       const sortedStudents = response.data.sort((a, b) => {
         const dateA = new Date(a.updatedAt || a.createdAt);
         const dateB = new Date(b.updatedAt || b.createdAt);

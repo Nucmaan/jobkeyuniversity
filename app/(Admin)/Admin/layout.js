@@ -20,7 +20,7 @@ export default function AdminLayout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
 
   useEffect(() => {
     if (user) {
@@ -48,7 +48,7 @@ export default function AdminLayout({ children }) {
     try {
       setIsLoggingOut(true);
       const response = await axios.get(`${backendUrl}/api/v1/auth/logout`, {
-        withCredentials: true,
+        withCredentials: true
       });
   
       if (response.status === 200) {

@@ -12,6 +12,9 @@ export default function Page() {
   const user = userAuth((state) => state.user);
   const updateUser = userAuth((state) => state.updateUser);
 
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
+
+
   const [formData, setFormData] = useState({
     full_name: user?.full_name || "",
     email: user?.email || "",
@@ -45,16 +48,18 @@ export default function Page() {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/v1/auth/avatar/${user.id}`,
-        dataToSubmit
+        `${backendUrl}/api/v1/auth/avatar/${user.id}`,
+        dataToSubmit,
+        {
+          withCredentials: true,
+        }
       );
 
       if (response.data) {
         updateUser(response.data.user);
         toast.success("Profile updated successfully!");
         setFormData(prev => ({ ...prev, password: "" }));
-        // Refresh the page
-        router.refresh();
+         router.refresh();
       }
     } catch (error) {
       console.error("Error updating profile:", error);

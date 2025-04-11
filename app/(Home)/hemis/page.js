@@ -11,37 +11,38 @@ export default function Page() {
   const [hemisId, setHemisId] = useState("");
   const [loading, setLoading] = useState(false);
   const [studentInfo, setStudentInfo] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleVerify = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErrorMessage("");
     
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
 
     try {
-      const response = await axios.get(`${backendUrl}/api/v1/hemis/getStudentById/${hemisId}`);
+      const response = await axios.get(`${backendUrl}/api/v1/hemis/getStudentById/${hemisId}`,{
+        withCredentials: true,
+      });
 
       if (response.status === 200) {
         setStudentInfo(response.data);
-        toast.success("Student found!");
       }
     } catch (error) {
       setStudentInfo(null);
-      let errorMessage = "Student not found!";
+      let message;
       
       if (error.code === 'ERR_NETWORK') {
-        errorMessage = "Server is not responding. Please try again later.";
+        message = "Server is not responding. Please try again later.";
       } else if (!error.response) {
-        errorMessage = "Unable to connect to the server. Please check your internet connection.";
-      } else if (error.response.status >= 500) {
-        errorMessage = "Server is currently unavailable. Please try again later.";
+        message = "Unable to connect to the server. Please check your internet connection.";
       } else if (error.response.status === 404) {
-        errorMessage = "No student found with this HEMIS ID.";
-      } else {
-        errorMessage = error.response?.data?.message || "An error occurred while verifying the student.";
+        message = "We couldn't find any student with this HEMIS ID. Please check the ID and try again, or contact the university office for assistance.";
+      } else if (error.response.status >= 500) {
+        message = "Server is currently unavailable. Please try again later.";
       }
       
-      toast.error(errorMessage);
+      setErrorMessage(message);
     } finally {
       setLoading(false);
     }
@@ -112,6 +113,24 @@ export default function Page() {
             </button>
           </form>
         </motion.div>
+
+        {errorMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-red-50 border border-red-200 rounded-3xl p-6 mb-8"
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-red-100 rounded-full">
+                <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p className="text-red-700 font-medium">{errorMessage}</p>
+            </div>
+          </motion.div>
+        )}
 
         {studentInfo && (
           <motion.div

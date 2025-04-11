@@ -13,7 +13,7 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  //const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
   const login = userAuth((state) => state.login);
 
   const handleLogin = async (e) => {
@@ -22,21 +22,21 @@ export default function Page() {
     setError('');
 
     try {
-      const response = await axios({
-        method: 'post',
-        url: 'https://backendjobkey.onrender.com/api/v1/auth/login',
-        data: { email, password },
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        withCredentials: false
-      });
+      const response = await axios.post(
+        `${backendUrl}/api/v1/auth/login`,
+        { email, password },
+        {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }
+      );
 
       const { data } = response;
 
-      if (response.status === 201) {
-        login(data.user, data.accessToken);
-        toast.success('Login successful!');
+      if (response.status === 201 && data.user) {
+        login(data.user);
         
         if (data.user.role === 'admin') {
           router.push('/Admin');
@@ -45,31 +45,21 @@ export default function Page() {
         }
       }
     } catch (error) {
-      console.error('Login Error Details:', {
-        message: error.message,
-        code: error.code,
-        response: error.response,
-        config: error?.config
-      });
+      console.error('Login Error:', error.response?.data || error.message);
 
-      let errorMessage = 'Login failed. Please try again.';
-      
       if (error.code === 'ERR_NETWORK') {
-        errorMessage = 'Server connection failed. Please try again in a few moments.';
+        setError('Cannot connect to the server. Please try again later.');
       } else if (!error.response) {
-        errorMessage = 'Unable to reach the server. Please check your connection.';
+        setError('Network error. Please check your internet connection.');
       } else if (error.response.status === 401) {
-        errorMessage = 'Invalid email or password.';
+        setError('Invalid email or password.');
       } else if (error.response.status === 403) {
-        errorMessage = 'Access forbidden. Please check your credentials.';
+        setError('Access forbidden. Please check your credentials.');
       } else if (error.response.status >= 500) {
-        errorMessage = 'Server error. Please try again later.';
+        setError('Server error. Please try again later.');
       } else {
-        errorMessage = error.response?.data?.message || 'An unexpected error occurred.';
+        setError(error.response?.data?.message || 'An unexpected error occurred.');
       }
-      
-      setError(errorMessage);
-      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -91,7 +81,10 @@ export default function Page() {
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Admin Login Portal</h2>
         
         {error && (
-          <div className="mb-4 p-4 bg-red-50 border border-red-100 text-red-600 rounded-lg text-sm">
+          <div className="mb-4 p-3 bg-red-50 border-l-4 border-red-500 text-red-700 text-sm flex items-center">
+            <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+            </svg>
             {error}
           </div>
         )}

@@ -16,11 +16,15 @@ export default function Page() {
   const [loading, setLoading] = useState(true);
   const [recentStudents, setRecentStudents] = useState([]);
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
 
   const fetchDashboardData = useCallback(async () => {
     try {
-      const response = await axios.get(`${backendUrl}/api/v1/hemis/getAllStudents`);
+      const response = await axios.get(`${backendUrl}/api/v1/hemis/getAllStudents`,
+        {
+          withCredentials: true,
+        }
+      );
       const students = response.data;
       
       const activeCount = students.filter(s => s.status === 'Active').length;

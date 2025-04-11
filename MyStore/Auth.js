@@ -5,31 +5,37 @@ const userAuth = create(
   persist(
     (set) => ({
       user: null,
-      token: null,
+      accessToken: null,
+      refreshToken: null,
       isAuthenticated: false,
       
-      login: (userData, token) => {
+      login: (userData, tokens) => {
         set({ 
-          user: userData, 
-          token: token,
+          user: userData,
+          accessToken: tokens?.accessToken || null,
+          refreshToken: tokens?.refreshToken || null,
           isAuthenticated: true 
         });
       },
       
       logout: () => {
         set({ 
-          user: null, 
-          token: null,
+          user: null,
+          accessToken: null,
+          refreshToken: null,
           isAuthenticated: false 
         });
-       
-        localStorage.removeItem('refreshToken');
       },
       
       updateUser: (userData) => {
         set((state) => ({ 
           user: { ...state.user, ...userData } 
         }));
+      },
+
+      getAccessToken: () => {
+        const state = userAuth.getState();
+        return state.accessToken;
       },
 
       isAdmin: () => {
@@ -39,9 +45,10 @@ const userAuth = create(
     }),
     {
       name: 'user-auth',
-       partialize: (state) => ({
+      partialize: (state) => ({
         user: state.user,
-        token: state.token,
+        accessToken: state.accessToken,
+        refreshToken: state.refreshToken,
         isAuthenticated: state.isAuthenticated
       })
     }
