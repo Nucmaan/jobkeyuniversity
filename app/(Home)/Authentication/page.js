@@ -47,7 +47,18 @@ export default function Page() {
         }
       }
     } catch (error) {
-       const errorMessage = error.response?.data?.message || 'Login failed. Please try again.';
+      let errorMessage = 'Login failed. Please try again.';
+      
+      if (error.code === 'ERR_NETWORK') {
+        errorMessage = 'Server is not responding. Please try again later.';
+      } else if (!error.response) {
+        errorMessage = 'Unable to connect to the server. Please check your internet connection.';
+      } else if (error.response.status >= 500) {
+        errorMessage = 'Server is currently unavailable. Please try again later.';
+      } else {
+        errorMessage = error.response?.data?.message || 'Login failed. Please try again.';
+      }
+      
       setError(errorMessage);
       toast.error(errorMessage);
     } finally {

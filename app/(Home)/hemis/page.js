@@ -27,7 +27,21 @@ export default function Page() {
       }
     } catch (error) {
       setStudentInfo(null);
-      toast.error(error.response?.data?.message || "Student not found!");
+      let errorMessage = "Student not found!";
+      
+      if (error.code === 'ERR_NETWORK') {
+        errorMessage = "Server is not responding. Please try again later.";
+      } else if (!error.response) {
+        errorMessage = "Unable to connect to the server. Please check your internet connection.";
+      } else if (error.response.status >= 500) {
+        errorMessage = "Server is currently unavailable. Please try again later.";
+      } else if (error.response.status === 404) {
+        errorMessage = "No student found with this HEMIS ID.";
+      } else {
+        errorMessage = error.response?.data?.message || "An error occurred while verifying the student.";
+      }
+      
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
