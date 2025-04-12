@@ -40,8 +40,10 @@ export default function AdminSideBar() {
             className="rounded-lg"
           />
           <div>
+            <Link href="/">
             <h1 className="text-lg font-bold text-[#33d1ff]">Jobkey</h1>
             <p className="font-semibold text-gray-500">University</p>
+            </Link>
             </div>
         </div>
       </div>
