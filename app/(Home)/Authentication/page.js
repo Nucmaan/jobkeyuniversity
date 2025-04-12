@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
@@ -10,11 +10,38 @@ export default function Page() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
   const backendUrl = "https://backendjobkey.onrender.com";
-  const login = userAuth((state) => state.login);
+  const loginUser = userAuth((state) => state.loginUser);
+
+  // Check authentication status on mount and route changes
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await axios.get(`${backendUrl}/api/v1/auth/check-auth`, {
+          withCredentials: true
+        });
+        
+        if (response.data.user) {
+          loginUser(response.data.user);
+          if (response.data.user.role === 'admin') {
+            router.push('/Admin');
+          } else {
+            router.push('/');
+          }
+        }
+      } catch (error) {
+        // Not authenticated, stay on login page
+        console.log('Not authenticated');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, [loginUser, router, backendUrl]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -29,16 +56,14 @@ export default function Page() {
           withCredentials: true,
           headers: {
             'Content-Type': 'application/json',
-          },
-          credentials: 'include'
+          }
         }
       );
 
       const { data } = response;
       
       if (response.status === 201 && data.user) {
-        login(data.user);
-        
+        loginUser(data.user);
         toast.success(data.message || 'Successfully logged in!');
         
         if (data.user.role === 'admin') {
@@ -67,6 +92,14 @@ export default function Page() {
       setIsLoading(false);
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#33d1ff]"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center items-center min-h-screen mt-20 bg-gradient-to-br from-blue-50 to-blue-100">

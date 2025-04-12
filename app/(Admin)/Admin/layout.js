@@ -15,12 +15,12 @@ export default function AdminLayout({ children }) {
   const [isHydrated, setIsHydrated] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const user = userAuth((state) => state.user);
-  const logout = userAuth((state) => state.logout);
+  const logoutUser = userAuth((state) => state.logoutUser);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const backendUrl ="https://backendjobkey.onrender.com";
+  const backendUrl = "https://backendjobkey.onrender.com";
 
   useEffect(() => {
     if (user) {
@@ -47,13 +47,13 @@ export default function AdminLayout({ children }) {
   const handleLogout = async () => {
     try {
       setIsLoggingOut(true);
-      const response = await axios.get(`https://backendjobkey.onrender.com/api/v1/auth/logout`, {
+      const response = await axios.get(`${backendUrl}/api/v1/auth/logout`, {
         withCredentials: true
       });
   
       if (response.status === 200) {
+        logoutUser();
         toast.success("Logged out successfully");
-        logout();
         router.replace("/");
       }
     } catch (error) {
