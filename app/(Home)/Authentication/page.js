@@ -23,20 +23,23 @@ export default function Page() {
 
     try {
       const response = await axios.post(
-        `https://backendjobkey.onrender.com/api/v1/auth/login`,
+        `${backendUrl}/api/v1/auth/login`,
         { email, password },
         {
           withCredentials: true,
           headers: {
             'Content-Type': 'application/json',
-          }
+          },
+          credentials: 'include'
         }
       );
 
       const { data } = response;
-
+      
       if (response.status === 201 && data.user) {
         login(data.user);
+        
+        toast.success(data.message || 'Successfully logged in!');
         
         if (data.user.role === 'admin') {
           router.push('/Admin');

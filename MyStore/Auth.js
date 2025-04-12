@@ -9,11 +9,18 @@ const userAuth = create(
       refreshToken: null,
       isAuthenticated: false,
       
-      login: (userData, tokens) => {
+      login: (userData) => {
         set({ 
-          user: userData,
-          accessToken: tokens?.accessToken || null,
-          refreshToken: tokens?.refreshToken || null,
+          user: {
+            id: userData.id,
+            full_name: userData.full_name,
+            email: userData.email,
+            role: userData.role,
+            mobile: userData.mobile,
+            avatar: userData.avatar,
+            createdAt: userData.createdAt,
+            updatedAt: userData.updatedAt
+          },
           isAuthenticated: true 
         });
       },
@@ -21,8 +28,6 @@ const userAuth = create(
       logout: () => {
         set({ 
           user: null,
-          accessToken: null,
-          refreshToken: null,
           isAuthenticated: false 
         });
       },
@@ -33,9 +38,9 @@ const userAuth = create(
         }));
       },
 
-      getAccessToken: () => {
+      getUser: () => {
         const state = userAuth.getState();
-        return state.accessToken;
+        return state.user;
       },
 
       isAdmin: () => {
@@ -47,8 +52,6 @@ const userAuth = create(
       name: 'user-auth',
       partialize: (state) => ({
         user: state.user,
-        accessToken: state.accessToken,
-        refreshToken: state.refreshToken,
         isAuthenticated: state.isAuthenticated
       })
     }
