@@ -13,7 +13,7 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
+  const backendUrl = "https://backendjobkey.onrender.com";
   const login = userAuth((state) => state.login);
 
   const handleLogin = async (e) => {

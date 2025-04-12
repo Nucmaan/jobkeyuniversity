@@ -143,8 +143,11 @@ export default function Page() {
         {
           headers: {
             'Content-Type': 'multipart/form-data',
+            'Accept': 'application/json',
           },
           withCredentials: true,
+          maxContentLength: Infinity,
+          maxBodyLength: Infinity,
         }
       );
 
@@ -156,7 +159,11 @@ export default function Page() {
       }
     } catch (error) {
       console.error("Error uploading file:", error);
-      toast.error(error.response?.data?.message || "Failed to upload file");
+      const errorMessage = error.response?.data?.message || "Failed to upload file";
+      toast.error(errorMessage);
+      if (error.response?.status === 500) {
+        toast.error("Server error: The file might be too large or in wrong format");
+      }
     } finally {
       setUploadLoading(false);
     }
