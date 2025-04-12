@@ -156,13 +156,15 @@ export default function Page() {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    try {
-      console.log('Uploading file:', {
-        name: selectedFile.name,
-        type: selectedFile.type,
-        size: selectedFile.size
-      });
+    // Log FormData contents
+    console.log('FormData contents:');
+    for (let pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
 
+    try {
+      console.log('Making request to:', `${backendUrl}/api/v1/hemis/uploadOneTime`);
+      
       const response = await axios.post(
         `${backendUrl}/api/v1/hemis/uploadOneTime`,
         formData,
@@ -172,12 +174,15 @@ export default function Page() {
             'Accept': 'application/json',
           },
           withCredentials: true,
-          timeout: 60000, // Increased to 60 seconds
-          maxContentLength: 10 * 1024 * 1024, // Increased to 10MB
-          maxBodyLength: 10 * 1024 * 1024, // Increased to 10MB
+          timeout: 60000,
+          maxContentLength: 10 * 1024 * 1024,
+          maxBodyLength: 10 * 1024 * 1024,
           onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
             console.log('Upload progress:', percentCompleted, '%');
+          },
+          validateStatus: function (status) {
+            return status < 500; // Don't reject if status is less than 500
           }
         }
       );
@@ -191,22 +196,44 @@ export default function Page() {
         await fetchStudents();
       }
     } catch (error) {
+      console.error("Full error object:", error);
       console.error("Error details:", {
         message: error.message,
         response: error.response?.data,
         status: error.response?.status,
-        headers: error.response?.headers
+        statusText: error.response?.statusText,
+        headers: error.response?.headers,
+        config: {
+          url: error.config?.url,
+          method: error.config?.method,
+          headers: error.config?.headers
+        }
       });
 
-      if (error.code === 'ECONNABORTED') {
+      if (error.response?.status === 500) {
+        // Try to parse the error response
+        let errorMessage = "Please check your Excel file format and try again";
+        try {
+          if (typeof error.response.data === 'string' && error.response.data.includes('<!DOCTYPE html>')) {
+            // Server returned HTML error page
+            errorMessage = "Server error: Please try again or contact support";
+          } else if (error.response.data?.message) {
+            errorMessage = error.response.data.message;
+          }
+        } catch (e) {
+          console.error('Error parsing error response:', e);
+        }
+        toast.error(`Server error: ${errorMessage}`);
+      } else if (error.code === 'ECONNABORTED') {
         toast.error("Upload timeout - Please try again");
       } else if (error.response?.status === 413) {
         toast.error("File is too large. Please upload a smaller file");
-      } else if (error.response?.status === 500) {
-        const errorMessage = error.response?.data?.message || "Please check your Excel file format and try again";
-        toast.error(`Server error: ${errorMessage}`);
       } else {
-        toast.error(error.response?.data?.message || "Failed to upload file. Please try again");
+        toast.error(
+          error.response?.data?.message || 
+          error.message || 
+          "Failed to upload file. Please try again"
+        );
       }
     } finally {
       setUploadLoading(false);
