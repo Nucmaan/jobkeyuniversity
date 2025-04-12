@@ -20,7 +20,7 @@ export default function Page() {
 
   const fetchDashboardData = useCallback(async () => {
     try {
-      const response = await axios.get(`${backendUrl}/api/v1/hemis/getAllStudents`,
+      const response = await axios.get(`https://backendjobkey.onrender.com/api/v1/hemis/getAllStudents`,
         {
           withCredentials: true,
         }

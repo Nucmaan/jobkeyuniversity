@@ -47,7 +47,7 @@ export default function AdminLayout({ children }) {
   const handleLogout = async () => {
     try {
       setIsLoggingOut(true);
-      const response = await axios.get(`${backendUrl}/api/v1/auth/logout`, {
+      const response = await axios.get(`https://backendjobkey.onrender.com/api/v1/auth/logout`, {
         withCredentials: true
       });
   
