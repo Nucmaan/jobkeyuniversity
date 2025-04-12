@@ -115,10 +115,21 @@ export default function Page() {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Check file type
-      if (file.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ||
-          file.type === "application/vnd.ms-excel") {
-        // Check file size (limit to 5MB)
+      console.log('File details:', {
+        name: file.name,
+        type: file.type,
+        size: file.size
+      });
+
+      // Check file type more thoroughly
+      const allowedTypes = [
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "application/vnd.ms-excel"
+      ];
+
+      if (allowedTypes.includes(file.type) || 
+          file.name.endsWith('.xlsx') || 
+          file.name.endsWith('.xls')) {
         if (file.size > 5 * 1024 * 1024) {
           toast.error("File size should be less than 5MB");
           e.target.value = null;
@@ -128,6 +139,7 @@ export default function Page() {
         toast.success("File selected successfully");
       } else {
         toast.error("Please select a valid Excel file (.xlsx or .xls)");
+        console.error('Invalid file type:', file.type);
         e.target.value = null;
       }
     }
@@ -145,6 +157,12 @@ export default function Page() {
     formData.append('file', selectedFile);
 
     try {
+      console.log('Uploading file:', {
+        name: selectedFile.name,
+        type: selectedFile.type,
+        size: selectedFile.size
+      });
+
       const response = await axios.post(
         `${backendUrl}/api/v1/hemis/uploadOneTime`,
         formData,
@@ -154,15 +172,17 @@ export default function Page() {
             'Accept': 'application/json',
           },
           withCredentials: true,
-          timeout: 30000, // 30 second timeout
-          maxContentLength: 5 * 1024 * 1024, // 5MB limit
-          maxBodyLength: 5 * 1024 * 1024, // 5MB limit
+          timeout: 60000, // Increased to 60 seconds
+          maxContentLength: 10 * 1024 * 1024, // Increased to 10MB
+          maxBodyLength: 10 * 1024 * 1024, // Increased to 10MB
           onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
             console.log('Upload progress:', percentCompleted, '%');
           }
         }
       );
+
+      console.log('Upload response:', response.data);
 
       if (response.data) {
         toast.success("Students uploaded successfully");
@@ -171,15 +191,22 @@ export default function Page() {
         await fetchStudents();
       }
     } catch (error) {
-      console.error("Error uploading file:", error);
+      console.error("Error details:", {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status,
+        headers: error.response?.headers
+      });
+
       if (error.code === 'ECONNABORTED') {
-        toast.error("Upload timeout - Please try again with a smaller file");
+        toast.error("Upload timeout - Please try again");
       } else if (error.response?.status === 413) {
-        toast.error("File is too large. Please upload a file smaller than 5MB");
+        toast.error("File is too large. Please upload a smaller file");
       } else if (error.response?.status === 500) {
-        toast.error("Server error: Please check your Excel file format and try again");
+        const errorMessage = error.response?.data?.message || "Please check your Excel file format and try again";
+        toast.error(`Server error: ${errorMessage}`);
       } else {
-        toast.error(error.response?.data?.message || "Failed to upload file");
+        toast.error(error.response?.data?.message || "Failed to upload file. Please try again");
       }
     } finally {
       setUploadLoading(false);
