@@ -161,6 +161,9 @@ export default function Page() {
 
           console.log('Making request to:', `${backendUrl}/api/v1/hemis/uploadOneTime`);
           
+          // Show initial progress toast
+          const loadingToast = toast.loading('Starting upload...');
+          
           const response = await axios.post(
             `${backendUrl}/api/v1/hemis/uploadOneTime`,
             formData,
@@ -169,15 +172,20 @@ export default function Page() {
                 'Content-Type': 'multipart/form-data',
               },
               withCredentials: true,
-              timeout: 120000, // Increased timeout to 2 minutes
-              maxContentLength: 10 * 1024 * 1024,
-              maxBodyLength: 10 * 1024 * 1024,
+              timeout: 600000, // Increased timeout to 10 minutes
+              maxContentLength: 50 * 1024 * 1024, // Increased to 50MB
+              maxBodyLength: 50 * 1024 * 1024,    // Increased to 50MB
               onUploadProgress: (progressEvent) => {
                 const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                // Update progress toast
+                toast.loading(`Uploading: ${percentCompleted}%`, { id: loadingToast });
                 console.log('Upload progress:', percentCompleted, '%');
               }
             }
           );
+
+          // Dismiss the loading toast
+          toast.dismiss(loadingToast);
 
           console.log('Upload response:', response.data);
 
@@ -196,13 +204,13 @@ export default function Page() {
 
           // Handle specific error cases
           if (error.response?.data?.message) {
-            toast.error(error.response.data.message);
+            toast.error(`Upload failed: ${error.response.data.message}`);
           } else if (error.response?.status === 500) {
-            toast.error("Server error processing the file. Please check the Excel format and try again.");
+            toast.error("Server error processing the file. The file might be too large or the server might need more time. Please try with a smaller batch or contact support.");
           } else if (error.code === 'ECONNABORTED') {
-            toast.error("Upload timeout - The server took too long to respond. Please try again.");
+            toast.error("Upload timeout - The server took too long to process the file. Please try with a smaller batch of students or contact support to increase the server timeout.");
           } else {
-            toast.error("Failed to upload file. Please try again.");
+            toast.error("Failed to upload file. Please check your connection and try again.");
           }
         } finally {
           setUploadLoading(false);
