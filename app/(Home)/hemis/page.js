@@ -21,7 +21,7 @@ export default function Page() {
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
 
     try {
-      const response = await axios.get(`${backendUrl}/api/v1/hemis/getStudentById/${hemisId}`,{
+      const response = await axios.get(`https://backendjobkey.onrender.com/api/v1/hemis/getStudentById/${hemisId}`,{
         withCredentials: true,
       });
 
