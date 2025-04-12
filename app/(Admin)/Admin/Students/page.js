@@ -20,7 +20,7 @@ export default function Page() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadLoading, setUploadLoading] = useState(false);
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
+  const backendUrl = "https://backendjobkey.onrender.com";
 
   const fetchStudents = useCallback(async () => {
     try {
@@ -144,6 +144,7 @@ export default function Page() {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
+          withCredentials: true,
         }
       );
 

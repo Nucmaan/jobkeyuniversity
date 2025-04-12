@@ -20,7 +20,7 @@ export default function AdminLayout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
+  const backendUrl ="https://backendjobkey.onrender.com";
 
   useEffect(() => {
     if (user) {

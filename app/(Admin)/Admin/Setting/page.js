@@ -12,7 +12,7 @@ export default function Page() {
   const user = userAuth((state) => state.user);
   const updateUser = userAuth((state) => state.updateUser);
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
+  const backendUrl = "https://backendjobkey.onrender.com";
 
 
   const [formData, setFormData] = useState({
@@ -48,10 +48,15 @@ export default function Page() {
 
     try {
       const response = await axios.put(
-        `${backendUrl}/api/v1/auth/avatar/${user.id}`,
+        `https://backendjobkey.onrender.com/api/v1/auth/avatar/${user.id}`,
         dataToSubmit,
         {
           withCredentials: true,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          }
         }
       );
 

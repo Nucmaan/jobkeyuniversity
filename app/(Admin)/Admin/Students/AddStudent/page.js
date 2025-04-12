@@ -17,9 +17,8 @@ export default function AddStudent() {
   const [hemisNo, setHemisNo] = useState("")
   const [status, setStatus] = useState("")
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
+  const backendUrl = "https://backendjobkey.onrender.com";
   const router = useRouter();
-
   
 
   const handleSubmit = async (e) => {

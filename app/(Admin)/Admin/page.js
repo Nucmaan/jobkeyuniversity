@@ -16,7 +16,7 @@ export default function Page() {
   const [loading, setLoading] = useState(true);
   const [recentStudents, setRecentStudents] = useState([]);
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
+  const backendUrl = "https://backendjobkey.onrender.com";
 
   const fetchDashboardData = useCallback(async () => {
     try {

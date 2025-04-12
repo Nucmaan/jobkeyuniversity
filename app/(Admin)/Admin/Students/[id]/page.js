@@ -18,7 +18,7 @@ export default function Page() {
   const [status, setStatus] = useState("")
 
   const { id } = useParams();
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL;
+  const backendUrl ="https://backendjobkey.onrender.com";
   const router = useRouter();
 
   const getStudent = useCallback(async () => {
