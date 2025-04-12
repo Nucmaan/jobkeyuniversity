@@ -115,11 +115,19 @@ export default function Page() {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      // Check file type
       if (file.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ||
           file.type === "application/vnd.ms-excel") {
+        // Check file size (limit to 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+          toast.error("File size should be less than 5MB");
+          e.target.value = null;
+          return;
+        }
         setSelectedFile(file);
+        toast.success("File selected successfully");
       } else {
-        toast.error("Please select an Excel file");
+        toast.error("Please select a valid Excel file (.xlsx or .xls)");
         e.target.value = null;
       }
     }
@@ -146,8 +154,13 @@ export default function Page() {
             'Accept': 'application/json',
           },
           withCredentials: true,
-          maxContentLength: Infinity,
-          maxBodyLength: Infinity,
+          timeout: 30000, // 30 second timeout
+          maxContentLength: 5 * 1024 * 1024, // 5MB limit
+          maxBodyLength: 5 * 1024 * 1024, // 5MB limit
+          onUploadProgress: (progressEvent) => {
+            const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+            console.log('Upload progress:', percentCompleted, '%');
+          }
         }
       );
 
@@ -159,10 +172,14 @@ export default function Page() {
       }
     } catch (error) {
       console.error("Error uploading file:", error);
-      const errorMessage = error.response?.data?.message || "Failed to upload file";
-      toast.error(errorMessage);
-      if (error.response?.status === 500) {
-        toast.error("Server error: The file might be too large or in wrong format");
+      if (error.code === 'ECONNABORTED') {
+        toast.error("Upload timeout - Please try again with a smaller file");
+      } else if (error.response?.status === 413) {
+        toast.error("File is too large. Please upload a file smaller than 5MB");
+      } else if (error.response?.status === 500) {
+        toast.error("Server error: Please check your Excel file format and try again");
+      } else {
+        toast.error(error.response?.data?.message || "Failed to upload file");
       }
     } finally {
       setUploadLoading(false);
