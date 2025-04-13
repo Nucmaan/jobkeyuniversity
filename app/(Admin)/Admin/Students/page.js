@@ -44,7 +44,7 @@ export default function Page() {
     } catch (error) {
       console.error('Error fetching students:', error);
       toast.error("Failed to fetch students");
-      setStudents([]); // Set empty array on error
+      setStudents([]);
     } finally {
       setLoading(false);
     }

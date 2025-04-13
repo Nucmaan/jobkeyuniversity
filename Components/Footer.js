@@ -50,7 +50,7 @@ export default function Footer() {
               </a>
               <a href="tel:+25261234567" className="flex items-center space-x-3 text-sm group">
                 <FaPhoneAlt className="text-white/80 group-hover:text-white transition" />
-                <span className="text-white/90 group-hover:text-white transition">+252 61 2345678</span>
+                <span className="text-white/90 group-hover:text-white transition">+252 61 677 4499</span>
               </a>
             </div>
           </div>
