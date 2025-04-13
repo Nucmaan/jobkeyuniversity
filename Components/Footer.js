@@ -146,7 +146,7 @@ export default function Footer() {
                 <FaFacebookF className="text-white" />
               </a>
               <a 
-                href="https://tiktok.com" 
+                href="https://www.tiktok.com/@jobkey_university?_t=ZS-8vV4QQ6G9Ba&_r=1" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300"
