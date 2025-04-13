@@ -15,10 +15,14 @@ export default function Page() {
   const [currentPage, setCurrentPage] = useState(1);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [studentToDelete, setStudentToDelete] = useState(null);
+  const [showDeleteAllConfirm, setShowDeleteAllConfirm] = useState(false);
+  const [selectedStudents, setSelectedStudents] = useState([]);
+  const [showDeleteSelectedConfirm, setShowDeleteSelectedConfirm] = useState(false);
   const itemsPerPage = 10;
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadLoading, setUploadLoading] = useState(false);
+  const [deleteLoading, setDeleteLoading] = useState(false);
 
   const backendUrl = "https://backendjobkey.onrender.com";
 
@@ -27,7 +31,11 @@ export default function Page() {
       const response = await axios.get(`${backendUrl}/api/v1/hemis/getAllStudents`,{
         withCredentials: true,
       });
-      const sortedStudents = response.data.sort((a, b) => {
+      
+      // Access the students array from the response
+      const studentsData = response.data?.students || [];
+      
+      const sortedStudents = studentsData.sort((a, b) => {
         const dateA = new Date(a.updatedAt || a.createdAt);
         const dateB = new Date(b.updatedAt || b.createdAt);
         return dateB - dateA;
@@ -36,6 +44,7 @@ export default function Page() {
     } catch (error) {
       console.error('Error fetching students:', error);
       toast.error("Failed to fetch students");
+      setStudents([]); // Set empty array on error
     } finally {
       setLoading(false);
     }
@@ -59,15 +68,17 @@ export default function Page() {
   // Filter and sort students
   const filteredStudents = students
     .filter(student => {
-      const matchesSearch = student.studentName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          student.hemisNo.toLowerCase().includes(searchTerm.toLowerCase());
+      const searchQuery = searchTerm.toLowerCase();
+      const matchesSearch = 
+        (student.studentName?.toLowerCase() || '').includes(searchQuery) ||
+        (student.hemisNo?.toLowerCase() || '').includes(searchQuery) ||
+        (student.studentID?.toString().toLowerCase() || '').includes(searchQuery);
       const matchesStatus = filterStatus === "all" || student.status === filterStatus;
       const matchesFaculty = filterFaculty === "all" || student.faculty === filterFaculty;
       return matchesSearch && matchesStatus && matchesFaculty;
     })
     .sort((a, b) => {
       if (!sortConfig.key) {
-        // Default sort by updatedAt/createdAt if no column sort is selected
         const dateA = new Date(a.updatedAt || a.createdAt);
         const dateB = new Date(b.updatedAt || b.createdAt);
         return dateB - dateA;
@@ -81,6 +92,22 @@ export default function Page() {
       }
       return 0;
     });
+
+  // Get unique faculties with counts
+  const facultiesWithCount = students.reduce((acc, student) => {
+    if (student.faculty) {
+      acc[student.faculty] = (acc[student.faculty] || 0) + 1;
+    }
+    return acc;
+  }, {});
+
+  // Status options with counts
+  const statusCounts = students.reduce((acc, student) => {
+    if (student.status) {
+      acc[student.status] = (acc[student.status] || 0) + 1;
+    }
+    return acc;
+  }, {});
 
   const handleDelete = async (studentId) => {
     setStudentToDelete(studentId);
@@ -102,15 +129,38 @@ export default function Page() {
   };
 
   const totalPages = Math.ceil(filteredStudents.length / itemsPerPage);
+  
+  const getVisiblePageNumbers = () => {
+    const delta = 2;
+    const range = [];
+    const rangeWithDots = [];
+    let l;
+
+    for (let i = 1; i <= totalPages; i++) {
+      if (i === 1 || i === totalPages || (i >= currentPage - delta && i <= currentPage + delta)) {
+        range.push(i);
+      }
+    }
+
+    for (let i of range) {
+      if (l) {
+        if (i - l === 2) {
+          rangeWithDots.push(l + 1);
+        } else if (i - l !== 1) {
+          rangeWithDots.push('...');
+        }
+      }
+      rangeWithDots.push(i);
+      l = i;
+    }
+
+    return rangeWithDots;
+  };
+
   const paginatedStudents = filteredStudents.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-
-  const pageNumbers = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pageNumbers.push(i);
-  }
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -121,21 +171,16 @@ export default function Page() {
           file.name.endsWith('.xlsx') ||
           file.name.endsWith('.xls')) {
         
-        // Check file size (5MB limit)
-        if (file.size > 5 * 1024 * 1024) {
-          toast.error("File size should be less than 5MB");
-          e.target.value = null;
-          return;
-        }
-
+        // Show file size information
+        const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
         console.log('Selected file:', {
           name: file.name,
           type: file.type,
-          size: file.size
+          size: `${fileSizeMB}MB`
         });
 
         setSelectedFile(file);
-        toast.success("File selected successfully");
+        toast.success(`File selected successfully (${fileSizeMB}MB)`);
       } else {
         toast.error("Please select a valid Excel file (.xlsx or .xls)");
         e.target.value = null;
@@ -150,84 +195,176 @@ export default function Page() {
       return;
     }
 
-    // Validate Excel structure before upload
+    // Show file size information
+    const fileSizeMB = (selectedFile.size / (1024 * 1024)).toFixed(2);
+    console.log(`File size: ${fileSizeMB}MB`);
+    const preparingToast = toast.loading(`Preparing to upload file (${fileSizeMB}MB)`);
+
     try {
       const reader = new FileReader();
       reader.onload = async (e) => {
         try {
           setUploadLoading(true);
+          toast.dismiss(preparingToast);
           const formData = new FormData();
           formData.append('file', selectedFile);
 
+          // Create a unique ID for this upload
+          const uploadId = Date.now();
+          console.log('Starting upload with ID:', uploadId);
           console.log('Making request to:', `${backendUrl}/api/v1/hemis/uploadOneTime`);
           
           // Show initial progress toast
-          const loadingToast = toast.loading('Starting upload...');
+          const loadingToast = toast.loading('Preparing to process file...');
           
+          let lastProgress = 0;
           const response = await axios.post(
             `${backendUrl}/api/v1/hemis/uploadOneTime`,
             formData,
             {
               headers: {
                 'Content-Type': 'multipart/form-data',
+                'Upload-ID': uploadId
               },
               withCredentials: true,
-              timeout: 600000, // Increased timeout to 10 minutes
-              maxContentLength: 50 * 1024 * 1024, // Increased to 50MB
-              maxBodyLength: 50 * 1024 * 1024,    // Increased to 50MB
+              timeout: 0, // No timeout
+              maxContentLength: Infinity, // No content length limit
+              maxBodyLength: Infinity, // No body length limit
               onUploadProgress: (progressEvent) => {
                 const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                // Update progress toast
-                toast.loading(`Uploading: ${percentCompleted}%`, { id: loadingToast });
-                console.log('Upload progress:', percentCompleted, '%');
+                
+                // Only update if progress has changed by at least 1%
+                if (percentCompleted > lastProgress) {
+                  lastProgress = percentCompleted;
+                  console.log(`Upload progress [${uploadId}]:`, percentCompleted, '%');
+                  toast.loading(`Uploading file: ${percentCompleted}%\nPlease wait while processing...`, { 
+                    id: loadingToast,
+                    duration: Infinity
+                  });
+                }
+
+                // When upload reaches 100%, show processing message
+                if (percentCompleted === 100) {
+                  console.log(`Upload completed [${uploadId}], waiting for server processing...`);
+                  toast.loading('File uploaded, processing large dataset...\nThis may take several minutes for large files...', { 
+                    id: loadingToast,
+                    duration: Infinity
+                  });
+                }
               }
             }
           );
 
-          // Dismiss the loading toast
+          console.log(`Upload response [${uploadId}]:`, response.data);
           toast.dismiss(loadingToast);
 
-          console.log('Upload response:', response.data);
-
           if (response.data) {
-            toast.success(`Students uploaded successfully. ${response.data.inserted} inserted, ${response.data.updated} updated`);
+            const successMessage = `Upload completed successfully!\nInserted: ${response.data.inserted}\nUpdated: ${response.data.updated}`;
+            console.log(successMessage);
+            toast.success(successMessage);
             setShowUploadModal(false);
             setSelectedFile(null);
             await fetchStudents();
           }
         } catch (error) {
-          console.error("Upload error:", {
+          console.error("Upload error details:", {
             message: error.message,
             response: error.response?.data,
-            status: error.response?.status
+            status: error.response?.status,
+            code: error.code
           });
 
           // Handle specific error cases
           if (error.response?.data?.message) {
-            toast.error(`Upload failed: ${error.response.data.message}`);
+            const errorMsg = `Upload failed: ${error.response.data.message}`;
+            console.error(errorMsg);
+            toast.error(errorMsg);
           } else if (error.response?.status === 500) {
-            toast.error("Server error processing the file. The file might be too large or the server might need more time. Please try with a smaller batch or contact support.");
+            const errorMsg = "Server error while processing students. This might be due to:\n- File size too large\n- Server timeout\n- Invalid data format\nPlease try with a smaller batch or contact support.";
+            console.error(errorMsg);
+            toast.error(errorMsg);
           } else if (error.code === 'ECONNABORTED') {
-            toast.error("Upload timeout - The server took too long to process the file. Please try with a smaller batch of students or contact support to increase the server timeout.");
+            const errorMsg = "Upload timeout - Server took too long to process. Try:\n1. Reducing file size\n2. Splitting into smaller batches\n3. Contact support for assistance";
+            console.error(errorMsg);
+            toast.error(errorMsg);
           } else {
-            toast.error("Failed to upload file. Please check your connection and try again.");
+            const errorMsg = `Upload failed: ${error.message}. Please check your connection and try again.`;
+            console.error(errorMsg);
+            toast.error(errorMsg);
           }
         } finally {
           setUploadLoading(false);
         }
       };
 
-      reader.onerror = () => {
+      reader.onerror = (error) => {
+        console.error("File reading error:", error);
         toast.error("Error reading the file. Please try again.");
         setUploadLoading(false);
       };
 
       reader.readAsArrayBuffer(selectedFile);
     } catch (error) {
-      console.error("File reading error:", error);
+      console.error("File preparation error:", error);
       toast.error("Error preparing the file for upload. Please try again.");
       setUploadLoading(false);
     }
+  };
+
+  // Add deleteAll function
+  const handleDeleteAll = async () => {
+    try {
+      await axios.delete(`${backendUrl}/api/v1/hemis/deleteAll`, {
+        withCredentials: true
+      });
+      await fetchStudents();
+      toast.success("All students deleted successfully");
+      setShowDeleteAllConfirm(false);
+    } catch (error) {
+      console.error('Error deleting all students:', error);
+      toast.error(error.response?.data?.message || "Failed to delete all students");
+    }
+  };
+
+  // Add handleDeleteSelected function
+  const handleDeleteSelected = async () => {
+    try {
+      setDeleteLoading(true);
+      await axios.post(`${backendUrl}/api/v1/hemis/delete-multiple`, {
+        studentIDs: selectedStudents
+      }, {
+        withCredentials: true
+      });
+      await fetchStudents();
+      toast.success("Selected students deleted successfully");
+      setSelectedStudents([]);
+      setShowDeleteSelectedConfirm(false);
+    } catch (error) {
+      console.error('Error deleting selected students:', error);
+      toast.error(error.response?.data?.message || "Failed to delete selected students");
+    } finally {
+      setDeleteLoading(false);
+    }
+  };
+
+  // Add select all function for current page
+  const handleSelectAllInPage = (checked) => {
+    if (checked) {
+      const currentPageIds = paginatedStudents.map(student => student.studentID);
+      setSelectedStudents(prev => [...new Set([...prev, ...currentPageIds])]);
+    } else {
+      const currentPageIds = new Set(paginatedStudents.map(student => student.studentID));
+      setSelectedStudents(prev => prev.filter(id => !currentPageIds.has(id)));
+    }
+  };
+
+  // Add toggle individual selection
+  const toggleStudentSelection = (studentId) => {
+    setSelectedStudents(prev => 
+      prev.includes(studentId)
+        ? prev.filter(id => id !== studentId)
+        : [...prev, studentId]
+    );
   };
 
   return (
@@ -236,6 +373,22 @@ export default function Page() {
       <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-2xl font-bold text-gray-900">Student Management</h1>
         <div className="flex gap-3">
+          {selectedStudents.length > 0 && (
+            <button
+              onClick={() => setShowDeleteSelectedConfirm(true)}
+              className="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+            >
+              <FaTrash className="mr-2" />
+              Delete Selected ({selectedStudents.length})
+            </button>
+          )}
+          <button
+            onClick={() => setShowDeleteAllConfirm(true)}
+            className="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+          >
+            <FaTrash className="mr-2" />
+            Delete All
+          </button>
           <button
             onClick={() => setShowUploadModal(true)}
             className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
@@ -261,7 +414,7 @@ export default function Page() {
             <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <input
               type="text"
-              placeholder="Search by name or HEMIS no..."
+              placeholder="Search by name, HEMIS no, or ID..."
               className="pl-10 pr-4 py-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#33d1ff] focus:border-transparent"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -275,10 +428,10 @@ export default function Page() {
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
             >
-              <option value="all">All Status</option>
-              <option value="Completed">Completed</option>
-              <option value="Active">Active</option>
-              <option value="Inactive">Inactive</option>
+              <option value="all">All Status ({students.length})</option>
+              <option value="Active">Active ({statusCounts['Active'] || 0})</option>
+              <option value="Inactive">Inactive ({statusCounts['Inactive'] || 0})</option>
+              <option value="Completed">Completed ({statusCounts['Completed'] || 0})</option>
             </select>
             <FaFilter className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           </div>
@@ -290,10 +443,14 @@ export default function Page() {
               value={filterFaculty}
               onChange={(e) => setFilterFaculty(e.target.value)}
             >
-              <option value="all">All Faculties</option>
-              {uniqueFaculties.map(faculty => (
-                <option key={faculty} value={faculty}>{faculty}</option>
-              ))}
+              <option value="all">All Faculties ({students.length})</option>
+              {Object.entries(facultiesWithCount)
+                .sort(([a], [b]) => a.localeCompare(b))
+                .map(([faculty, count]) => (
+                  <option key={faculty} value={faculty}>
+                    {faculty} ({count})
+                  </option>
+                ))}
             </select>
             <FaFilter className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           </div>
@@ -305,11 +462,19 @@ export default function Page() {
         <table className="w-full table-fixed divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
+              <th className="w-[4%] px-3 py-3 text-left">
+                <input
+                  type="checkbox"
+                  className="rounded border-gray-300 text-[#33d1ff] focus:ring-[#33d1ff]"
+                  checked={paginatedStudents.length > 0 && paginatedStudents.every(student => selectedStudents.includes(student.studentID))}
+                  onChange={(e) => handleSelectAllInPage(e.target.checked)}
+                />
+              </th>
               <th className="w-[8%] px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
               <th className="w-[15%] px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
               <th className="w-[10%] px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase">HEMIS No</th>
               <th className="w-[22%] px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase">Faculty</th>
-              <th className="w-[20%] px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase">Department</th>
+              <th className="w-[16%] px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase">Department</th>
               <th className="w-[10%] px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
               <th className="w-[15%] px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
             </tr>
@@ -317,7 +482,7 @@ export default function Page() {
           <tbody className="bg-white divide-y divide-gray-200">
             {loading ? (
               <tr>
-                <td colSpan="7" className="px-3 py-4 text-center">
+                <td colSpan="8" className="px-3 py-4 text-center">
                   <div className="flex justify-center items-center space-x-2">
                     <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#33d1ff]"></div>
                     <span>Loading...</span>
@@ -326,13 +491,21 @@ export default function Page() {
               </tr>
             ) : paginatedStudents.length === 0 ? (
               <tr>
-                <td colSpan="7" className="px-3 py-4 text-center text-gray-500">
+                <td colSpan="8" className="px-3 py-4 text-center text-gray-500">
                   No students found
                 </td>
               </tr>
             ) : (
               paginatedStudents.map((student) => (
                 <tr key={student.studentID} className="hover:bg-gray-50">
+                  <td className="px-3 py-4">
+                    <input
+                      type="checkbox"
+                      className="rounded border-gray-300 text-[#33d1ff] focus:ring-[#33d1ff]"
+                      checked={selectedStudents.includes(student.studentID)}
+                      onChange={() => toggleStudentSelection(student.studentID)}
+                    />
+                  </td>
                   <td className="px-3 py-4 text-sm font-medium text-gray-900 truncate">{student.studentID}</td>
                   <td className="px-3 py-4 text-sm text-gray-900 truncate">{student.studentName}</td>
                   <td className="px-3 py-4 text-sm text-gray-500 truncate">{student.hemisNo}</td>
@@ -424,17 +597,26 @@ export default function Page() {
                     <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
                   </svg>
                 </button>
-                {pageNumbers.map((number) => (
-                  <button
-                    key={number}
-                    onClick={() => setCurrentPage(number)}
-                    className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold
-                      ${currentPage === number
-                        ? 'z-10 bg-[#33d1ff] text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#33d1ff]'
-                        : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50'}`}
-                  >
-                    {number}
-                  </button>
+                {getVisiblePageNumbers().map((number, index) => (
+                  number === '...' ? (
+                    <span
+                      key={`ellipsis-${index}`}
+                      className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700"
+                    >
+                      ...
+                    </span>
+                  ) : (
+                    <button
+                      key={number}
+                      onClick={() => setCurrentPage(number)}
+                      className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold
+                        ${currentPage === number
+                          ? 'z-10 bg-[#33d1ff] text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#33d1ff]'
+                          : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50'}`}
+                    >
+                      {number}
+                    </button>
+                  )
                 ))}
                 <button
                   onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
@@ -566,6 +748,107 @@ export default function Page() {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Delete All Confirmation Modal */}
+      {showDeleteAllConfirm && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-2xl w-[400px] border border-gray-100 animate-fadeIn">
+          <div className="p-6">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl font-semibold text-gray-900">Delete All Students</h3>
+              <button
+                onClick={() => setShowDeleteAllConfirm(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors duration-200"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center transform transition-transform duration-200 hover:scale-105">
+                <svg className="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </div>
+            </div>
+            <div className="text-center mb-6">
+              <p className="text-gray-900 font-medium mb-2">Delete All Students Confirmation</p>
+              <p className="text-sm text-gray-500">
+                Are you sure you want to delete ALL students? This action cannot be undone.
+              </p>
+            </div>
+            <div className="flex justify-center space-x-3">
+              <button
+                onClick={() => setShowDeleteAllConfirm(false)}
+                className="flex-1 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors duration-200"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteAll}
+                className="flex-1 px-4 py-2.5 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200"
+              >
+                Delete All
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Selected Confirmation Modal */}
+      {showDeleteSelectedConfirm && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-2xl w-[400px] border border-gray-100 animate-fadeIn">
+          <div className="p-6">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl font-semibold text-gray-900">Delete Selected Students</h3>
+              <button
+                onClick={() => setShowDeleteSelectedConfirm(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors duration-200"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center transform transition-transform duration-200 hover:scale-105">
+                <svg className="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </div>
+            </div>
+            <div className="text-center mb-6">
+              <p className="text-gray-900 font-medium mb-2">Delete Selected Students Confirmation</p>
+              <p className="text-sm text-gray-500">
+                Are you sure you want to delete {selectedStudents.length} selected students? This action cannot be undone.
+              </p>
+            </div>
+            <div className="flex justify-center space-x-3">
+              <button
+                onClick={() => setShowDeleteSelectedConfirm(false)}
+                disabled={deleteLoading}
+                className="flex-1 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors duration-200 disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteSelected}
+                disabled={deleteLoading}
+                className="flex-1 px-4 py-2.5 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200 disabled:opacity-50 flex items-center justify-center"
+              >
+                {deleteLoading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    Deleting...
+                  </>
+                ) : (
+                  'Delete Selected'
+                )}
+              </button>
+            </div>
           </div>
         </div>
       )}

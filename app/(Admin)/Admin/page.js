@@ -25,7 +25,9 @@ export default function Page() {
           withCredentials: true,
         }
       );
-      const students = response.data;
+      
+      // Access the students array from the response
+      const students = response.data?.students || [];
       
       const activeCount = students.filter(s => s.status === 'Active').length;
       const inactiveCount = students.filter(s => s.status === 'Inactive').length;
@@ -51,10 +53,18 @@ export default function Page() {
     } catch (error) {
       console.error('Dashboard data fetch error:', error);
       toast.error("Failed to fetch dashboard data");
+      // Initialize with empty arrays if there's an error
+      setStats({
+        totalStudents: 0,
+        activeStudents: 0,
+        inactiveStudents: 0,
+        completedStudents: 0,
+      });
+      setRecentStudents([]);
     } finally {
       setLoading(false);
     }
-  }, [backendUrl]);
+  }, []);
 
   useEffect(() => {
     fetchDashboardData();
