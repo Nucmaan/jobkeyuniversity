@@ -31,7 +31,7 @@ export default function NewsPage() {
       id: 3,
       title: "Thesis Defense Day: Celebrating Academic Excellence",
       description: "Students showcase their research achievements during the Defense Day, demonstrating their expertise and contributions to their respective fields.",
-      image: "/d2.JPG",
+      image: "/d3.JPG",
       category: "Academic",
       date: "05 March 2024",
     }

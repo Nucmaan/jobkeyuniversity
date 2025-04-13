@@ -55,7 +55,7 @@ export default function NewsDetail({ params }) {
       The event also provided an opportunity for junior students to learn from their seniors and understand the expectations and standards required for successful thesis completion. The atmosphere was both challenging and supportive, encouraging scholarly discourse and academic excellence.
 
       We are proud of our students' achievements and their contributions to their respective fields of study. Their research work not only advances academic knowledge but also has practical applications that can benefit society.`,
-      image: "/d2.JPG",
+      image: "/d3.JPG",
       category: "Academic",
       date: "05 March 2024"
     }
