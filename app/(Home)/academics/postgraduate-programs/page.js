@@ -11,7 +11,7 @@ const programs = [
     title: "Master of International Relations and Diplomacy",
     description:
       "Study global politics, diplomatic practices, and international cooperation mechanisms.",
-    image: "/internationalRelation.jpg", 
+    image: "/msInternational.jpg", 
     pathLink: "/academics/postgraduate-programs/international",
     degrees: ["Master of International Relations", "Master of Diplomacy"],
     icon: "🌐"
@@ -22,7 +22,7 @@ const programs = [
     title: "Master of Business Administration (MBA)",
     description:
       "Develop advanced business leadership skills and strategic management expertise for executive roles.",
-    image: "/mba.jpg", 
+    image: "/masterMba.jpg", 
     pathLink: "/academics/postgraduate-programs/MBA",
     degrees: ["MBA in Finance", "MBA in Marketing", "MBA in International Business"],
     icon: "💼"
@@ -33,7 +33,7 @@ const programs = [
     title: "Master of Nutrition and Dietetics",
     description:
       "Become an expert in nutrition science, dietetics practice, and food service management.",
-    image: "/internationalRelation.jpg", 
+    image: "/masterNutrition.jpg", 
     pathLink: "/academics/postgraduate-programs/Nutrition",
     degrees: ["Master of Nutrition Science", "Master of Clinical Dietetics"],
     icon: "🥗"
@@ -43,7 +43,7 @@ const programs = [
     title: "Master of Public Administration",
     description:
       "Develop essential skills for public service leadership, policy implementation, and organizational management.",
-    image: "/internationalRelation.jpg", 
+    image: "/masterOfPublicAdminstration.jpeg", 
     pathLink: "/academics/postgraduate-programs/public",
     degrees: ["Master of Public Administration", "Master of Public Sector Management"],
     icon: "📋"
@@ -53,7 +53,7 @@ const programs = [
     title: "Master of Public Policy and Governance",
     description:
       "Gain specialized knowledge in public policy analysis, governance systems, and leadership in public sector.",
-    image: "/internationalRelation.jpg", 
+    image: "/masterofgovernpolicy.jpg", 
     pathLink: "/academics/postgraduate-programs/governance",
     degrees: ["Master of Public Policy", "Master of Governance and Leadership"],
     icon: "🏛️"
@@ -63,7 +63,7 @@ const programs = [
     title: "Master of Education and Teaching Program",
     description:
       "Enhance your teaching skills and educational leadership abilities for advanced roles in education.",
-    image: "/internationalRelation.jpg", 
+    image: "/masterOfEducation.jpg", 
     pathLink: "/academics/postgraduate-programs/Education",
     degrees: ["Master of Education", "Master of Teaching"],
     icon: "🎓"
@@ -73,7 +73,7 @@ const programs = [
     title: "Master of Health Services Management",
     description:
       "Learn to manage healthcare systems, lead medical facilities, and implement health policies effectively.",
-    image: "/internationalRelation.jpg", 
+    image: "/masterOfHealthyMaster.jpg", 
     pathLink: "/academics/postgraduate-programs/Health",
     degrees: ["Master of Health Administration", "Master of Health Services Leadership"],
     icon: "🏥"
@@ -85,7 +85,7 @@ const programs = [
     title: "Master of Public Health",
     description:
       "Focus on population health, epidemiology, health promotion, and disease prevention strategies.",
-    image: "/internationalRelation.jpg", 
+    image: "/masterOfPublicHealth.jpg", 
     pathLink: "/academics/postgraduate-programs/publicHealth",
     degrees: ["Master of Public Health", "Master of Epidemiology"],
     icon: "🔬"
@@ -95,7 +95,7 @@ const programs = [
     title: "Master of Social Work",
     description:
       "Prepare for advanced social work practice, community development, and social policy advocacy.",
-    image: "/internationalRelation.jpg", 
+    image: "/masterOfSocialWork.png", 
     pathLink: "/academics/postgraduate-programs/socialWork",
     degrees: ["Master of Social Work", "Master of Clinical Social Work"],
     icon: "🤝"

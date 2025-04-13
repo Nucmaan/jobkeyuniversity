@@ -18,6 +18,28 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Jobkey University",
   description: "JOBKEY University is non-profit educational Institute that has been established to serve the whole Somali society at large and function as focal point of their development process.",
+  openGraph: {
+    title: "Jobkey University",
+    description: "JOBKEY University is non-profit educational Institute that has been established to serve the whole Somali society at large and function as focal point of their development process.",
+    url: "https://jobkey.edu.so",
+    siteName: "Jobkey University",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Jobkey University Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jobkey University",
+    description: "JOBKEY University is non-profit educational Institute that has been established to serve the whole Somali society at large and function as focal point of their development process.",
+    images: ["/opengraph-image.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
