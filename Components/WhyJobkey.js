@@ -12,21 +12,6 @@ export default function WhyJobkey() {
       description: "Our degrees are internationally recognized and accredited by leading educational bodies worldwide."
     },
     {
-      icon: <FaDollarSign className="text-4xl" />,
-      title: "Affordable Excellence",
-      description: "Quality education at competitive tuition rates with flexible payment options and scholarships."
-    },
-    {
-      icon: <FaUsers className="text-4xl" />,
-      title: "Diverse Community",
-      description: "Join a vibrant community of students from over 50 countries, fostering global perspectives."
-    },
-    {
-      icon: <FaMicroscope className="text-4xl" />,
-      title: "Research Excellence",
-      description: "Access to state-of-the-art research facilities and opportunities to work with leading academics."
-    },
-    {
       icon: <FaGraduationCap className="text-4xl" />,
       title: "Career Success",
       description: "95% of our graduates secure employment or continue their studies within 6 months of graduation."
@@ -35,25 +20,15 @@ export default function WhyJobkey() {
       icon: <FaHandshake className="text-4xl" />,
       title: "Industry Partnerships",
       description: "Strong connections with leading companies for internships, placements, and collaborative projects."
-    },
-    {
-      icon: <FaBook className="text-4xl" />,
-      title: "Flexible Learning",
-      description: "Choose from full-time, part-time, and online study options to suit your schedule."
-    },
-    {
-      icon: <FaLaptop className="text-4xl" />,
-      title: "Modern Facilities",
-      description: "Cutting-edge technology and learning spaces designed for 21st-century education."
     }
   ];
 
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
+      name: "Ali Ga'al Aseyr",
       role: "Computer Science Graduate",
-      image: "/Nasri.jpeg",
+      image: "/ali.jpg",
       quote: "Jobkey University provided me with the perfect blend of theoretical knowledge and practical skills. The industry connections I made during my studies helped me land my dream job at a leading tech company."
     },
     {
@@ -111,7 +86,7 @@ export default function WhyJobkey() {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

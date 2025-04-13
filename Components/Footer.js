@@ -137,7 +137,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap gap-3 mb-6">
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com/JobkeyUniv" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300"
@@ -155,7 +155,7 @@ export default function Footer() {
                 <FaTiktok className="text-white" />
               </a>
               <a 
-                href="https://wa.me/25261234567" 
+                href="https://wa.me/252616774499" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300"

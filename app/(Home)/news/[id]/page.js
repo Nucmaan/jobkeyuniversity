@@ -10,59 +10,54 @@ export default function NewsDetail({ params }) {
   const newsItems = [
     {
       id: 1,
-      title: "Jobkey University Continues to Rise in the QS World University Rankings",
-      description: "Jobkey University has achieved a significant milestone, with Hospitality & Leisure Management being ranked in the 51-100 band globally in the QS World University Rankings by Subject 2025.",
-      fullContent: `Jobkey University has achieved a significant milestone in the QS World University Rankings by Subject 2025, with our Hospitality & Leisure Management program being ranked in the 51-100 band globally. This achievement reflects our commitment to academic excellence and our dedication to providing world-class education in the field of hospitality management.
+      title: "Jobkey University Celebrates Class of 2024 Graduation Day",
+      description: "A momentous celebration as our graduates don their blue and gold regalia, marking their academic achievements and the beginning of their professional journeys.",
+      fullContent: `Jobkey University proudly celebrated the graduation ceremony for the Class of 2024, marking a significant milestone in the academic journey of our students. The ceremony was filled with joy, pride, and anticipation as graduates received their well-earned degrees.
 
-      The QS World University Rankings by Subject is one of the most prestigious and widely recognized university rankings in the world. It evaluates universities based on academic reputation, employer reputation, research citations, and the H-index, which measures both the productivity and impact of published work.
+      The graduation ceremony featured students from various faculties, each wearing the distinctive blue and gold regalia that represents our institution's colors. The event was attended by faculty members, university officials, proud parents, and distinguished guests who came to celebrate this momentous occasion.
 
-      Our success in these rankings is a testament to the hard work of our faculty, staff, and students, as well as our strong partnerships with industry leaders in the hospitality sector. We are particularly proud of our innovative curriculum, which combines theoretical knowledge with practical experience through internships and industry projects.
+      During the ceremony, several outstanding graduates were recognized for their exceptional academic achievements and contributions to the university community. The graduates, representing diverse backgrounds and disciplines, demonstrated remarkable resilience and dedication throughout their academic journey.
 
-      This achievement also highlights our commitment to internationalization, as we continue to attract students and faculty from around the world, creating a diverse and dynamic learning environment. Our graduates are highly sought after by employers in the global hospitality industry, with many going on to successful careers in hotel management, tourism, and related fields.
+      The ceremony also included inspiring speeches from university leadership and distinguished alumni, encouraging the graduates to pursue their dreams and make meaningful contributions to society. The atmosphere was electric as graduates celebrated their achievements with their peers, mentors, and loved ones.
 
-      As we celebrate this achievement, we remain committed to further enhancing our programs and research capabilities, ensuring that Jobkey University continues to be a leader in hospitality education and research.`,
-      image: "/semi1.jpg",
-      category: "News",
-      date: "12 March 2025"
+      This graduation ceremony not only marks the end of an important chapter in our students' lives but also the beginning of their professional journeys. We are confident that our graduates will continue to uphold the values and standards of Jobkey University as they move forward in their careers.`,
+      image: "/g1.JPG",
+      category: "Events",
+      date: "15 March 2024"
     },
     {
       id: 2,
-      title: "Jobkey University's School of Education Launches the Doctor of Education",
-      description: "The School of Education is proud to announce its new Doctor of Education program, designed to prepare educational leaders for the challenges of tomorrow.",
-      fullContent: `The School of Education at Jobkey University is proud to announce the launch of our new Doctor of Education (Ed.D.) program, designed to prepare educational leaders for the challenges of tomorrow. This innovative program combines rigorous academic study with practical application, equipping graduates with the skills and knowledge needed to lead educational institutions in an increasingly complex and dynamic environment.
+      title: "Medical Laboratory Facilities at Jobkey University",
+      description: "Our newly equipped medical laboratory provides students with hands-on experience in cutting-edge research and practical medical techniques.",
+      fullContent: `Jobkey University has unveiled its state-of-the-art medical laboratory facilities, setting a new standard for medical education and research in the region. The new facilities are equipped with the latest technology and equipment, providing students with an optimal learning environment for their practical studies.
 
-      The Ed.D. program is structured around three core pillars: Leadership, Innovation, and Research. Students will engage in advanced coursework in educational leadership, policy analysis, and organizational change, while also developing expertise in research methods and data analysis. The program culminates in a capstone project that addresses a real-world challenge in education.
+      The medical laboratory features advanced research equipment, including high-powered microscopes, modern diagnostic tools, and sophisticated testing apparatus. These facilities enable students to gain hands-on experience with real-world medical procedures and research techniques.
 
-      What sets our Ed.D. program apart is its focus on practical application and its flexible delivery model. Students can choose between full-time and part-time study options, with a combination of online and in-person learning experiences. This allows working professionals to pursue their doctoral studies while maintaining their current positions.
+      Our laboratory spaces are designed to accommodate various specialized areas of study, including microbiology, biochemistry, pathology, and molecular biology. Each section is equipped with specific tools and equipment necessary for detailed study and research in these fields.
 
-      The program is led by a distinguished faculty with extensive experience in educational leadership and research. Our faculty members are committed to mentoring students and supporting their professional development throughout the program.
+      The new facilities also include dedicated spaces for student research projects, allowing them to conduct independent studies under the guidance of experienced faculty members. This hands-on approach to learning ensures that our students are well-prepared for their future careers in healthcare and medical research.
 
-      Applications for the first cohort are now open, with classes beginning in September 2025. We invite educational professionals who are passionate about making a difference in the field of education to join us in this exciting new chapter.`,
-      image: "/news.jpg",
-      category: "School of Education",
-      date: "07 March 2025"
+      The laboratory's design incorporates modern safety features and follows international standards for medical laboratory operations. Regular training sessions are conducted to ensure proper usage of equipment and adherence to safety protocols.`,
+      image: "/l2.JPG",
+      category: "Facilities",
+      date: "10 March 2024"
     },
     {
       id: 3,
-      title: "Embracing International Cooperation: Jobkey University Signs MoU with Universitas Sebelas Maret",
-      description: "A new partnership has been established to foster academic exchange and collaborative research between our institutions.",
-      fullContent: `Jobkey University is proud to announce the signing of a Memorandum of Understanding (MoU) with Universitas Sebelas Maret (UNS) in Indonesia, marking a significant step forward in our international collaboration efforts. This partnership will foster academic exchange, collaborative research, and cultural understanding between our institutions.
+      title: "Thesis Defense Day: Celebrating Academic Excellence",
+      description: "Students showcase their research achievements during the Defense Day, demonstrating their expertise and contributions to their respective fields.",
+      fullContent: `The Thesis Defense Day at Jobkey University showcased the culmination of years of dedicated research and academic pursuit by our graduating students. This event highlighted the diverse range of innovative research projects undertaken by our students across various disciplines.
 
-      The MoU was signed during a virtual ceremony attended by senior leaders from both universities. The agreement establishes a framework for cooperation in several key areas, including:
-      
-      - Student and faculty exchange programs
-      - Joint research projects
-      - Collaborative academic programs
-      - Cultural exchange initiatives
-      
-      This partnership represents an exciting opportunity for both institutions to leverage their respective strengths and create meaningful impact in the global academic community. UNS is one of Indonesia's leading universities, known for its excellence in research and education across various disciplines.
+      The defense presentations demonstrated the depth and breadth of research conducted at our university. Students presented their findings before panels of expert evaluators, including faculty members and external examiners from renowned institutions. The quality of research and the professional manner in which students defended their work reflected the high academic standards maintained at Jobkey University.
 
-      The collaboration will begin with a pilot student exchange program in the upcoming academic year, followed by joint research projects in areas of mutual interest. Both institutions are committed to creating opportunities for students and faculty to engage in cross-cultural learning and research experiences.
+      Topics presented during the defense day covered a wide range of subjects, from innovative medical research to groundbreaking technological solutions. Each presentation was followed by rigorous questioning from the panel, allowing students to demonstrate their comprehensive understanding of their research areas.
 
-      This partnership aligns with Jobkey University's strategic goal of expanding our global reach and fostering international collaboration. We look forward to a fruitful and long-lasting relationship with UNS.`,
-      image: "/news.jpg",
-      category: "News",
-      date: "04 March 2025"
+      The event also provided an opportunity for junior students to learn from their seniors and understand the expectations and standards required for successful thesis completion. The atmosphere was both challenging and supportive, encouraging scholarly discourse and academic excellence.
+
+      We are proud of our students' achievements and their contributions to their respective fields of study. Their research work not only advances academic knowledge but also has practical applications that can benefit society.`,
+      image: "/d2.JPG",
+      category: "Academic",
+      date: "05 March 2024"
     }
   ];
 

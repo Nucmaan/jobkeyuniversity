@@ -13,55 +13,31 @@ export default function NewsPage() {
   const newsItems = [
     {
       id: 1,
-      title: "Jobkey University Continues to Rise in the QS World University Rankings",
-      description: "Jobkey University has achieved a significant milestone, with Hospitality & Leisure Management being ranked in the 51-100 band globally in the QS World University Rankings by Subject 2025.",
-      image: "/semi1.jpg",
-      category: "News",
-      date: "12 March 2025",
+      title: "Jobkey University Celebrates Class of 2024 Graduation Day",
+      description: "A momentous celebration as our graduates don their blue and gold regalia, marking their academic achievements and the beginning of their professional journeys.",
+      image: "/g1.JPG",
+      category: "Events",
+      date: "15 March 2024",
     },
     {
       id: 2,
-      title: "Jobkey University's School of Education Launches the Doctor of Education",
-      description: "The School of Education is proud to announce its new Doctor of Education program, designed to prepare educational leaders for the challenges of tomorrow.",
-      image: "/news.jpg",
-      category: "School of Education",
-      date: "07 March 2025",
+      title: "Medical Laboratory Facilities at Jobkey University",
+      description: "Our newly equipped medical laboratory provides students with hands-on experience in cutting-edge research and practical medical techniques.",
+      image: "/l2.JPG",
+      category: "Facilities",
+      date: "10 March 2024",
     },
     {
       id: 3,
-      title: "Embracing International Cooperation: Jobkey University Signs MoU with Universitas Sebelas Maret",
-      description: "A new partnership has been established to foster academic exchange and collaborative research between our institutions.",
-      image: "/news.jpg",
-      category: "News",
-      date: "04 March 2025",
-    },
-    {
-      id: 4,
-      title: "Jobkey University and Jobkey Multicare Pharmacy Forge Landmark Collaboration",
-      description: "This collaboration aims to advance pharmaceutical research and provide students with hands-on industry experience.",
-      image: "/news.jpg",
-      category: "Research",
-      date: "03 March 2025",
-    },
-    {
-      id: 5,
-      title: "Empowering the Desa Mentari Community Through Entrepreneurship",
-      description: "Our community outreach program is teaching entrepreneurial skills to local residents, helping them build sustainable businesses.",
-      image: "/news.jpg",
-      category: "Community",
-      date: "03 March 2025",
-    },
-    {
-      id: 6,
-      title: "New Research Center for Sustainable Development Opens at Jobkey University",
-      description: "The center will focus on innovative solutions for environmental challenges and sustainable development goals.",
-      image: "/news.jpg",
-      category: "Research",
-      date: "01 March 2025",
+      title: "Thesis Defense Day: Celebrating Academic Excellence",
+      description: "Students showcase their research achievements during the Defense Day, demonstrating their expertise and contributions to their respective fields.",
+      image: "/d2.JPG",
+      category: "Academic",
+      date: "05 March 2024",
     }
   ];
 
-  const categories = ['all', 'News', 'School of Education', 'Research', 'Community'];
+  const categories = ['all', 'Events', 'Facilities', 'Academic'];
 
   const filteredNews = newsItems.filter(item => {
     const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||

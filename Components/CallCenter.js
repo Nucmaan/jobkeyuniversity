@@ -1,102 +1,90 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp, FaGraduationCap, FaComments } from "react-icons/fa";
+import { FaWhatsapp, FaGraduationCap, FaArrowRight } from "react-icons/fa";
 
 export default function CallCenter() {
   return (
-    <div className="w-full py-12 bg-gradient-to-b from-white to-gray-50">
+    <div className="w-full py-16 bg-[#f8fdff]">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Apply Now Card */}
-          <div className="relative h-[400px] md:h-[450px] overflow-hidden rounded-2xl shadow-xl group">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 z-10"></div>
-            <Image
-              src="/call2.jpg"
-              alt="Apply Now"
-              fill
-              className="object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700"
-              priority
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-end p-6 md:p-8 z-20 text-center">
-              <div className="bg-[#33d1ff]/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg mb-4">
-                <h2 className="text-xl md:text-2xl font-bold text-white">
+          <div className="bg-[#33d1ff] rounded-[32px] p-8 flex flex-col min-h-[420px] transform transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#33d1ff]/50 to-[#33d1ff] -z-1"></div>
+            <div className="relative z-10">
+              <div className="bg-[#7ce3ff]/30 backdrop-blur-sm rounded-2xl p-4 mb-6 inline-flex items-center gap-3">
+                <FaGraduationCap className="text-white text-xl" />
+                <h2 className="text-xl font-bold text-white">
                   Apply Now for 2025 Intake!
                 </h2>
               </div>
-              <p className="mb-6 max-w-xs text-gray-200 text-sm md:text-base">
+              <p className="text-white text-lg mb-12 leading-relaxed">
                 Start your journey with Jobkey. For Knowledge. For Humanity.
               </p>
-              <Link href="/admissions/apply">
-                <button className="bg-white text-[#33d1ff] hover:bg-[#33d1ff] hover:text-white font-bold py-3 px-8 rounded-lg uppercase transition-all duration-300 shadow-lg transform hover:scale-105">
-                  Apply Now
+            </div>
+            <div className="mt-auto">
+              <Link href="/admissions/apply" className="block">
+                <button className="w-full bg-white text-[#33d1ff] font-semibold py-4 px-6 rounded-2xl transition-all duration-300 hover:bg-opacity-90 text-lg flex items-center justify-center gap-2">
+                  APPLY NOW
+                  <FaArrowRight className="text-lg" />
                 </button>
               </Link>
             </div>
           </div>
 
           {/* Scholarships Card */}
-          <div className="relative h-[400px] md:h-[450px] overflow-hidden rounded-2xl shadow-xl group">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 z-10"></div>
-            <Image
-              src="/call1.jpg"
-              alt="Scholarships"
-              fill
-              className="object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700"
-              priority
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-end p-6 md:p-8 z-20 text-center">
-              <div className="bg-[#33d1ff]/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg mb-4">
-                <h2 className="text-xl md:text-2xl font-bold text-white flex items-center justify-center gap-2">
-                  <FaGraduationCap className="text-white" />
+          <div className="bg-[#00b8e6] rounded-[32px] p-8 flex flex-col min-h-[420px] transform transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#00b8e6]/50 to-[#00b8e6] -z-1"></div>
+            <div className="relative z-10">
+              <div className="bg-[#66d9ff]/30 backdrop-blur-sm rounded-2xl p-4 mb-6 inline-flex items-center gap-3">
+                <FaGraduationCap className="text-white text-xl" />
+                <h2 className="text-xl font-bold text-white">
                   Scholarships Available
                 </h2>
               </div>
-              <p className="mb-6 max-w-xs text-gray-200 text-sm md:text-base">
+              <p className="text-white text-lg mb-12 leading-relaxed">
                 We offer scholarships for diploma and bachelor programs. Available for selected courses.
               </p>
-              <Link href="/admissions/scholarships">
-                <button className="bg-white text-[#33d1ff] hover:bg-[#33d1ff] hover:text-white font-bold py-3 px-8 rounded-lg uppercase transition-all duration-300 shadow-lg transform hover:scale-105">
-                  Find Out More
+            </div>
+            <div className="mt-auto">
+              <Link href="/admissions/scholarships" className="block">
+                <button className="w-full bg-white text-[#00b8e6] font-semibold py-4 px-6 rounded-2xl transition-all duration-300 hover:bg-opacity-90 text-lg flex items-center justify-center gap-2">
+                  FIND OUT MORE
+                  <FaArrowRight className="text-lg" />
                 </button>
               </Link>
             </div>
           </div>
 
           {/* Chat With Us Card */}
-          <div className="relative h-[400px] md:h-[450px] overflow-hidden rounded-2xl shadow-xl group">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 z-10"></div>
-            <Image
-              src="/call2.jpg"
-              alt="Chat With Us"
-              fill
-              className="object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700"
-              priority
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-end p-6 md:p-8 z-20 text-center">
-              <div className="bg-[#33d1ff]/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg mb-4">
-                <h2 className="text-xl md:text-2xl font-bold text-white flex items-center justify-center gap-2">
-                  <FaComments className="text-white" />
+          <div className="bg-[#009fd6] rounded-[32px] p-8 flex flex-col min-h-[420px] transform transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#009fd6]/50 to-[#009fd6] -z-1"></div>
+            <div className="relative z-10">
+              <div className="bg-[#4dc4ff]/30 backdrop-blur-sm rounded-2xl p-4 mb-6">
+                <h2 className="text-xl font-bold text-white text-center">
                   Chat With Us
                 </h2>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg mb-6 w-full max-w-xs">
-                <p className="text-gray-200 text-sm mb-2">We are online 9 AM - 4 PM</p>
-                <p className="text-white font-semibold text-base md:text-lg mb-1 flex items-center justify-center gap-2">
-                  <FaWhatsapp className="text-green-400" />
-                  +2516500191 (Somali)
+              <div className="bg-[#4dc4ff]/30 backdrop-blur-sm rounded-2xl p-6 mb-12">
+                <p className="text-white text-lg mb-4 text-center">
+                  We are online 9 AM - 4 PM
                 </p>
-                <p className="text-white font-semibold text-base md:text-lg flex items-center justify-center gap-2">
-                  <FaWhatsapp className="text-green-400" />
-                  +2516500191 (International)
-                </p>
+                <div className="space-y-3">
+                  <p className="text-white text-lg text-center">
+                    +252616774499 (Somali)
+                  </p>
+                  <p className="text-white text-lg text-center">
+                    +252616774499 (International)
+                  </p>
+                </div>
               </div>
-              <Link href="https://wa.me/2516500191">
-                <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg uppercase transition-all duration-300 shadow-lg transform hover:scale-105 flex items-center gap-2">
+            </div>
+            <div className="mt-auto">
+              <Link href="https://wa.me/252616774499" className="block">
+                <button className="w-full bg-white text-[#009fd6] font-semibold py-4 px-6 rounded-2xl transition-all duration-300 hover:bg-opacity-90 text-lg flex items-center justify-center gap-2">
                   <FaWhatsapp className="text-xl" />
-                  WhatsApp
+                  WHATSAPP
                 </button>
               </Link>
             </div>

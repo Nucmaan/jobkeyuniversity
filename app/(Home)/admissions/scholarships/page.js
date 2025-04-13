@@ -76,21 +76,21 @@ export default function Page() {
                 <div className="w-16 h-16 bg-[#33d1ff]/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaAward className="text-[#33d1ff] text-xl" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">$25M+</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">20%</h3>
                 <p className="text-gray-600">Annual scholarship funds awarded</p>
               </div>
               <div className="bg-gray-50 p-6 rounded-lg text-center">
                 <div className="w-16 h-16 bg-[#33d1ff]/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaUsers className="text-[#33d1ff] text-xl" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">70%</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">60%</h3>
                 <p className="text-gray-600">Students receive some form of aid</p>
               </div>
               <div className="bg-gray-50 p-6 rounded-lg text-center">
                 <div className="w-16 h-16 bg-[#33d1ff]/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaGlobe className="text-[#33d1ff] text-xl" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">30+</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">20%</h3>
                 <p className="text-gray-600">Dedicated scholarship programs</p>
               </div>
             </div>
@@ -277,7 +277,7 @@ export default function Page() {
                     <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
                       <FaEnvelope className="text-white" />
                     </div>
-                    <span>scholarships@jobkeyuniversity.edu</span>
+                    <span>info@jobkey.edu.so</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">

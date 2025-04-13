@@ -1,39 +1,36 @@
 "use client"
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaGraduationCap, FaCertificate, FaBook } from "react-icons/fa";
 
 export default function OurPrograms() {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
   const programs = [
     {
       title: "Diploma Programs",
       description:
         "Our diploma programs provide foundational knowledge and practical skills in various fields to prepare students for career advancement.",
-      icon: <FaCertificate className="h-12 w-12 text-white" />,
-      bgImage: "/under.jpg", 
+      icon: <FaCertificate className="h-8 w-8 text-white" />,
       count: "15+ Programs",
-      link: "/academics/diploma-programs"
+      link: "/academics/diploma-programs",
+      bgColor: "bg-[#33d1ff]"
     },
     {
       title: "Undergraduate Programs",
       description:
         "Explore our diverse undergraduate programs designed to equip students with in-depth knowledge and critical thinking skills.",
-      icon: <FaGraduationCap className="h-12 w-12 text-white" />,
-      bgImage: "/postGratuate.jpg",
+      icon: <FaGraduationCap className="h-8 w-8 text-white" />,
       count: "30+ Programs",
-      link: "/academics/undergraduate-programs"
+      link: "/academics/undergraduate-programs",
+      bgColor: "bg-[#00b8e6]"
     },
     {
       title: "Postgraduate Programs",
       description:
         "Advance your career with our postgraduate programs, offering specialized education and research opportunities.",
-      icon: <FaBook className="h-12 w-12 text-white" />,
-      bgImage: "/postGratuate.jpg",
+      icon: <FaBook className="h-8 w-8 text-white" />,
       count: "25+ Programs",
-      link: "/academics/postgraduate-programs"
+      link: "/academics/postgraduate-programs",
+      bgColor: "bg-[#009fd6]"
     },
   ];
 
@@ -53,50 +50,33 @@ export default function OurPrograms() {
           {programs.map((program, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl shadow-xl"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              className={`${program.bgColor} rounded-[32px] p-8 flex flex-col min-h-[480px] transform transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg`}
             >
-              <div className="absolute inset-0">
-                <Image
-                  src={program.bgImage}
-                  alt={program.title}
-                  fill
-                  className="object-cover transform group-hover:scale-110 transition-transform duration-700"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80"></div>
+              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 mb-6 inline-flex items-center gap-3 w-fit">
+                {program.icon}
               </div>
-
-              <div className="relative z-10 p-8 h-[400px] flex flex-col justify-between">
-                <div>
-                  <div className="w-16 h-16 bg-[#33d1ff] rounded-xl flex items-center justify-center mb-6 transform group-hover:rotate-12 transition-transform duration-500">
-                    {program.icon}
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {program.title}
-                  </h3>
-                  
-                  <div className="text-white/80 font-medium mb-4">
-                    {program.count}
-                  </div>
-                  
-                  <p className="text-white/90 text-lg leading-relaxed">
-                    {program.description}
-                  </p>
-                </div>
-
-                <Link 
-                  href={program.link}
-                  className="inline-flex items-center text-white font-semibold text-lg group-hover:text-[#33d1ff] transition-colors duration-300"
-                >
-                  <span>Explore Programs</span>
-                  <FaArrowRight className={`ml-3 transition-transform duration-300 ${
-                    hoveredIndex === index ? 'translate-x-2' : ''
-                  }`} />
-                </Link>
+              
+              <h3 className="text-2xl font-bold text-white mb-3">
+                {program.title}
+              </h3>
+              
+              <div className="text-white text-lg mb-4">
+                {program.count}
               </div>
+              
+              <p className="text-white text-lg leading-relaxed mb-8 flex-grow">
+                {program.description}
+              </p>
+
+              <Link 
+                href={program.link}
+                className="block w-full"
+              >
+                <button className="w-full bg-white text-[#33d1ff] font-semibold py-4 px-6 rounded-2xl transition-all duration-300 hover:bg-opacity-90 text-lg flex items-center justify-center gap-2">
+                  Explore Programs
+                  <FaArrowRight className="text-lg" />
+                </button>
+              </Link>
             </div>
           ))}
         </div>
@@ -104,7 +84,7 @@ export default function OurPrograms() {
         <div className="mt-20 text-center">
           <Link
             href="/academics"
-            className="inline-flex items-center px-10 py-5 bg-[#33d1ff] text-white rounded-full hover:bg-[#33d1ff]/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg font-semibold"
+            className="inline-flex items-center px-10 py-5 bg-[#33d1ff] text-white rounded-full hover:bg-opacity-90 transition-all duration-300 shadow-lg text-lg font-semibold"
           >
             <span>View All Academic Programs</span>
             <FaArrowRight className="ml-4 text-xl" />
