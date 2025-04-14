@@ -58,8 +58,7 @@ export default function Page() {
   return (
     <div className="py-8 px-4 mt-26">
       <div className="container mx-auto max-w-7xl">
-        {/* Hero Section */}
-        <div className="relative rounded-xl overflow-hidden mb-12 h-[400px]">
+         <div className="relative rounded-xl overflow-hidden mb-12 h-[400px]">
           <div className="absolute inset-0 bg-gradient-to-r from-[#33d1ff]/90 to-blue-900/80 z-10"></div>
           <div className="absolute inset-0 flex items-center z-20 px-8 md:px-16">
             <div className="max-w-2xl text-white">
@@ -78,65 +77,8 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Research Areas */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#33d1ff] mb-4">
-              Our Research Areas
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Jobkey University conducts research across various disciplines, focusing on addressing real-world challenges and contributing to the advancement of knowledge and society.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {researchAreas.map((area, index) => (
-              <div
-                key={index}
-                className="group relative bg-white rounded-xl border-2 border-[#33d1ff] shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <div className="absolute inset-0 bg-gradient-to-b from-[#33d1ff]/80 to-[#33d1ff]/80 opacity-0 group-hover:opacity-90 transition-opacity duration-300 z-0"></div>
-                
-                <div className="relative z-10 p-6 h-full flex flex-col">
-                  <div className="mb-4">
-                    {area.icon}
-                  </div>
-                  
-                  <h3 className="text-xl font-semibold text-[#33d1ff] group-hover:text-white transition-colors duration-300">
-                    {area.title}
-                  </h3>
-                  
-                  <div className="text-xs font-semibold text-[#33d1ff] mt-1 mb-3 group-hover:text-white/80 transition-colors duration-300">
-                    {area.count}
-                  </div>
-                  
-                  <p className="mt-2 text-sm text-gray-600 flex-grow group-hover:text-white/90 transition-colors duration-300">
-                    {area.description}
-                  </p>
-                  
-                  <Link 
-                    href={area.link}
-                    className={`mt-4 inline-flex items-center font-medium ${
-                      hoveredIndex === index 
-                        ? 'text-white' 
-                        : 'text-[#33d1ff]'
-                    } transition-colors duration-300 group-hover:text-white`}
-                  >
-                    <span>Learn More</span>
-                    <FaArrowRight className={`ml-2 transition-transform duration-300 ${
-                      hoveredIndex === index ? 'translate-x-1' : ''
-                    }`} />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Featured Research */}
-        <div className="mb-16">
+      
+         <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#33d1ff] mb-4">
               Featured Research
@@ -172,28 +114,8 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Research Partners Section */}
-        <div className="bg-gray-50 rounded-xl p-8 mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#33d1ff] mb-4">
-              Our Research Partners
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We collaborate with leading institutions and organizations to expand the scope and impact of our research initiatives.
-            </p>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-8 items-center">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="w-40 h-20 bg-white rounded-lg shadow flex items-center justify-center">
-                <div className="text-gray-400 font-medium">Partner Logo</div>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* CTA Section */}
-        <div className="text-center bg-gradient-to-r from-[#33d1ff] to-blue-600 rounded-xl p-8 text-white">
+         <div className="text-center bg-gradient-to-r from-[#33d1ff] to-blue-600 rounded-xl p-8 text-white">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">Interested in Research Opportunities?</h2>
           <p className="max-w-2xl mx-auto mb-6">
             Join our research community as a student, faculty member, or partner organization. Explore opportunities to collaborate on cutting-edge research initiatives.

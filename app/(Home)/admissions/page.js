@@ -117,24 +117,52 @@ export default function page() {
           Meet Our Admission Team
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((index) => (
+          {[
+            {
+              name: "Dr. Ahmed Hassan",
+              role: "Senior Admission Officer",
+              description: "Leads the admission process and student evaluations with over 10 years of experience.",
+              gradient: "from-[#33d1ff] to-[#2b9fd1]"
+            },
+            {
+              name: "Ms. Amina Omar",
+              role: "International Admissions Specialist",
+              description: "Specializes in international student admissions and cultural integration.",
+              gradient: "from-[#33d1ff] to-[#3b82f6]"
+            },
+            {
+              name: "Mr. Mohamed Ali",
+              role: "Financial Aid Advisor",
+              description: "Expert in scholarship programs and financial assistance guidance.",
+              gradient: "from-[#33d1ff] to-[#06b6d4]"
+            }
+          ].map((member, index) => (
             <div key={index} className="group">
-              <div className="relative overflow-hidden rounded-xl">
-                <Image
-                  src="/Nasri.jpeg"
-                  alt={`Admission Officer ${index}`}
-                  width={400}
-                  height={400}
-                  className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-2xl font-bold mb-2">Nasri</h3>
-                    <p className="text-white/90">
-                      {index === 1 ? "Senior Admission Officer" : 
-                       index === 2 ? "International Admissions Specialist" : 
-                       "Financial Aid Advisor"}
-                    </p>
+              <div className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${member.gradient} p-6 h-full transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl`}>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full transform translate-x-16 -translate-y-16"></div>
+                
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 flex items-center justify-center">
+                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
+                  <p className="text-white/90 font-medium mb-3">{member.role}</p>
+                  <p className="text-white/80 text-sm">{member.description}</p>
+                  
+                  <div className="mt-6 flex space-x-3">
+                    <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-2 rounded-full transition-all duration-300">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </button>
+                    <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-2 rounded-full transition-all duration-300">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </div>
