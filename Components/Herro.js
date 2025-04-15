@@ -11,7 +11,7 @@ export default function Hero() {
     { id: 1, imageSrc: "/jobkeyuml20.jpg" },
     { id: 2, imageSrc: "/job77.jpg" },
     { id: 3, imageSrc: "/job55.jpg" },
-    { id: 4, imageSrc: "/job88.jpg" },
+    { id: 4, imageSrc: "/jobkey190.jpg" },
     { id: 5, imageSrc: "/job66.jpg" },  
   ];
 
