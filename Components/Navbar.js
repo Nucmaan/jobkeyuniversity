@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react';
-import { FaEnvelope, FaMapMarkerAlt, FaChevronDown, FaChevronRight, FaTimes } from 'react-icons/fa';
+import { FaEnvelope,FaUserGraduate, FaSignInAlt, FaCheckCircle, FaMapMarkerAlt, FaChevronDown, FaChevronRight, FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -106,25 +106,38 @@ export default function Navbar() {
     <div className="fixed w-full z-50 top-0">
       {/* Top Bar */}
       <div 
-        className={`w-full bg-[#33d1ff] text-white px-4 md:px-6 py-2 transition-all duration-300 ${
+        className={`w-full bg-gradient-to-r from-[#1cadda] to-[#33d1ff] text-white px-4 md:px-6 py-2 transition-all duration-500 ease-in-out ${
           scrolling ? 'transform -translate-y-full' : 'transform translate-y-0'
         }`}
       >
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-          <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-1 sm:space-y-0 mb-2 sm:mb-0 items-center">
-            <div className="flex items-center space-x-1">
-              <FaEnvelope className="text-xs sm:text-sm" />
+          <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-1 sm:space-y-0 mb-2 sm:mb-0 items-center">
+            <a href="mailto:info@jobkey.edu.so" className="flex items-center space-x-2 hover:text-white/80 transition group">
+              <div className="bg-white/20 p-1.5 rounded-full group-hover:bg-white/30 transition">
+                <FaEnvelope className="text-xs" />
+              </div>
               <span className="text-xs sm:text-sm">info@jobkey.edu.so</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <FaMapMarkerAlt className="text-xs sm:text-sm" />
+            </a>
+            <div className="flex items-center space-x-2">
+              <div className="bg-white/20 p-1.5 rounded-full">
+                <FaMapMarkerAlt className="text-xs" />
+              </div>
               <span className="text-xs sm:text-sm">Mogadishu, Somalia</span>
             </div>
           </div>
-          <div className="flex space-x-3 sm:space-x-6 text-xs sm:text-sm">
-          <Link href="/hemis" className="font-semibold hover:text-white/80 transition">Hemis</Link>
-            <Link href="/login" className="font-semibold hover:text-white/80 transition">Student Portal</Link>
-            <Link href="/verify" className="font-semibold hover:text-white/80 transition">Verify Certificate</Link>
+          <div className="flex space-x-5 sm:space-x-6 text-xs sm:text-sm">
+            <Link href="/hemis" className="font-medium hover:text-white/80 transition flex items-center gap-1.5">
+              <FaUserGraduate className="text-white/90" />
+              <span>Hemis</span>
+            </Link>
+            <Link href="/login" className="font-medium hover:text-white/80 transition flex items-center gap-1.5">
+              <FaSignInAlt className="text-white/90" />
+              <span>Student Portal</span>
+            </Link>
+            <Link href="/verify" className="font-medium hover:text-white/80 transition flex items-center gap-1.5">
+              <FaCheckCircle className="text-white/90" />
+              <span>Verify Certificate</span>
+            </Link>
           </div>
         </div>
       </div>
