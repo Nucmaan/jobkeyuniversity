@@ -12,6 +12,14 @@ const programs = [
     pathLink : "/academics/undergraduate-programs/agriculture"
   },
   {
+    id: 2,
+    title: "Faculty of Economic and Management Science",
+    description:
+      "Gain expertise in finance, business management, and economic policies.",
+    image: "/economics.jpg",
+    pathLink : "/academics/undergraduate-programs/economics"
+  },
+  {
     id: 3,
     title: "Faculty of Medicine and Health Science",
     description:
@@ -33,16 +41,17 @@ const programs = [
     description:
       "Study the principles of Islamic law and legal systems to build a just society.",
     image: "/law.jpg",
-    pathLink : "/academics/undergraduate-programs/law"
-  },
-  {
-    id: 2,
-    title: "Faculty of Economic and Management Science",
-    description:
-      "Gain expertise in finance, business management, and economic policies.",
-    image: "/economics.jpg",
-    pathLink : "/academics/undergraduate-programs/economics"
-  }
+      pathLink : "/academics/undergraduate-programs/law"
+    },
+    {
+      id: 6,
+      title: "Faculty of Education",
+      description:
+        "Prepare to be a teacher and educator in the future.",
+      image: "/Education.png",
+      pathLink : "/academics/undergraduate-programs/education"
+    }
+ 
 ];
 
 export default function Page() {

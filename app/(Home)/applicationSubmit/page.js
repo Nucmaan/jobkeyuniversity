@@ -49,7 +49,7 @@ export default function Page() {
       
       STUDENT DETAILS:
       Name: ${formData.name}
-      Mother's name: ${formData.mothersName}
+      Mother&apos;s name: ${formData.mothersName}
       Date of birth: ${formData.dateOfBirth}
       Place of birth: ${formData.placeOfBirth}
       Marital Status: ${formData.maritalStatus}
@@ -161,7 +161,7 @@ export default function Page() {
                 </div>
                 
                 <div>
-                  <label className="block text-gray-700 mb-2 font-medium">2. Mother's name</label>
+                  <label className="block text-gray-700 mb-2 font-medium">2. Mother&apos;s name</label>
                   <input
                     type="text"
                     name="mothersName"

@@ -145,15 +145,21 @@ export default function AddStudent() {
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <MdOutlineSchool className="h-5 w-5 text-[#33d1ff]" />
                 </div>
-                <input
-                  type="text"
+                <select
                   id="faculty"
                   value={faculty}
                   onChange={(e) => setFaculty(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#33d1ff] focus:border-[#33d1ff] text-gray-900"
-                  placeholder="Enter faculty"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#33d1ff] focus:border-[#33d1ff] text-gray-900 bg-white"
                   required
-                />
+                >
+                  <option value="">Select faculty</option>
+                  <option value="Computer Science And Engineering">Computer Science And Engineering</option>
+                  <option value="Health Science">Health Science</option>
+                  <option value="Economic And Managament Science">Economic And Managament Science</option>
+                  <option value="Education">Education</option>
+                  <option value="Sharia And Low">Sharia And Low</option>
+                  <option value="Agriculture And veterinary">Agriculture And veterinary</option>
+                </select>
               </div>
             </div>
 
