@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Jobkey University",
   description: "JOBKEY University is non-profit educational Institute that has been established to serve the whole Somali society at large and function as focal point of their development process.",
+  metadataBase: new URL('https://jobkey.edu.so'),
   openGraph: {
     title: "Jobkey University",
     description: "JOBKEY University is non-profit educational Institute that has been established to serve the whole Somali society at large and function as focal point of their development process.",

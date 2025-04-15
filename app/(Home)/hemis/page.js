@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
-import { FiSearch, FiUser, FiBook, FiHome, FiHash, FiCheckCircle, FiCalendar } from "react-icons/fi";
+import { FiSearch, FiUser, FiBook, FiHome, FiHash, FiCheckCircle } from "react-icons/fi";
 
 export default function Page() {
   const [hemisId, setHemisId] = useState("");
@@ -27,7 +26,7 @@ export default function Page() {
 
       if (response.status === 200) {
         setStudentInfo(response.data);
-        toast.success("Student information verified successfully!");
+        //toast.success("Student information verified successfully!");
       }
     } catch (error) {
       setStudentInfo(null);
@@ -44,168 +43,205 @@ export default function Page() {
       }
       
       setErrorMessage(message);
-      toast.error(message);
+      //toast.error(message);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen mt-10 bg-gradient-to-b from-[#f0f9ff] to-white pt-24 pb-16">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hero Section */}
-        <motion.div
+    <div className="min-h-screen mt-[40px] bg-[#f8fafc] relative overflow-hidden pt-28 pb-20">
+       <div className="absolute inset-0 z-0">
+        <div className="absolute -top-48 -left-48 w-96 h-96 bg-[#33d1ff] rounded-full blur-[150px] opacity-10"></div>
+        <div className="absolute -bottom-48 -right-48 w-96 h-96 bg-[#d633ff] rounded-full blur-[150px] opacity-10"></div>
+        <div className="absolute top-1/3 left-1/3 w-72 h-72 bg-[#00bcd4] rounded-full blur-[150px] opacity-10"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center relative mb-12"
+          className="text-center mb-16"
         >
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute inset-0 bg-[#33d1ff] rounded-full blur-[100px] opacity-5"></div>
-            <div className="absolute top-10 left-1/4 w-72 h-72 bg-[#33d1ff] rounded-full blur-[100px] opacity-5"></div>
-            <div className="absolute top-10 right-1/4 w-72 h-72 bg-[#0088b3] rounded-full blur-[100px] opacity-5"></div>
+          <div className="inline-flex items-center justify-center mb-4 py-1.5 px-3 rounded-full bg-gradient-to-r from-[#33d1ff]/10 via-[#8c7cff]/10 to-[#d633ff]/10 border border-[#33d1ff]/20 text-[#1e293b] text-sm">
+            <span className="mr-2 inline-block w-2 h-2 rounded-full bg-[#33d1ff] animate-pulse"></span>
+            Secure Verification System
           </div>
           
-          <div className="inline-block p-3 bg-white rounded-3xl shadow-xl mb-8">
-            <Image
-              src="/logo.png"
-              alt="University Logo"
-              width={80}
-              height={80}
-              priority
-              className="rounded-2xl"
-            />
-          </div>
-          
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-[#33d1ff] to-[#0088b3] text-transparent bg-clip-text mb-4">
-            Student Verification Portal
+          <h1 className="text-6xl font-black text-[#1e293b] mb-4 tracking-tight">
+            Student <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#33d1ff] via-[#8c7cff] to-[#d633ff]">Verification</span> Portal
           </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Verify student credentials and access academic information using the HEMIS ID
+          
+          <p className="text-[#64748b] text-xl max-w-3xl mx-auto leading-relaxed">
+            Fast and secure access to student academic records with state-of-the-art verification technology
           </p>
         </motion.div>
 
-        {/* Search Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl mx-auto"
-        >
-          <div className="bg-white rounded-3xl shadow-xl p-8 mb-8">
-            <form onSubmit={handleVerify} className="space-y-6">
-              <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <FiHash className="h-6 w-6 text-[#33d1ff] group-hover:text-[#0088b3] transition-colors duration-300" />
-                </div>
-                <input
-                  type="text"
-                  id="hemisId"
-                  className="block w-full pl-12 pr-4 py-4 text-lg bg-gray-50 border-2 border-gray-100 rounded-2xl focus:outline-none focus:border-[#33d1ff] focus:ring-2 focus:ring-[#33d1ff]/20 transition-all duration-300"
-                  placeholder="Enter HEMIS ID number"
-                  value={hemisId}
-                  onChange={(e) => setHemisId(e.target.value)}
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-gradient-to-r from-[#33d1ff] to-[#0088b3] text-white text-lg font-semibold py-4 px-8 rounded-2xl hover:shadow-lg hover:shadow-[#33d1ff]/20 focus:outline-none focus:ring-2 focus:ring-[#33d1ff] focus:ring-offset-2 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
-              >
-                {loading ? (
-                  <div className="flex items-center justify-center gap-3">
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    <span>Verifying...</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center gap-2">
-                    <FiSearch className="text-xl" />
-                    <span>Verify Student</span>
-                  </div>
-                )}
-              </button>
-            </form>
-          </div>
-
-          {errorMessage && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="bg-red-50 border border-red-100 rounded-2xl p-6 mb-8"
-            >
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-red-100 rounded-xl">
-                  <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <p className="text-red-700">{errorMessage}</p>
-              </div>
-            </motion.div>
-          )}
-        </motion.div>
-
-        {/* Student Information */}
-        {studentInfo && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-3xl shadow-xl overflow-hidden"
+         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+           <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-1"
           >
-            <div className="bg-gradient-to-r from-[#33d1ff] to-[#0088b3] p-8">
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-white/10 backdrop-blur-sm rounded-2xl">
-                  <FiUser className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold text-white">{studentInfo.studentName}</h2>
-                  <p className="text-white/80">Student Information</p>
-                </div>
-              </div>
-            </div>
+            <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-[#33d1ff]/20 overflow-hidden shadow-[0_4px_24px_rgba(51,209,255,0.12)]">
+              <div className="p-8">
+                <h2 className="text-2xl font-bold text-[#1e293b] mb-6">Verify Student</h2>
+                <form onSubmit={handleVerify} className="space-y-6">
+                  <div className="relative group">
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#33d1ff] via-[#8c7cff] to-[#d633ff] opacity-30 blur-lg group-hover:opacity-40 transition-all duration-500"></div>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <FiHash className="h-5 w-5 text-[#64748b] group-hover:text-[#33d1ff] transition-colors duration-300" />
+                      </div>
+                      <input
+                        type="text"
+                        id="hemisId"
+                        className="block w-full pl-12 pr-4 py-3.5 text-[#1e293b] bg-white border border-[#e2e8f0] backdrop-blur-xl rounded-xl focus:outline-none focus:ring-2 focus:ring-[#33d1ff]/50 focus:border-[#33d1ff] transition-all duration-300"
+                        placeholder="Enter HEMIS ID number"
+                        value={hemisId}
+                        onChange={(e) => setHemisId(e.target.value)}
+                        required
+                      />
+                    </div>
+                  </div>
 
-            <div className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <InfoCard icon={FiHash} label="Student ID" value={studentInfo.studentID} />
-                <InfoCard icon={FiBook} label="Faculty" value={studentInfo.faculty} />
-                <InfoCard icon={FiHome} label="Department" value={studentInfo.department} />
-                <InfoCard icon={FiHash} label="HEMIS Number" value={studentInfo.hemisNo} />
-                <InfoCard icon={FiCheckCircle} 
-                  label="Status" 
-                  value={studentInfo.status}
-                  customValue={
-                    <span className={`inline-flex items-center px-4 py-2 rounded-xl text-sm font-medium
-                      ${studentInfo.status === 'Active' ? 'bg-green-100 text-green-800' : 
-                        studentInfo.status === 'Inactive' ? 'bg-red-100 text-red-800' : 
-                        studentInfo.status === 'Completed' ? 'bg-[#e6f7ff] text-[#33d1ff]' : 
-                        'bg-gray-100 text-gray-800'}`}>
-                      {studentInfo.status}
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="relative w-full overflow-hidden py-3.5 px-8 rounded-xl font-semibold text-white group"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#33d1ff] via-[#8c7cff] to-[#d633ff] group-hover:opacity-90 transition-opacity duration-300"></div>
+                    <span className="relative flex items-center justify-center">
+                      {loading ? (
+                        <div className="flex items-center justify-center gap-3">
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          <span>Verifying...</span>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-center gap-2">
+                          <FiSearch className="text-lg" />
+                          <span>Verify Student</span>
+                        </div>
+                      )}
                     </span>
-                  }
-                />
+                  </button>
+                </form>
               </div>
+
+              {errorMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="px-8 pb-8"
+                >
+                  <div className="bg-red-50 backdrop-blur-sm border border-red-200 rounded-xl p-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-1.5 bg-red-100 rounded-lg">
+                        <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <p className="text-red-600 text-sm">{errorMessage}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </motion.div>
-        )}
+
+           <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: studentInfo ? 1 : 0, x: studentInfo ? 0 : 20 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-2"
+          >
+            {studentInfo && (
+              <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-[#33d1ff]/20 overflow-hidden shadow-[0_4px_24px_rgba(51,209,255,0.12)]">
+                <div className="relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#33d1ff] via-[#8c7cff] to-[#d633ff] opacity-90"></div>
+                  <div className="p-8 relative">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-white/20 backdrop-blur-md rounded-2xl">
+                        <FiUser className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <h2 className="text-2xl font-bold text-white">{studentInfo.studentName}</h2>
+                        <p className="text-white/70">Student Information</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <InfoCard icon={FiHash} label="Student ID" value={studentInfo.studentID} />
+                    <InfoCard icon={FiBook} label="Faculty" value={studentInfo.faculty} />
+                    <InfoCard icon={FiHome} label="Department" value={studentInfo.department} />
+                    <InfoCard icon={FiHash} label="HEMIS Number" value={studentInfo.hemisNo} />
+                    <InfoCard 
+                      icon={FiCheckCircle} 
+                      label="Status" 
+                      value={studentInfo.status}
+                      customValue={
+                        <StatusBadge status={studentInfo.status} />
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </div>
       </div>
     </div>
   );
 }
 
 const InfoCard = ({ icon: Icon, label, value, customValue }) => (
-  <div className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-all duration-300">
+  <div className="bg-[#f8fafc] rounded-xl border border-[#e2e8f0] p-5 hover:bg-white hover:border-[#33d1ff]/20 hover:shadow-md transition-all duration-300">
     <div className="flex items-start gap-4">
-      <div className="p-3 bg-white rounded-xl shadow-sm">
+      <div className="p-2.5 bg-gradient-to-r from-[#33d1ff]/10 via-[#8c7cff]/10 to-[#d633ff]/10 rounded-lg border border-[#33d1ff]/20">
         <Icon className="w-5 h-5 text-[#33d1ff]" />
       </div>
       <div>
-        <p className="text-sm font-medium text-gray-500 mb-1">{label}</p>
-        {customValue || <p className="text-gray-900 font-semibold text-lg">{value}</p>}
+        <p className="text-xs font-medium text-[#64748b] uppercase tracking-wider mb-1">{label}</p>
+        {customValue || <p className="text-[#1e293b] font-medium text-lg">{value}</p>}
       </div>
     </div>
   </div>
 );
+
+const StatusBadge = ({ status }) => {
+  let bgColor, textColor, borderColor;
+  
+  switch(status) {
+    case 'Active':
+      bgColor = 'bg-[#33d1ff]/10';
+      textColor = 'text-[#33d1ff]';
+      borderColor = 'border-[#33d1ff]/30';
+      break;
+    case 'Inactive':
+      bgColor = 'bg-red-100';
+      textColor = 'text-red-600';
+      borderColor = 'border-red-200';
+      break;
+    case 'Completed':
+      bgColor = 'bg-[#d633ff]/10';
+      textColor = 'text-[#d633ff]';
+      borderColor = 'border-[#d633ff]/30';
+      break;
+    default:
+      bgColor = 'bg-gray-100';
+      textColor = 'text-gray-600';
+      borderColor = 'border-gray-200';
+  }
+  
+  return (
+    <span className={`inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium ${bgColor} ${textColor} ${borderColor} border`}>
+      {status}
+    </span>
+  );
+};

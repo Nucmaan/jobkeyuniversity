@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function OurPartners() {
   const partners = [
     { id: 1, logo: "/1p.png", alt: "Partner 1", name: "Somali Syrian Specialist Hospital" },
-    { id: 2, logo: "/2p.png", alt: "Partner 2", name: "Horn Star" },
+    { id: 2, logo: "/2p.png", alt: "Partner 2", name: "HornStar" },
     { id: 3, logo: "/3p.png", alt: "Partner 3", name: "Insania Foundation" },
     { id: 4, logo: "/4p.png", alt: "Partner 4", name: "Adult commercial secondary school" },
   ];
