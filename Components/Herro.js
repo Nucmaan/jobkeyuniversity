@@ -8,10 +8,11 @@ import "swiper/css/navigation";
 
 export default function Hero() {
   const slides = [
-    { id: 1, imageSrc: "/job77.jpg" },
-    { id: 2, imageSrc: "/job55.jpg" },
-    { id: 3, imageSrc: "/job88.jpg" },
-    { id: 4, imageSrc: "/job66.jpg" },  
+    { id: 1, imageSrc: "/jobkeyuml20.jpg" },
+    { id: 2, imageSrc: "/job77.jpg" },
+    { id: 3, imageSrc: "/job55.jpg" },
+    { id: 4, imageSrc: "/job88.jpg" },
+    { id: 5, imageSrc: "/job66.jpg" },  
   ];
 
   return (
