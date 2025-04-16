@@ -320,13 +320,13 @@ export default function StudentsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-white p-4 rounded-lg">
                   <p className="font-medium">Contact Student Services</p>
-                  <p className="text-gray-600">Email: studentservices@jobkeyuniversity.edu</p>
-                  <p className="text-gray-600">Phone: (123) 456-7890</p>
+                  <p className="text-gray-600">Email: info@jobkey.edu.so</p>
+                  <p className="text-gray-600">Phone: 00251616774499</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg">
                   <p className="font-medium">Visit Student Center</p>
                   <p className="text-gray-600">Location: Student Center, Building A</p>
-                  <p className="text-gray-600">Hours: Mon-Fri, 8:00am - 5:00pm</p>
+                  <p className="text-gray-600">Hours: saturday-Friday 8:00am - 5:00pm</p>
                 </div>
               </div>
             </div>

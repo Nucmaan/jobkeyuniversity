@@ -33,19 +33,19 @@ export default function WhyJobkey() {
   const testimonials = [
     {
       id: 1,
-      name: "Ali Ga'al Aseyr",
+      name: "Nadira Mohamoud Mohamed",
       role: "Computer Science Graduate",
       quote: "Jobkey University provided me with the perfect blend of theoretical knowledge and practical skills. The industry connections I made during my studies helped me land my dream job at a leading tech company."
     },
     {
       id: 2,
-      name: "Michael Chen",
+      name: "Adam Hassan Barrow",
       role: "Business Administration Student",
       quote: "The diverse student community and experienced faculty have enriched my learning experience. The career services team helped me secure an internship that turned into a full-time position."
     },
     {
       id: 3,
-      name: "Emma Wilson",
+      name: "Ibrahim Abdirahman Adan",
       role: "Environmental Science Graduate",
       quote: "The research opportunities at Jobkey University are exceptional. I was able to work on groundbreaking projects that have real-world impact. The support from faculty was invaluable."
     }
@@ -61,8 +61,7 @@ export default function WhyJobkey() {
   return (
     <section className="py-20 bg-gradient-to-b from-[#f8fdff] to-white">
       <div className="container mx-auto px-4">
-        {/* Header Section */}
-        <div className="text-center mb-16">
+         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center mb-3">
             <div className="h-[2px] w-12 bg-[#0db2db]"></div>
             <div className="px-4 text-[#0db2db] font-semibold">DISCOVER</div>
@@ -76,8 +75,7 @@ export default function WhyJobkey() {
           </p>
         </div>
         
-        {/* Pillars of Excellence - Diagonal Layout */}
-        <div className="mb-24">
+         <div className="mb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {pillars.map((pillar, index) => (
               <div 

@@ -223,41 +223,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-    
-
-      {/* Testimonials */}
-      <div className="py-16 px-4 bg-white">
-        <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 bg-blue-50 text-[#0a7ea4] text-sm font-medium rounded-full mb-3">STUDENT VOICES</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
-              What Our <span className="text-[#33d1ff]">Students Say</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 relative overflow-hidden shadow-lg">
-                <div className="absolute top-6 left-6 text-[#33d1ff]/20">
-                  <FaQuoteLeft size={48} />
-                </div>
-                <div className="relative z-10">
-                  <p className="text-gray-700 text-lg mb-6 relative z-10">{testimonial.quote}</p>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full overflow-hidden mr-4 flex items-center justify-center text-lg">
-                      {testimonial.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-500">{testimonial.title}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+     
 
       <style jsx global>{`
         .bg-pattern {
