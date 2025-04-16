@@ -113,22 +113,6 @@ export default function Page() {
             ))}
           </div>
         </div>
-
-
-         <div className="text-center bg-gradient-to-r from-[#33d1ff] to-blue-600 rounded-xl p-8 text-white">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Interested in Research Opportunities?</h2>
-          <p className="max-w-2xl mx-auto mb-6">
-            Join our research community as a student, faculty member, or partner organization. Explore opportunities to collaborate on cutting-edge research initiatives.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="bg-white text-[#33d1ff] px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">
-              Student Research Programs
-            </button>
-            <button className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition">
-              Contact Research Office
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );
