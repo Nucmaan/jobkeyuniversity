@@ -89,7 +89,7 @@ export default function Page() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'system616500191@gmail.com',
+          to: 'register@jobkey.edu.so',
           subject: 'Student Application Form Submission',
           text: emailBody,
         }),
@@ -380,8 +380,7 @@ export default function Page() {
                       <option value="">Select Gender</option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
-                      <option value="Other">Other</option>
-                    </select>
+                     </select>
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />

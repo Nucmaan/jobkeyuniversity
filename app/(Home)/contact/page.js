@@ -157,9 +157,7 @@ export default function Page() {
                         </div>
                         <h3 className="text-xl font-bold text-gray-900 mb-4">Office Hours</h3>
                         <p className="text-gray-600">
-                            Monday - Thursday: 8:00 AM - 5:00 PM<br />
-                            Friday: 8:00 AM - 2:00 PM<br />
-                            Saturday - Sunday: Closed
+                           Saturday - Friday<br />
                         </p>
                     </motion.div>
                 </motion.div>

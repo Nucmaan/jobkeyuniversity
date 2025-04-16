@@ -53,12 +53,7 @@ export default function Page() {
             >
               Fees
             </button>
-            <button 
-              onClick={() => scrollToSection('staff')} 
-              className="bg-white text-[#33d1ff] border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-gray-50 transition-all"
-            >
-              Faculty Members
-            </button>
+           
             <button 
               onClick={() => scrollToSection('activities')} 
               className="bg-white text-[#33d1ff] border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-gray-50 transition-all"
@@ -105,7 +100,13 @@ export default function Page() {
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/4 flex justify-center">
               <div className="relative w-48 h-48 rounded-full overflow-hidden bg-gray-200">
-                 <div className="absolute inset-0 flex items-center justify-center text-gray-400">Dean Photo</div>
+                 <Image 
+                  src="/caafimaad.jpeg" 
+                  alt="Dean of Medicine"
+                  width={192}
+                  height={192}
+                  className="object-cover"
+                 />
               </div>
             </div>
             <div className="md:w-3/4">
@@ -124,7 +125,7 @@ export default function Page() {
                 facilities provide an ideal environment for learning and research. We maintain strong partnerships with industry leaders, 
                 offering our students valuable internship opportunities and ensuring our curriculum remains relevant to market demands.
               </p>
-              <p className="font-semibold mt-4">Prof. Emily Watson, MD, PhD</p>
+              <p className="font-semibold mt-4">Abdullahi Adani Mahdi </p>
               <p className="text-sm text-gray-600">Dean, Faculty of Medicine and Health Science</p>
             </div>
           </div>
@@ -266,64 +267,6 @@ export default function Page() {
           <p className="mt-4 text-sm text-gray-600"> Fees are subject to change. Scholarships and financial aid available for eligible students.</p>
         </section>
 
-         <section id="staff" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">Faculty Members</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Prof. Sarah Johnson, PhD</h3>
-                <p className="text-sm text-gray-600">Department Chair</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Artificial Intelligence and Machine Learning</p>
-            </div>
-            
-             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Dr. Ahmed Hassan, PhD</h3>
-                <p className="text-sm text-gray-600">Associate Professor</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Cybersecurity and Network Systems</p>
-            </div>
-            
-             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Dr. Fatima Ali, PhD</h3>
-                <p className="text-sm text-gray-600">Assistant Professor</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Software Engineering and Database Systems</p>
-            </div>
-            
-             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Dr. David Chen, PhD</h3>
-                <p className="text-sm text-gray-600">Assistant Professor</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Data Science and Big Data Analytics</p>
-            </div>
-            
-             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Dr. Aisha Mohamed, PhD</h3>
-                <p className="text-sm text-gray-600">Assistant Professor</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Human-Computer Interaction and UX Design</p>
-            </div>
-            
-             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Dr. John Smith, PhD</h3>
-                <p className="text-sm text-gray-600">Lecturer</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Web and Mobile Application Development</p>
-            </div>
-          </div>
-        </section>
 
          <section id="activities" className="mb-16 scroll-mt-32">
           <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">ACTIVITIES</h2>
