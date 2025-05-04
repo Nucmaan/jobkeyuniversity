@@ -12,7 +12,7 @@ export default function InternationalRelationsPage() {
 
   return (
     <div className="min-h-screen bg-white py-8 mt-20">
-      <div className="bg-gradient-to-r from-[#4f46e5] to-[#4338ca] py-16 px-4 sm:px-6 lg:px-8 text-white">
+      <div className="bg-[#33d1ff] py-16 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">Master of International Relations and Diplomacy</h1>
           <p className="text-xl">Shaping Global Leaders for a Complex World</p>
@@ -24,31 +24,31 @@ export default function InternationalRelationsPage() {
           <div className="flex whitespace-nowrap py-2 px-4">
             <button
               onClick={() => scrollToSection('overview')}
-              className="bg-[#4338ca] text-white border border-[#4338ca] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#4f46e5] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Overview
             </button>
             <button
               onClick={() => scrollToSection('curriculum')}
-              className="bg-[#4338ca] text-white border border-[#4338ca] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#4f46e5] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Curriculum
             </button>
             <button
               onClick={() => scrollToSection('global')}
-              className="bg-[#4338ca] text-white border border-[#4338ca] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#4f46e5] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Global Experience
             </button>
             <button
               onClick={() => scrollToSection('careers')}
-              className="bg-[#4338ca] text-white border border-[#4338ca] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#4f46e5] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Careers
             </button>
             <button
               onClick={() => scrollToSection('admissions')}
-              className="bg-[#4338ca] text-white border border-[#4338ca] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#4f46e5] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Admissions
             </button>
@@ -58,7 +58,7 @@ export default function InternationalRelationsPage() {
 
       <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <section id="overview" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#4338ca]">PROGRAM OVERVIEW</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">PROGRAM OVERVIEW</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <p className="mb-4">
@@ -77,7 +77,7 @@ export default function InternationalRelationsPage() {
               </p>
             </div>
             <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-[#4338ca]">Program Highlights</h3>
+              <h3 className="text-xl font-semibold mb-4 text-[#33d1ff]">Program Highlights</h3>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Distinguished faculty of scholars and practitioners</li>
                 <li>United Nations study tour</li>
@@ -92,10 +92,10 @@ export default function InternationalRelationsPage() {
         </section>
 
         <section id="curriculum" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#4338ca]">CURRICULUM</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">CURRICULUM</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-[#4338ca]">Core Courses</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#33d1ff]">Core Courses</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#4338ca] mr-2">•</span>
@@ -124,7 +124,7 @@ export default function InternationalRelationsPage() {
               </ul>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-[#4338ca]">Specialization Tracks</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#33d1ff]">Specialization Tracks</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#4338ca] mr-2">•</span>
@@ -159,7 +159,7 @@ export default function InternationalRelationsPage() {
           </div>
 
           <div className="mt-8 bg-indigo-50 border border-indigo-100 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-4 text-[#4338ca]">Capstone Options</h3>
+            <h3 className="text-xl font-semibold mb-4 text-[#33d1ff]">Capstone Options</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-medium mb-2">Master Thesis</h4>
@@ -180,24 +180,24 @@ export default function InternationalRelationsPage() {
         </section>
 
         <section id="global" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#4338ca]">GLOBAL EXPERIENCE</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">GLOBAL EXPERIENCE</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold mb-4 text-[#4338ca]">Study Abroad</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Study Abroad</h3>
               <p className="text-sm text-gray-700">
                 Expand your perspective through semester exchanges with our partner universities in Geneva, 
                 Brussels, Tokyo, Singapore, and other global centers of diplomacy and international relations.
               </p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold mb-4 text-[#4338ca]">Diplomatic Simulations</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Diplomatic Simulations</h3>
               <p className="text-sm text-gray-700">
                 Participate in Model UN, crisis simulations, and diplomatic negotiation exercises that replicate real-world 
                 challenges and develop practical skills in diplomacy, public speaking, and consensus-building.
               </p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold mb-4 text-[#4338ca]">Field Studies</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Field Studies</h3>
               <p className="text-sm text-gray-700">
                 Join faculty-led trips to international organizations, embassies, and global conferences, including 
                 annual study tours to the United Nations, European Union, and other key institutions.
@@ -207,7 +207,7 @@ export default function InternationalRelationsPage() {
           
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold mb-4 text-[#4338ca]">Language Requirements</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Language Requirements</h3>
               <p className="mb-4 text-sm text-gray-700">
                 Proficiency in a second language is essential for international careers. Our program requires:
               </p>
@@ -219,7 +219,7 @@ export default function InternationalRelationsPage() {
               </ul>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold mb-4 text-[#4338ca]">Professional Development</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Professional Development</h3>
               <p className="mb-4 text-sm text-gray-700">
                 Beyond academics, we provide extensive professional preparation:
               </p>
@@ -235,11 +235,11 @@ export default function InternationalRelationsPage() {
         </section>
 
         <section id="careers" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#4338ca]">CAREER PATHWAYS</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">CAREER PATHWAYS</h2>
           <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <h3 className="text-lg font-semibold mb-3 text-[#4338ca]">Diplomatic Service</h3>
+                <h3 className="text-lg font-semibold mb-3 text-[#33d1ff]">Diplomatic Service</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
                     <span className="text-[#4338ca] mr-2">•</span>
@@ -260,7 +260,7 @@ export default function InternationalRelationsPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-3 text-[#4338ca]">International Organizations</h3>
+                <h3 className="text-lg font-semibold mb-3 text-[#33d1ff]">International Organizations</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
                     <span className="text-[#4338ca] mr-2">•</span>
@@ -281,7 +281,7 @@ export default function InternationalRelationsPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-3 text-[#4338ca]">Private Sector</h3>
+                <h3 className="text-lg font-semibold mb-3 text-[#33d1ff]">Private Sector</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
                     <span className="text-[#4338ca] mr-2">•</span>
@@ -302,38 +302,12 @@ export default function InternationalRelationsPage() {
                 </ul>
               </div>
             </div>
-            
-            <div className="mt-8 flex flex-col md:flex-row gap-4 border-t border-gray-200 pt-6">
-              <div className="md:w-2/3">
-                <h3 className="text-lg font-semibold mb-3 text-[#4338ca]">Alumni Spotlight</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-indigo-50 p-4 rounded-lg">
-                    <p className="italic text-sm text-gray-700 mb-2">
-                      The program diplomatic simulations and negotiation training gave me the skills I needed to 
-                      succeed in my role at the United Nations. The hands-on experience was invaluable.
-                    </p>
-                    <p className="text-xs font-medium">Maria L., Program Officer, United Nations</p>
-                  </div>
-                  <div className="bg-indigo-50 p-4 rounded-lg">
-                    <p className="italic text-sm text-gray-700 mb-2">
-                      The global network I built during the program continues to be a resource in my diplomatic career. 
-                      The faculty real-world experience offered insights that can not be found in textbooks.
-                    </p>
-                    <p className="text-xs font-medium">James K., Foreign Service Officer</p>
-                  </div>
-                </div>
-              </div>
-              <div className="md:w-1/3 bg-indigo-100 p-4 rounded-lg flex flex-col justify-center items-center text-center">
-                <p className="text-4xl font-bold text-[#4338ca] mb-2">92%</p>
-                <p className="text-sm">Employment Rate within Six Months of Graduation</p>
-                <p className="text-xs text-gray-600 mt-2">Based on graduates from 2020-2023</p>
-              </div>
-            </div>
+             
           </div>
         </section>
 
         <section id="admissions" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#4338ca]">ADMISSIONS</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">ADMISSIONS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-4">Requirements</h3>
@@ -382,10 +356,10 @@ export default function InternationalRelationsPage() {
           </div>
         </section>
 
-        <div className="bg-gradient-to-r from-[#4f46e5] to-[#4338ca] p-8 rounded-lg text-white text-center">
+        <div className="bg-[#33d1ff] p-8 rounded-lg text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Become a Leader in Global Affairs</h3>
           <p className="mb-6">Join our Master of International Relations and Diplomacy program to develop the expertise needed in today complex world.</p>
-          <Link href="/admissions/apply" className="inline-block bg-white text-[#4338ca] font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors">
+          <Link href="/admissions/apply" className="inline-block bg-white text-[#33d1ff] font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors">
             Apply Now
           </Link>
         </div>

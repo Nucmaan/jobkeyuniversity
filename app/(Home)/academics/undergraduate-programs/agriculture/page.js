@@ -52,12 +52,7 @@ export default function AgricultureVeterinaryPage() {
             >
               Fees
             </button>
-            <button
-              onClick={() => scrollToSection('staff')}
-              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#87cde2] transition-all"
-            >
-              Faculty Members
-            </button>
+          
             <button
               onClick={() => scrollToSection('activities')}
               className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#87cde2] transition-all"
@@ -196,21 +191,14 @@ export default function AgricultureVeterinaryPage() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-4">Minimum Requirements</h3>
             <ul className="list-disc pl-5 space-y-3 mb-6">
-              <li>High school diploma or equivalent</li>
-              <li>Minimum GPA of 3.0 on a 4.0 scale</li>
-              <li>Strong background in biology and chemistry</li>
-              <li>Basic computer literacy</li>
-              <li>English proficiency (TOEFL score of 80+ or IELTS score of 6.5+)</li>
+              <li>Should bring secondary school one copy and original </li>
+              <li>Should pass the test And Interview </li>
+              <li>Should Bring 4 passport size photo</li>
+              <li>Should Pay Registration Fee $35 dollar (not refundable ) </li>
+              <li>should bring discipline and conduct later </li>
+              <li>Any canididate who wants to learn medicine must have a minimum pass mark 80% in his/her secondary school leaving certificate  </li>
+              <li>Any canididate who wants to learn Engineering must have a minimum pass mark 75% in his/her secondary school leaving certificate  </li>
             </ul>
-
-            <h3 className="text-xl font-semibold mb-4">Application Process</h3>
-            <ol className="list-decimal pl-5 space-y-3">
-              <li>Complete the online application form</li>
-              <li>Submit all required documents (transcripts, ID, etc.)</li>
-              <li>Pay the application fee</li>
-              <li>Attend an entrance examination (biology, chemistry, and logical reasoning)</li>
-              <li>Participate in an interview (for shortlisted candidates)</li>
-            </ol>
           </div>
         </section>
 
@@ -227,93 +215,31 @@ export default function AgricultureVeterinaryPage() {
               </thead>
               <tbody>
                 <tr className="border-b border-gray-200">
-                  <td className="py-3 px-4 font-medium">Application Fee</td>
-                  <td className="py-3 px-4">$50</td>
+                  <td className="py-3 px-4 font-medium">Registration Fee</td>
+                  <td className="py-3 px-4">$35</td>
                   <td className="py-3 px-4">One-time payment</td>
                 </tr>
                 <tr className="border-b border-gray-200 bg-gray-50">
                   <td className="py-3 px-4 font-medium">Tuition Fee</td>
-                  <td className="py-3 px-4">$3,000</td>
+                  <td className="py-3 px-4">$320</td>
                   <td className="py-3 px-4">Per semester</td>
                 </tr>
-                <tr className="border-b border-gray-200">
-                  <td className="py-3 px-4 font-medium">Registration Fee</td>
-                  <td className="py-3 px-4">$100</td>
-                  <td className="py-3 px-4">Per semester</td>
-                </tr>
+                
                 <tr className="border-b border-gray-200 bg-gray-50">
                   <td className="py-3 px-4 font-medium">Laboratory Fee</td>
-                  <td className="py-3 px-4">$200</td>
+                  <td className="py-3 px-4">$35</td>
                   <td className="py-3 px-4">Per semester</td>
                 </tr>
-                <tr className="border-b border-gray-200">
-                  <td className="py-3 px-4 font-medium">Field Study Fee</td>
-                  <td className="py-3 px-4">$150</td>
-                  <td className="py-3 px-4">Per semester</td>
-                </tr>
+               
                 <tr className="bg-gray-50">
                   <td className="py-3 px-4 font-medium">Graduation Fee</td>
-                  <td className="py-3 px-4">$300</td>
+                  <td className="py-3 px-4">$360</td>
                   <td className="py-3 px-4">One-time payment</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="mt-4 text-sm text-gray-600">Fees are subject to change. Scholarships and financial aid available for eligible students.</p>
-        </section>
-
-        <section id="staff" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">Faculty Members</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Prof. Omar Hassan, PhD</h3>
-                <p className="text-sm text-gray-600">Department Chair</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Crop Science and Biotechnology</p>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Dr. Amina Yusuf, PhD</h3>
-                <p className="text-sm text-gray-600">Associate Professor</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Animal Health and Production</p>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Dr. Ahmed Ali, PhD</h3>
-                <p className="text-sm text-gray-600">Assistant Professor</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Veterinary Medicine and Surgery</p>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Dr. Fatima Mohamed, PhD</h3>
-                <p className="text-sm text-gray-600">Lecturer</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Sustainable Agriculture</p>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Dr. Khalid Ibrahim, PhD</h3>
-                <p className="text-sm text-gray-600">Lecturer</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Agribusiness Management</p>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center mb-4">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4"></div>
-                <h3 className="text-lg font-semibold">Dr. Safia Nur, PhD</h3>
-                <p className="text-sm text-gray-600">Lecturer</p>
-              </div>
-              <p className="text-sm text-center">Specialization in Food Science and Technology</p>
-            </div>
-          </div>
         </section>
 
         <section id="activities" className="mb-16 scroll-mt-32">

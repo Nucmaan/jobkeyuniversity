@@ -12,7 +12,7 @@ export default function HealthServicesPage() {
 
   return (
     <div className="min-h-screen bg-white py-8 mt-20">
-      <div className="bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] py-16 px-4 sm:px-6 lg:px-8 text-white">
+      <div className="bg-[#33d1ff] py-16 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">Master of Health Services Management</h1>
           <p className="text-xl">Leading Healthcare Systems for a Better Tomorrow</p>
@@ -24,31 +24,31 @@ export default function HealthServicesPage() {
           <div className="flex whitespace-nowrap py-2 px-4">
             <button
               onClick={() => scrollToSection('overview')}
-              className="bg-[#0284c7] text-white border border-[#0284c7] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#0ea5e9] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Overview
             </button>
             <button
               onClick={() => scrollToSection('curriculum')}
-              className="bg-[#0284c7] text-white border border-[#0284c7] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#0ea5e9] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Curriculum
             </button>
             <button
               onClick={() => scrollToSection('industry')}
-              className="bg-[#0284c7] text-white border border-[#0284c7] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#0ea5e9] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Industry Connections
             </button>
             <button
               onClick={() => scrollToSection('careers')}
-              className="bg-[#0284c7] text-white border border-[#0284c7] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#0ea5e9] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Careers
             </button>
             <button
               onClick={() => scrollToSection('admissions')}
-              className="bg-[#0284c7] text-white border border-[#0284c7] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#0ea5e9] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Admissions
             </button>
@@ -58,7 +58,7 @@ export default function HealthServicesPage() {
 
       <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <section id="overview" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#0284c7]">PROGRAM OVERVIEW</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">PROGRAM OVERVIEW</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <p className="mb-4">
@@ -77,7 +77,7 @@ export default function HealthServicesPage() {
               </p>
             </div>
             <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-[#0284c7]">Program Highlights</h3>
+              <h3 className="text-xl font-semibold mb-4 text-[#33d1ff]">Program Highlights</h3>
               <ul className="list-disc pl-5 space-y-2">
                 <li>CAHME-accredited curriculum</li>
                 <li>Healthcare executive mentorship program</li>
@@ -92,7 +92,7 @@ export default function HealthServicesPage() {
         </section>
 
         <section id="curriculum" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#0284c7]">CURRICULUM</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">CURRICULUM</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold mb-3 text-[#0284c7]">Core Courses</h3>
@@ -124,7 +124,7 @@ export default function HealthServicesPage() {
               </ul>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-[#0284c7]">Specialization Tracks</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#33d1ff]">Specialization Tracks</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#0284c7] mr-2">•</span>
@@ -159,7 +159,7 @@ export default function HealthServicesPage() {
           </div>
 
           <div className="mt-8 bg-blue-50 border border-blue-100 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-4 text-[#0284c7]">Capstone Project</h3>
+            <h3 className="text-xl font-semibold mb-4 text-[#33d1ff]">Capstone Project</h3>
             <p className="mb-4">
               The program culminates in a capstone project where students work with healthcare organizations to address 
               real-world challenges. This applied learning experience allows students to:
@@ -175,7 +175,7 @@ export default function HealthServicesPage() {
         </section>
 
         <section id="industry" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#0284c7]">INDUSTRY CONNECTIONS</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">INDUSTRY CONNECTIONS</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-lg font-semibold mb-4 text-[#0284c7]">Healthcare Partners</h3>
@@ -202,7 +202,7 @@ export default function HealthServicesPage() {
         </section>
 
         <section id="careers" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#0284c7]">CAREER OPPORTUNITIES</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">CAREER OPPORTUNITIES</h2>
           <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
@@ -281,28 +281,12 @@ export default function HealthServicesPage() {
                 </ul>
               </div>
             </div>
-            <div className="mt-6 border-t border-gray-200 pt-6">
-              <h3 className="text-lg font-semibold mb-3 text-[#0284c7]">Career Outcomes</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <p className="text-3xl font-bold text-[#0284c7] mb-2">94%</p>
-                  <p className="text-sm">Employment Rate Within 6 Months</p>
-                </div>
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <p className="text-3xl font-bold text-[#0284c7] mb-2">$85,000</p>
-                  <p className="text-sm">Average Starting Salary</p>
-                </div>
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <p className="text-3xl font-bold text-[#0284c7] mb-2">18%</p>
-                  <p className="text-sm">Projected Industry Growth Rate</p>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </section>
 
         <section id="admissions" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#0284c7]">ADMISSIONS</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">ADMISSIONS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-4">Requirements</h3>
@@ -351,10 +335,10 @@ export default function HealthServicesPage() {
           </div>
         </section>
 
-        <div className="bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] p-8 rounded-lg text-white text-center">
+        <div className="bg-[#33d1ff] p-8 rounded-lg text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Lead the Future of Healthcare</h3>
           <p className="mb-6">Join our Master of Health Services Management program to develop the skills needed to transform healthcare delivery.</p>
-          <Link href="/admissions/apply" className="inline-block bg-white text-[#0284c7] font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors">
+          <Link href="/admissions/apply" className="inline-block bg-white text-[#33d1ff] font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors">
             Apply Now
           </Link>
         </div>

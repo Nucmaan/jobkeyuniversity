@@ -12,7 +12,7 @@ export default function NutritionPage() {
 
   return (
     <div className="min-h-screen bg-white py-8 mt-20">
-      <div className="bg-gradient-to-r from-[#10b981] to-[#059669] py-16 px-4 sm:px-6 lg:px-8 text-white">
+      <div className="bg-[#33d1ff] py-16 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">Master of Nutrition and Dietetics</h1>
           <p className="text-xl">Transforming Health Through Nutrition Science</p>
@@ -24,31 +24,31 @@ export default function NutritionPage() {
           <div className="flex whitespace-nowrap py-2 px-4">
             <button
               onClick={() => scrollToSection('overview')}
-              className="bg-[#059669] text-white border border-[#059669] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#10b981] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Overview
             </button>
             <button
               onClick={() => scrollToSection('curriculum')}
-              className="bg-[#059669] text-white border border-[#059669] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#10b981] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Curriculum
             </button>
             <button
               onClick={() => scrollToSection('facilities')}
-              className="bg-[#059669] text-white border border-[#059669] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#10b981] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Facilities
             </button>
             <button
               onClick={() => scrollToSection('careers')}
-              className="bg-[#059669] text-white border border-[#059669] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#10b981] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Careers
             </button>
             <button
               onClick={() => scrollToSection('admissions')}
-              className="bg-[#059669] text-white border border-[#059669] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#10b981] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Admissions
             </button>
@@ -58,7 +58,7 @@ export default function NutritionPage() {
 
       <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <section id="overview" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#059669]">PROGRAM OVERVIEW</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">PROGRAM OVERVIEW</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <p className="mb-4">
@@ -78,7 +78,7 @@ export default function NutritionPage() {
               </p>
             </div>
             <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-[#059669]">Program Highlights</h3>
+              <h3 className="text-xl font-semibold mb-4 text-[#33d1ff]">Program Highlights</h3>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Accredited by the Accreditation Council for Education in Nutrition and Dietetics</li>
                 <li>1200+ supervised practice hours in diverse settings</li>
@@ -92,10 +92,10 @@ export default function NutritionPage() {
         </section>
 
         <section id="curriculum" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#059669]">CURRICULUM</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">CURRICULUM</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-[#059669]">Core Courses</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#33d1ff]">Core Courses</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#059669] mr-2">•</span>
@@ -124,7 +124,7 @@ export default function NutritionPage() {
               </ul>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-[#059669]">Practicum Rotations</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#33d1ff]">Practicum Rotations</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#059669] mr-2">•</span>
@@ -156,24 +156,24 @@ export default function NutritionPage() {
         </section>
 
         <section id="facilities" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#059669]">FACILITIES</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">FACILITIES</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold mb-4 text-[#059669]">Nutrition Assessment Lab</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Nutrition Assessment Lab</h3>
               <p className="text-sm text-gray-700">
                 Our state-of-the-art lab features advanced body composition analysis equipment, metabolic testing devices, 
                 and dietary analysis software for comprehensive nutritional assessment training.
               </p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold mb-4 text-[#059669]">Food Science Kitchen</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Food Science Kitchen</h3>
               <p className="text-sm text-gray-700">
                 A professional teaching kitchen equipped for food modification, therapeutic meal preparation, and 
                 food science experiments to develop practical culinary skills for medical nutrition therapy.
               </p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold mb-4 text-[#059669]">Simulation Center</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Simulation Center</h3>
               <p className="text-sm text-gray-700">
                 Clinical simulation facilities allow students to practice patient counseling, medical team interactions, 
                 and nutrition intervention planning in realistic healthcare scenarios before entering clinical rotations.
@@ -183,10 +183,10 @@ export default function NutritionPage() {
         </section>
 
         <section id="careers" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#059669]">CAREER OPPORTUNITIES</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">CAREER OPPORTUNITIES</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-[#059669]">Clinical Nutrition</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#33d1ff]">Clinical Nutrition</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#059669] mr-2">•</span>
@@ -212,7 +212,7 @@ export default function NutritionPage() {
               </ul>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-[#059669]">Non-Clinical Careers</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#33d1ff]">Non-Clinical Careers</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#059669] mr-2">•</span>
@@ -248,7 +248,7 @@ export default function NutritionPage() {
         </section>
 
         <section id="admissions" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#059669]">ADMISSIONS</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">ADMISSIONS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-4">Requirements</h3>
@@ -276,7 +276,7 @@ export default function NutritionPage() {
                   </tr>
                   <tr>
                     <td className="py-2 font-medium">Tuition (Total)</td>
-                    <td className="py-2">$36,000</td>
+                    <td className="py-2">$6,000</td>
                   </tr>
                   <tr>
                     <td className="py-2 font-medium">Application Fee</td>
@@ -297,10 +297,10 @@ export default function NutritionPage() {
           </div>
         </section>
 
-        <div className="bg-gradient-to-r from-[#10b981] to-[#059669] p-8 rounded-lg text-white text-center">
+        <div className="bg-[#33d1ff] p-8 rounded-lg text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Become a Leader in Nutrition and Health</h3>
           <p className="mb-6">Join our Master of Nutrition and Dietetics program to transform lives through the power of nutrition.</p>
-          <Link href="/admissions/apply" className="inline-block bg-white text-[#059669] font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors">
+          <Link href="/admissions/apply" className="inline-block bg-white text-[#33d1ff] font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors">
             Apply Now
           </Link>
         </div>

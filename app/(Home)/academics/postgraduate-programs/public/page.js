@@ -12,7 +12,7 @@ export default function PublicAdministrationPage() {
 
   return (
     <div className="min-h-screen bg-white py-8 mt-20">
-      <div className="bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] py-16 px-4 sm:px-6 lg:px-8 text-white">
+      <div className="bg-[#33d1ff] py-16 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">Master of Public Administration</h1>
           <p className="text-xl">Developing Ethical Leaders for Public Service Excellence</p>
@@ -24,31 +24,31 @@ export default function PublicAdministrationPage() {
           <div className="flex whitespace-nowrap py-2 px-4">
             <button
               onClick={() => scrollToSection('overview')}
-              className="bg-[#1e3a8a] text-white border border-[#1e3a8a] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#1e40af] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Overview
             </button>
             <button
               onClick={() => scrollToSection('curriculum')}
-              className="bg-[#1e3a8a] text-white border border-[#1e3a8a] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#1e40af] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Curriculum
             </button>
             <button
               onClick={() => scrollToSection('sectors')}
-              className="bg-[#1e3a8a] text-white border border-[#1e3a8a] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#1e40af] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Career Sectors
             </button>
             <button
               onClick={() => scrollToSection('leadership')}
-              className="bg-[#1e3a8a] text-white border border-[#1e3a8a] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#1e40af] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Leadership Development
             </button>
             <button
               onClick={() => scrollToSection('admissions')}
-              className="bg-[#1e3a8a] text-white border border-[#1e3a8a] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#1e40af] transition-all"
+              className="bg-[#33d1ff] text-white border border-[#33d1ff] font-medium py-2 px-6 rounded-md mr-2 hover:bg-[#33d1ff] transition-all"
             >
               Admissions
             </button>
@@ -58,7 +58,7 @@ export default function PublicAdministrationPage() {
 
       <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <section id="overview" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#1e3a8a]">PROGRAM OVERVIEW</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">PROGRAM OVERVIEW</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
               <p className="mb-4">
@@ -78,7 +78,7 @@ export default function PublicAdministrationPage() {
               </p>
             </div>
             <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-[#1e3a8a]">Program Highlights</h3>
+              <h3 className="text-xl font-semibold mb-4 text-[#33d1ff]">Program Highlights</h3>
               <ul className="list-disc pl-5 space-y-2">
                 <li>NASPAA-accredited curriculum</li>
                 <li>Distinguished faculty with public service experience</li>
@@ -93,10 +93,10 @@ export default function PublicAdministrationPage() {
         </section>
 
         <section id="curriculum" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#1e3a8a]">CURRICULUM</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">CURRICULUM</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-[#1e3a8a]">Core Courses</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#33d1ff]">Core Courses</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#1e3a8a] mr-2">•</span>
@@ -129,7 +129,7 @@ export default function PublicAdministrationPage() {
               </ul>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-3 text-[#1e3a8a]">Specialization Areas</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#33d1ff]">Specialization Areas</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-[#1e3a8a] mr-2">•</span>
@@ -171,28 +171,28 @@ export default function PublicAdministrationPage() {
           </div>
 
           <div className="mt-8 bg-blue-50 border border-blue-100 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-4 text-[#1e3a8a]">Capstone Experience</h3>
+            <h3 className="text-xl font-semibold mb-4 text-[#33d1ff]">Capstone Experience</h3>
             <p className="mb-4">
               All MPA students complete a capstone project that integrates knowledge from across the curriculum to address 
               a real-world public administration challenge. Options include:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-medium mb-2 text-[#1e3a8a]">Applied Research Project</h4>
+                <h4 className="font-medium mb-2 text-[#33d1ff]">Applied Research Project</h4>
                 <p className="text-sm text-gray-700">
                   Collaborate with a government agency or nonprofit to analyze a specific administrative challenge 
                   and develop evidence-based recommendations.
                 </p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-medium mb-2 text-[#1e3a8a]">Policy Analysis</h4>
+                <h4 className="font-medium mb-2 text-[#33d1ff]">Policy Analysis</h4>
                 <p className="text-sm text-gray-700">
                   Conduct a comprehensive analysis of a public policy issue, including stakeholder analysis, 
                   implementation considerations, and evaluation metrics.
                 </p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-medium mb-2 text-[#1e3a8a]">Management Analysis</h4>
+                <h4 className="font-medium mb-2 text-[#33d1ff]">Management Analysis</h4>
                 <p className="text-sm text-gray-700">
                   Evaluate an organization management practices and develop strategies to enhance efficiency, 
                   effectiveness, and organizational performance.
@@ -203,7 +203,7 @@ export default function PublicAdministrationPage() {
         </section>
 
         <section id="sectors" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#1e3a8a]">CAREER SECTORS</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">CAREER SECTORS</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-center mb-4">
@@ -212,7 +212,7 @@ export default function PublicAdministrationPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-[#1e3a8a]">Government</h3>
+                <h3 className="text-lg font-semibold text-[#33d1ff]">Government</h3>
               </div>
               <ul className="space-y-2 ml-2">
                 <li className="text-sm">Federal Agencies</li>
@@ -232,7 +232,7 @@ export default function PublicAdministrationPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-[#1e3a8a]">Nonprofit</h3>
+                <h3 className="text-lg font-semibold text-[#33d1ff]">Nonprofit</h3>
               </div>
               <ul className="space-y-2 ml-2">
                 <li className="text-sm">Social Service Organizations</li>
@@ -252,7 +252,7 @@ export default function PublicAdministrationPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-[#1e3a8a]">Private Sector</h3>
+                <h3 className="text-lg font-semibold text-[#33d1ff]">Private Sector</h3>
               </div>
               <ul className="space-y-2 ml-2">
                 <li className="text-sm">Government Relations</li>
@@ -267,39 +267,11 @@ export default function PublicAdministrationPage() {
             </div>
           </div>
           
-          <div className="mt-8 bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold mb-4 text-[#1e3a8a]">Employment Outcomes</h3>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="inline-block w-24 h-24 rounded-full flex items-center justify-center mb-2 bg-blue-100">
-                  <span className="text-3xl font-bold text-[#1e3a8a]">93%</span>
-                </div>
-                <p className="text-sm">Employment Rate within 6 Months</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-block w-24 h-24 rounded-full flex items-center justify-center mb-2 bg-blue-100">
-                  <span className="text-3xl font-bold text-[#1e3a8a]">42%</span>
-                </div>
-                <p className="text-sm">Government Sector Placement</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-block w-24 h-24 rounded-full flex items-center justify-center mb-2 bg-blue-100">
-                  <span className="text-3xl font-bold text-[#1e3a8a]">38%</span>
-                </div>
-                <p className="text-sm">Nonprofit Sector Placement</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-block w-24 h-24 rounded-full flex items-center justify-center mb-2 bg-blue-100">
-                  <span className="text-3xl font-bold text-[#1e3a8a]">20%</span>
-                </div>
-                <p className="text-sm">Private Sector Placement</p>
-              </div>
-            </div>
-          </div>
+         
         </section>
 
         <section id="leadership" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#1e3a8a]">LEADERSHIP DEVELOPMENT</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">LEADERSHIP DEVELOPMENT</h2>
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
             <p className="mb-6">
               Beyond classroom learning, our MPA program provides comprehensive leadership development opportunities 
@@ -307,7 +279,7 @@ export default function PublicAdministrationPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-[#1e3a8a]">Professional Immersion</h3>
+                <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Professional Immersion</h3>
                 <ul className="list-disc pl-5 space-y-3">
                   <li className="text-sm">
                     <span className="font-medium">Public Service Internships:</span> Gain hands-on experience in government 
@@ -328,7 +300,7 @@ export default function PublicAdministrationPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-[#1e3a8a]">Skill Development</h3>
+                <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Skill Development</h3>
                 <ul className="list-disc pl-5 space-y-3">
                   <li className="text-sm">
                     <span className="font-medium">Leadership Workshop Series:</span> Develop essential leadership 
@@ -351,7 +323,7 @@ export default function PublicAdministrationPage() {
             </div>
             
             <div className="mt-8 pt-6 border-t border-gray-200">
-              <h3 className="text-lg font-semibold mb-4 text-[#1e3a8a]">Distinguished Speaker Series</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[#33d1ff]">Distinguished Speaker Series</h3>
               <p className="text-sm mb-4">
                 Throughout the academic year, our program hosts distinguished public administrators, elected officials, and 
                 policy experts who share their experiences and insights with students. Recent speakers include:
@@ -375,7 +347,7 @@ export default function PublicAdministrationPage() {
         </section>
 
         <section id="admissions" className="mb-16 scroll-mt-32">
-          <h2 className="text-3xl font-bold mb-6 text-[#1e3a8a]">ADMISSIONS</h2>
+          <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">ADMISSIONS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-4">Requirements</h3>
@@ -403,7 +375,7 @@ export default function PublicAdministrationPage() {
                   </tr>
                   <tr>
                     <td className="py-2 font-medium">Tuition (Full Program)</td>
-                    <td className="py-2">$34,000</td>
+                    <td className="py-2">$4,000</td>
                   </tr>
                   <tr>
                     <td className="py-2 font-medium">Application Fee</td>
@@ -424,10 +396,10 @@ export default function PublicAdministrationPage() {
           </div>
         </section>
 
-        <div className="bg-gradient-to-r from-[#1e40af] to-[#1e3a8a] p-8 rounded-lg text-white text-center">
+        <div className="bg-[#33d1ff] p-8 rounded-lg text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Advance Your Public Service Career</h3>
           <p className="mb-6">Join our Master of Public Administration program to develop the skills needed to lead and make a difference in the public sector.</p>
-          <Link href="/admissions/apply" className="inline-block bg-white text-[#1e3a8a] font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors">
+          <Link href="/admissions/apply" className="inline-block bg-white text-[#33d1ff] font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors">
             Apply Now
           </Link>
         </div>

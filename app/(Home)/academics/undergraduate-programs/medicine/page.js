@@ -196,30 +196,23 @@ export default function Page() {
           </div>
         </section>
 
-         <section id="entry-requirements" className="mb-16 scroll-mt-32">
+        <section id="entry-requirements" className="mb-16 scroll-mt-32">
           <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">ENTRY REQUIREMENTS</h2>
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-4">Minimum Requirements</h3>
             <ul className="list-disc pl-5 space-y-3 mb-6">
-              <li>High school diploma or equivalent</li>
-              <li>Minimum GPA of 3.0 on a 4.0 scale</li>
-              <li>Strong background in mathematics (especially algebra and calculus)</li>
-              <li>Basic computer literacy</li>
-              <li>English proficiency (TOEFL score of 80+ or IELTS score of 6.5+)</li>
+              <li>Should bring secondary school one copy and original </li>
+              <li>Should pass the test And Interview </li>
+              <li>Should Bring 4 passport size photo</li>
+              <li>Should Pay Registration Fee $35 dollar (not refundable ) </li>
+              <li>should bring discipline and conduct later </li>
+              <li>Any canididate who wants to learn medicine must have a minimum pass mark 80% in his/her secondary school leaving certificate  </li>
+              <li>Any canididate who wants to learn Engineering must have a minimum pass mark 75% in his/her secondary school leaving certificate  </li>
             </ul>
-            
-            <h3 className="text-xl font-semibold mb-4">Application Process</h3>
-            <ol className="list-decimal pl-5 space-y-3">
-              <li>Complete the online application form</li>
-              <li>Submit all required documents (transcripts, ID, etc.)</li>
-              <li>Pay the application fee</li>
-              <li>Attend an entrance examination (mathematics and logical reasoning)</li>
-              <li>Participate in an interview (for shortlisted candidates)</li>
-            </ol>
           </div>
         </section>
 
-         <section id="fees" className="mb-16 scroll-mt-32">
+        <section id="fees" className="mb-16 scroll-mt-32">
           <h2 className="text-3xl font-bold mb-6 text-[#33d1ff]">FEES</h2>
           <div className="overflow-x-auto">
             <table className="min-w-full bg-white border border-gray-200">
@@ -232,39 +225,31 @@ export default function Page() {
               </thead>
               <tbody>
                 <tr className="border-b border-gray-200">
-                  <td className="py-3 px-4 font-medium">Application Fee</td>
-                  <td className="py-3 px-4">$50</td>
+                  <td className="py-3 px-4 font-medium">Registration Fee</td>
+                  <td className="py-3 px-4">$35</td>
                   <td className="py-3 px-4">One-time payment</td>
                 </tr>
                 <tr className="border-b border-gray-200 bg-gray-50">
                   <td className="py-3 px-4 font-medium">Tuition Fee</td>
-                  <td className="py-3 px-4">$3,500</td>
+                  <td className="py-3 px-4">$900</td>
                   <td className="py-3 px-4">Per semester</td>
                 </tr>
-                <tr className="border-b border-gray-200">
-                  <td className="py-3 px-4 font-medium">Registration Fee</td>
-                  <td className="py-3 px-4">$100</td>
-                  <td className="py-3 px-4">Per semester</td>
-                </tr>
+                
                 <tr className="border-b border-gray-200 bg-gray-50">
                   <td className="py-3 px-4 font-medium">Laboratory Fee</td>
-                  <td className="py-3 px-4">$250</td>
+                  <td className="py-3 px-4">$35</td>
                   <td className="py-3 px-4">Per semester</td>
                 </tr>
-                <tr className="border-b border-gray-200">
-                  <td className="py-3 px-4 font-medium">Library Fee</td>
-                  <td className="py-3 px-4">$150</td>
-                  <td className="py-3 px-4">Per semester</td>
-                </tr>
+               
                 <tr className="bg-gray-50">
                   <td className="py-3 px-4 font-medium">Graduation Fee</td>
-                  <td className="py-3 px-4">$300</td>
+                  <td className="py-3 px-4">$360</td>
                   <td className="py-3 px-4">One-time payment</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-sm text-gray-600"> Fees are subject to change. Scholarships and financial aid available for eligible students.</p>
+          <p className="mt-4 text-sm text-gray-600">Fees are subject to change. Scholarships and financial aid available for eligible students.</p>
         </section>
 
 
